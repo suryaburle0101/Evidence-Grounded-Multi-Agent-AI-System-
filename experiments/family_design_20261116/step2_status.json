@@ -1,0 +1,27 @@
+{
+  "seed_count": 3,
+  "bootstrap": [
+    {
+      "variant": "primary_5",
+      "paired_captures": 16,
+      "mean_recall_difference": 0.006081226819961177,
+      "bootstrap_95ci_low": -0.050115653691919795,
+      "bootstrap_95ci_high": 0.07041116039116524,
+      "bootstrap_two_sided_sign_probability": 0.878,
+      "gain_established": false,
+      "interpretation": "Paired capture-cluster bootstrap, averaging three paired seeds per capture; exploratory reduced-sample estimate."
+    },
+    {
+      "variant": "coarse_3",
+      "paired_captures": 16,
+      "mean_recall_difference": -0.012573294177219835,
+      "bootstrap_95ci_low": -0.08733586405274951,
+      "bootstrap_95ci_high": 0.07103138449167765,
+      "bootstrap_two_sided_sign_probability": 0.737,
+      "gain_established": false,
+      "interpretation": "Paired capture-cluster bootstrap, averaging three paired seeds per capture; exploratory reduced-sample estimate."
+    }
+  ],
+  "family_gain_established": false,
+  "stop_rule_tasks_3_and_5_beyond_baseline": "skip"
+}

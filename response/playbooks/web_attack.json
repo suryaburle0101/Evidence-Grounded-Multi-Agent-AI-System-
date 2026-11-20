@@ -1,0 +1,15 @@
+{
+  "family": "Web Attack",
+  "playbook_label": "generic playbook",
+  "generic_playbook": true,
+  "technique_id": null,
+  "technique_name": null,
+  "knowledge_base_source": "evidence/knowledge/authoritative_sources.json",
+  "knowledge_base_note": "The knowledge base has no MITRE ATT&CK technique for this family; only its local investigation and mitigation guidance is used.",
+  "phases": {
+    "contain": [{"action": "Use appropriate web application security controls", "evidence_types": ["model", "flow_evidence", "threat_intel"]}],
+    "eradicate": [{"action": "Keep web applications and dependencies patched", "evidence_types": ["reference_doc"]}],
+    "recover": [{"action": "Use strong authentication controls", "evidence_types": ["reference_doc"]}],
+    "verify": [{"action": "Correlate web requests with application and authentication logs", "evidence_types": ["model", "flow_evidence", "reference_doc"]}]
+  }
+}

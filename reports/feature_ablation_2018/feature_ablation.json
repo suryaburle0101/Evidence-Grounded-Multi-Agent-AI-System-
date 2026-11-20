@@ -1,0 +1,566 @@
+{
+  "schema": "cicids2017-feature-ablation-external-v1",
+  "production_artifacts_modified": false,
+  "split": {
+    "train_capture_files": [
+      "Benign-Monday-no-metadata.parquet",
+      "Botnet-Friday-no-metadata.parquet",
+      "Bruteforce-Tuesday-no-metadata.parquet",
+      "DDoS-Friday-no-metadata.parquet",
+      "DoS-Wednesday-no-metadata.parquet"
+    ],
+    "calibration_capture_file": "Infiltration-Thursday-no-metadata.parquet",
+    "external_test": "all CSE-CIC-IDS2018 capture files"
+  },
+  "sampling_cap_per_raw_label_per_file": 3000,
+  "suspect_features_removed": [
+    "ECE Flag Count",
+    "RST Flag Count",
+    "Fwd Seg Size Min",
+    "Fwd Header Length"
+  ],
+  "training_rows": 37438,
+  "calibration_rows": 3036,
+  "calibration_benign_rows": 3000,
+  "models": {
+    "all_77_features": {
+      "feature_count": 77,
+      "calibration_method": "Platt scaling; held-out CICIDS2017 capture",
+      "calibration_benign_rows": 3000,
+      "threshold_at_1pct_calibration_benign_fpr": 0.06991406919567633
+    },
+    "without_four_suspects": {
+      "feature_count": 73,
+      "calibration_method": "Platt scaling; held-out CICIDS2017 capture",
+      "calibration_benign_rows": 3000,
+      "threshold_at_1pct_calibration_benign_fpr": 0.07571030933221319
+    }
+  },
+  "heldout_cicids2017": [
+    {
+      "capture": "Portscan-Friday-no-metadata.parquet",
+      "sample_rows": 4956,
+      "all_77_features": {
+        "rows": 4956,
+        "attack_rows": 1956,
+        "threshold": 0.06991406919567633,
+        "recall_attack": 0.2689161554192229,
+        "precision_attack": 0.9163763066202091,
+        "f1_attack": 0.4158102766798419,
+        "false_positive_rate": 0.016,
+        "roc_auc": 0.9697828050443081,
+        "average_precision": 0.9144205780440703,
+        "brier_score": 0.3448355868393454,
+        "confusion_matrix_tn_fp_fn_tp": [
+          2952,
+          48,
+          1430,
+          526
+        ]
+      },
+      "without_four_suspects": {
+        "rows": 4956,
+        "attack_rows": 1956,
+        "threshold": 0.07571030933221319,
+        "recall_attack": 0.2658486707566462,
+        "precision_attack": 0.9203539823008849,
+        "f1_attack": 0.4125347084490282,
+        "false_positive_rate": 0.015,
+        "roc_auc": 0.9707718132242672,
+        "average_precision": 0.9182769167706673,
+        "brier_score": 0.33746874395746906,
+        "confusion_matrix_tn_fp_fn_tp": [
+          2955,
+          45,
+          1436,
+          520
+        ]
+      }
+    },
+    {
+      "capture": "WebAttacks-Thursday-no-metadata.parquet",
+      "sample_rows": 5143,
+      "all_77_features": {
+        "rows": 5143,
+        "attack_rows": 2143,
+        "threshold": 0.06991406919567633,
+        "recall_attack": 0.2865142323845077,
+        "precision_attack": 0.9446153846153846,
+        "f1_attack": 0.4396706050841389,
+        "false_positive_rate": 0.012,
+        "roc_auc": 0.976074428371442,
+        "average_precision": 0.9428870061326806,
+        "brier_score": 0.3629792915083056,
+        "confusion_matrix_tn_fp_fn_tp": [
+          2964,
+          36,
+          1529,
+          614
+        ]
+      },
+      "without_four_suspects": {
+        "rows": 5143,
+        "attack_rows": 2143,
+        "threshold": 0.07571030933221319,
+        "recall_attack": 0.758749416705553,
+        "precision_attack": 0.9759903961584634,
+        "f1_attack": 0.8537673930165398,
+        "false_positive_rate": 0.013333333333333334,
+        "roc_auc": 0.979032742261627,
+        "average_precision": 0.950444438415261,
+        "brier_score": 0.3535468389156115,
+        "confusion_matrix_tn_fp_fn_tp": [
+          2960,
+          40,
+          517,
+          1626
+        ]
+      }
+    }
+  ],
+  "captures": [
+    {
+      "capture": "Botnet-Friday-02-03-2018_TrafficForML_CICFlowMeter.parquet",
+      "sample_rows": 6000,
+      "all_77_features": {
+        "rows": 6000,
+        "attack_rows": 3000,
+        "threshold": 0.06991406919567633,
+        "recall_attack": 0.0003333333333333333,
+        "precision_attack": 0.017241379310344827,
+        "f1_attack": 0.0006540222367560497,
+        "false_positive_rate": 0.019,
+        "roc_auc": 0.9485050555555555,
+        "average_precision": 0.8960087522996358,
+        "brier_score": 0.438304676862889,
+        "confusion_matrix_tn_fp_fn_tp": [
+          2943,
+          57,
+          2999,
+          1
+        ]
+      },
+      "without_four_suspects": {
+        "rows": 6000,
+        "attack_rows": 3000,
+        "threshold": 0.07571030933221319,
+        "recall_attack": 0.06433333333333334,
+        "precision_attack": 0.3580705009276438,
+        "f1_attack": 0.10907035885843458,
+        "false_positive_rate": 0.11533333333333333,
+        "roc_auc": 0.8727627222222223,
+        "average_precision": 0.8008176779600685,
+        "brier_score": 0.43064708673631874,
+        "confusion_matrix_tn_fp_fn_tp": [
+          2654,
+          346,
+          2807,
+          193
+        ]
+      }
+    },
+    {
+      "capture": "Bruteforce-Wednesday-14-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "sample_rows": 6053,
+      "all_77_features": {
+        "rows": 6053,
+        "attack_rows": 3053,
+        "threshold": 0.06991406919567633,
+        "recall_attack": 0.000982640026203734,
+        "precision_attack": 0.046875,
+        "f1_attack": 0.0019249278152069298,
+        "false_positive_rate": 0.02033333333333333,
+        "roc_auc": 0.7277410197619828,
+        "average_precision": 0.6280536350553493,
+        "brier_score": 0.45992660893043946,
+        "confusion_matrix_tn_fp_fn_tp": [
+          2939,
+          61,
+          3050,
+          3
+        ]
+      },
+      "without_four_suspects": {
+        "rows": 6053,
+        "attack_rows": 3053,
+        "threshold": 0.07571030933221319,
+        "recall_attack": 0.000982640026203734,
+        "precision_attack": 0.01282051282051282,
+        "f1_attack": 0.0018253726802555522,
+        "false_positive_rate": 0.077,
+        "roc_auc": 0.7713719838410307,
+        "average_precision": 0.683379467829033,
+        "brier_score": 0.45312327041131883,
+        "confusion_matrix_tn_fp_fn_tp": [
+          2769,
+          231,
+          3050,
+          3
+        ]
+      }
+    },
+    {
+      "capture": "DDoS1-Tuesday-20-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "sample_rows": 6000,
+      "all_77_features": {
+        "rows": 6000,
+        "attack_rows": 3000,
+        "threshold": 0.06991406919567633,
+        "recall_attack": 0.7086666666666667,
+        "precision_attack": 0.9774712643678161,
+        "f1_attack": 0.8216425120772947,
+        "false_positive_rate": 0.01633333333333333,
+        "roc_auc": 0.9805306111111112,
+        "average_precision": 0.9803174797159129,
+        "brier_score": 0.4314953884763476,
+        "confusion_matrix_tn_fp_fn_tp": [
+          2951,
+          49,
+          874,
+          2126
+        ]
+      },
+      "without_four_suspects": {
+        "rows": 6000,
+        "attack_rows": 3000,
+        "threshold": 0.07571030933221319,
+        "recall_attack": 0.9843333333333333,
+        "precision_attack": 0.9309583858764187,
+        "f1_attack": 0.9569021386908619,
+        "false_positive_rate": 0.073,
+        "roc_auc": 0.9641134444444446,
+        "average_precision": 0.9571669961354496,
+        "brier_score": 0.35667947233055164,
+        "confusion_matrix_tn_fp_fn_tp": [
+          2781,
+          219,
+          47,
+          2953
+        ]
+      }
+    },
+    {
+      "capture": "DDoS2-Wednesday-21-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "sample_rows": 7730,
+      "all_77_features": {
+        "rows": 7730,
+        "attack_rows": 4730,
+        "threshold": 0.06991406919567633,
+        "recall_attack": 0.007822410147991543,
+        "precision_attack": 1.0,
+        "f1_attack": 0.01552338997272918,
+        "false_positive_rate": 0.0,
+        "roc_auc": 0.4910237138830162,
+        "average_precision": 0.7666758999355615,
+        "brier_score": 0.5560215909282167,
+        "confusion_matrix_tn_fp_fn_tp": [
+          3000,
+          0,
+          4693,
+          37
+        ]
+      },
+      "without_four_suspects": {
+        "rows": 7730,
+        "attack_rows": 4730,
+        "threshold": 0.07571030933221319,
+        "recall_attack": 0.009302325581395349,
+        "precision_attack": 0.9777777777777777,
+        "f1_attack": 0.01842931937172775,
+        "false_positive_rate": 0.0003333333333333333,
+        "roc_auc": 0.5860166666666666,
+        "average_precision": 0.7936280353878573,
+        "brier_score": 0.5453063163318265,
+        "confusion_matrix_tn_fp_fn_tp": [
+          2999,
+          1,
+          4686,
+          44
+        ]
+      }
+    },
+    {
+      "capture": "DoS1-Thursday-15-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "sample_rows": 9000,
+      "all_77_features": {
+        "rows": 9000,
+        "attack_rows": 6000,
+        "threshold": 0.06991406919567633,
+        "recall_attack": 0.8063333333333333,
+        "precision_attack": 0.9799473364391331,
+        "f1_attack": 0.8847033007223187,
+        "false_positive_rate": 0.033,
+        "roc_auc": 0.9615967222222221,
+        "average_precision": 0.9804446019546876,
+        "brier_score": 0.4969456418922477,
+        "confusion_matrix_tn_fp_fn_tp": [
+          2901,
+          99,
+          1162,
+          4838
+        ]
+      },
+      "without_four_suspects": {
+        "rows": 9000,
+        "attack_rows": 6000,
+        "threshold": 0.07571030933221319,
+        "recall_attack": 0.8125,
+        "precision_attack": 0.9521484375,
+        "f1_attack": 0.8767985611510791,
+        "false_positive_rate": 0.08166666666666667,
+        "roc_auc": 0.9510609444444444,
+        "average_precision": 0.9741122450790383,
+        "brier_score": 0.4710363034343718,
+        "confusion_matrix_tn_fp_fn_tp": [
+          2755,
+          245,
+          1125,
+          4875
+        ]
+      }
+    },
+    {
+      "capture": "DoS2-Friday-16-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "sample_rows": 6055,
+      "all_77_features": {
+        "rows": 6055,
+        "attack_rows": 3055,
+        "threshold": 0.06991406919567633,
+        "recall_attack": 0.08379705400981997,
+        "precision_attack": 0.9961089494163424,
+        "f1_attack": 0.15458937198067632,
+        "false_positive_rate": 0.0003333333333333333,
+        "roc_auc": 0.39826595744680854,
+        "average_precision": 0.6263565731831938,
+        "brier_score": 0.4620340936243106,
+        "confusion_matrix_tn_fp_fn_tp": [
+          2999,
+          1,
+          2799,
+          256
+        ]
+      },
+      "without_four_suspects": {
+        "rows": 6055,
+        "attack_rows": 3055,
+        "threshold": 0.07571030933221319,
+        "recall_attack": 0.06252045826513912,
+        "precision_attack": 0.9896373056994818,
+        "f1_attack": 0.11761083743842364,
+        "false_positive_rate": 0.0006666666666666666,
+        "roc_auc": 0.3846246044735407,
+        "average_precision": 0.6078661073705142,
+        "brier_score": 0.4578882806024485,
+        "confusion_matrix_tn_fp_fn_tp": [
+          2998,
+          2,
+          2864,
+          191
+        ]
+      }
+    },
+    {
+      "capture": "Infil1-Wednesday-28-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "sample_rows": 6000,
+      "all_77_features": {
+        "rows": 6000,
+        "attack_rows": 3000,
+        "threshold": 0.06991406919567633,
+        "recall_attack": 0.015333333333333332,
+        "precision_attack": 0.42592592592592593,
+        "f1_attack": 0.029601029601029602,
+        "false_positive_rate": 0.020666666666666667,
+        "roc_auc": 0.4810196666666667,
+        "average_precision": 0.49254823353316296,
+        "brier_score": 0.47900611107390395,
+        "confusion_matrix_tn_fp_fn_tp": [
+          2938,
+          62,
+          2954,
+          46
+        ]
+      },
+      "without_four_suspects": {
+        "rows": 6000,
+        "attack_rows": 3000,
+        "threshold": 0.07571030933221319,
+        "recall_attack": 0.03766666666666667,
+        "precision_attack": 0.48917748917748916,
+        "f1_attack": 0.06994738471061591,
+        "false_positive_rate": 0.03933333333333333,
+        "roc_auc": 0.4900716666666667,
+        "average_precision": 0.4987175077749113,
+        "brier_score": 0.4763629672975085,
+        "confusion_matrix_tn_fp_fn_tp": [
+          2882,
+          118,
+          2887,
+          113
+        ]
+      }
+    },
+    {
+      "capture": "Infil2-Thursday-01-03-2018_TrafficForML_CICFlowMeter.parquet",
+      "sample_rows": 6000,
+      "all_77_features": {
+        "rows": 6000,
+        "attack_rows": 3000,
+        "threshold": 0.06991406919567633,
+        "recall_attack": 0.023666666666666666,
+        "precision_attack": 0.5220588235294118,
+        "f1_attack": 0.04528061224489796,
+        "false_positive_rate": 0.021666666666666667,
+        "roc_auc": 0.48473338888888895,
+        "average_precision": 0.49756223470111455,
+        "brier_score": 0.4757119081441543,
+        "confusion_matrix_tn_fp_fn_tp": [
+          2935,
+          65,
+          2929,
+          71
+        ]
+      },
+      "without_four_suspects": {
+        "rows": 6000,
+        "attack_rows": 3000,
+        "threshold": 0.07571030933221319,
+        "recall_attack": 0.042333333333333334,
+        "precision_attack": 0.40705128205128205,
+        "f1_attack": 0.07669082125603864,
+        "false_positive_rate": 0.06166666666666667,
+        "roc_auc": 0.48704372222222225,
+        "average_precision": 0.487772673948277,
+        "brier_score": 0.4732190460013621,
+        "confusion_matrix_tn_fp_fn_tp": [
+          2815,
+          185,
+          2873,
+          127
+        ]
+      }
+    },
+    {
+      "capture": "Web1-Thursday-22-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "sample_rows": 3341,
+      "all_77_features": {
+        "rows": 3341,
+        "attack_rows": 341,
+        "threshold": 0.06991406919567633,
+        "recall_attack": 0.011730205278592375,
+        "precision_attack": 0.06349206349206349,
+        "f1_attack": 0.019801980198019802,
+        "false_positive_rate": 0.019666666666666666,
+        "roc_auc": 0.5705273704789834,
+        "average_precision": 0.12810292383879565,
+        "brier_score": 0.09565839253781369,
+        "confusion_matrix_tn_fp_fn_tp": [
+          2941,
+          59,
+          337,
+          4
+        ]
+      },
+      "without_four_suspects": {
+        "rows": 3341,
+        "attack_rows": 341,
+        "threshold": 0.07571030933221319,
+        "recall_attack": 0.06451612903225806,
+        "precision_attack": 0.04592901878914405,
+        "f1_attack": 0.05365853658536585,
+        "false_positive_rate": 0.15233333333333332,
+        "roc_auc": 0.5467311827956989,
+        "average_precision": 0.10861611872023749,
+        "brier_score": 0.09562098880370128,
+        "confusion_matrix_tn_fp_fn_tp": [
+          2543,
+          457,
+          319,
+          22
+        ]
+      }
+    },
+    {
+      "capture": "Web2-Friday-23-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "sample_rows": 3541,
+      "all_77_features": {
+        "rows": 3541,
+        "attack_rows": 541,
+        "threshold": 0.06991406919567633,
+        "recall_attack": 0.05730129390018484,
+        "precision_attack": 0.38271604938271603,
+        "f1_attack": 0.09967845659163987,
+        "false_positive_rate": 0.016666666666666666,
+        "roc_auc": 0.6286164510166359,
+        "average_precision": 0.23129580361437754,
+        "brier_score": 0.1409930078132178,
+        "confusion_matrix_tn_fp_fn_tp": [
+          2950,
+          50,
+          510,
+          31
+        ]
+      },
+      "without_four_suspects": {
+        "rows": 3541,
+        "attack_rows": 541,
+        "threshold": 0.07571030933221319,
+        "recall_attack": 0.08687615526802218,
+        "precision_attack": 0.08818011257035648,
+        "f1_attack": 0.08752327746741155,
+        "false_positive_rate": 0.162,
+        "roc_auc": 0.6079500924214418,
+        "average_precision": 0.21528771481448442,
+        "brier_score": 0.13946395888771473,
+        "confusion_matrix_tn_fp_fn_tp": [
+          2514,
+          486,
+          494,
+          47
+        ]
+      }
+    }
+  ],
+  "overall_external": {
+    "all_77_features": {
+      "rows": 59720,
+      "attack_rows": 29720,
+      "threshold": 0.06991406919567633,
+      "recall_attack": 0.24942799461641993,
+      "precision_attack": 0.9364578069732188,
+      "f1_attack": 0.39393134233181,
+      "false_positive_rate": 0.016766666666666666,
+      "roc_auc": 0.7128251581426648,
+      "average_precision": 0.7619203117268588,
+      "brier_score": 0.4373420849486889,
+      "confusion_matrix_tn_fp_fn_tp": [
+        29497,
+        503,
+        22307,
+        7413
+      ]
+    },
+    "without_four_suspects": {
+      "rows": 59720,
+      "attack_rows": 29720,
+      "threshold": 0.07571030933221319,
+      "recall_attack": 0.2882907133243607,
+      "precision_attack": 0.7890955977159698,
+      "f1_attack": 0.42229779683572377,
+      "false_positive_rate": 0.07633333333333334,
+      "roc_auc": 0.7265186597128757,
+      "average_precision": 0.7451941267782,
+      "brier_score": 0.4220458186070146,
+      "confusion_matrix_tn_fp_fn_tp": [
+        27710,
+        2290,
+        21152,
+        8568
+      ]
+    }
+  },
+  "limitations": [
+    "Research ablation only; a single CICIDS2017 calibration capture sets the threshold.",
+    "External rows are capped per raw label and capture; these are not field prevalence estimates.",
+    "Ablation scores do not establish a production fix; independent capture and extractor validation remains necessary."
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "family": "DDoS",
+  "playbook_label": "DDoS response playbook",
+  "generic_playbook": false,
+  "technique_id": "T1498",
+  "technique_name": "Network Denial of Service",
+  "knowledge_base_source": "evidence/knowledge/authoritative_sources.json",
+  "phases": {
+    "contain": [{"action": "Filter malicious network traffic", "evidence_types": ["model", "flow_evidence", "threat_intel"]}],
+    "eradicate": [{"action": "Use appropriate denial-of-service protection mechanisms", "evidence_types": ["reference_doc", "flow_evidence"]}],
+    "recover": [{"action": "Use upstream filtering when attack volume exceeds local network capacity", "evidence_types": ["flow_evidence", "threat_intel"]}],
+    "verify": [{"action": "Measure aggregated packet and flow rates toward the target", "evidence_types": ["model", "flow_evidence"]}]
+  }
+}

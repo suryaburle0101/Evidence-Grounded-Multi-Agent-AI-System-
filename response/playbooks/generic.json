@@ -1,0 +1,15 @@
+{
+  "family": "Unknown",
+  "playbook_label": "generic playbook",
+  "generic_playbook": true,
+  "technique_id": null,
+  "technique_name": null,
+  "knowledge_base_source": "response/playbooks/generic.json",
+  "knowledge_base_note": "No matching ATT&CK technique is present in the local evidence knowledge base; analyst review is required.",
+  "phases": {
+    "contain": [{"action": "Have an analyst review the evidence before selecting any containment action.", "evidence_types": ["model", "flow_evidence", "threat_intel", "rare_family"]}],
+    "eradicate": [{"action": "Have an analyst verify the suspected cause before selecting remediation.", "evidence_types": ["reference_doc", "rare_family"]}],
+    "recover": [{"action": "Confirm the affected service is ready before restoring normal operation.", "evidence_types": ["reference_doc", "flow_evidence"]}],
+    "verify": [{"action": "Review available network and host records for recurrence.", "evidence_types": ["model", "flow_evidence", "threat_intel"]}]
+  }
+}

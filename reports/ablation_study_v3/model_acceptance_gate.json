@@ -1,0 +1,74 @@
+{
+  "schema": "non-deploying-model-acceptance-gate-v1",
+  "dataset": "Existing capture-held-out CICIDS2017/CSE-CIC-IDS2018 test captures",
+  "criteria": {
+    "minimum_recall_each_family": 0.8,
+    "maximum_benign_false_positive_rate": 0.01,
+    "required_priority_families": [
+      "DDoS",
+      "DoS",
+      "Botnet",
+      "BruteForce",
+      "Infiltration"
+    ],
+    "scope_note": "Only priority families determine ACCEPT; every other reported family remains visible as best-effort context.",
+    "priority_selection_basis": "Five highest attack-family counts in the included combined CIC-IDS-Collection file; dataset composition is not real-world prevalence.",
+    "priority_family_rows_in_collection": {
+      "DDoS": 1234729,
+      "DoS": 397333,
+      "Botnet": 145968,
+      "BruteForce": 103244,
+      "Infiltration": 94857
+    }
+  },
+  "decision": "IMPROVE",
+  "models": {
+    "LODO Random Forest": {
+      "decision": "IMPROVE",
+      "benign_false_positive_rate": 0.0068744271310724105,
+      "priority_families": {
+        "DDoS": 0.0,
+        "DoS": 0.2457191780821918,
+        "Botnet": 0.0,
+        "BruteForce": 0.0,
+        "Infiltration": 0.002785515320334262
+      },
+      "other_family_recall_best_effort": {
+        "Heartbleed": 0.0,
+        "WebAttack": 0.047058823529411764
+      },
+      "failures": [
+        "DDoS priority-family recall below 80% or missing",
+        "DoS priority-family recall below 80% or missing",
+        "Botnet priority-family recall below 80% or missing",
+        "BruteForce priority-family recall below 80% or missing",
+        "Infiltration priority-family recall below 80% or missing"
+      ]
+    },
+    "LODO XGBoost": {
+      "decision": "IMPROVE",
+      "benign_false_positive_rate": 0.029789184234647114,
+      "priority_families": {
+        "DDoS": 0.0,
+        "DoS": 0.3202054794520548,
+        "Botnet": 0.0024271844660194173,
+        "BruteForce": 0.0,
+        "Infiltration": 0.011142061281337047
+      },
+      "other_family_recall_best_effort": {
+        "Heartbleed": 0.0,
+        "WebAttack": 0.17647058823529413
+      },
+      "failures": [
+        "benign false-positive rate exceeds the limit or is missing",
+        "DDoS priority-family recall below 80% or missing",
+        "DoS priority-family recall below 80% or missing",
+        "Botnet priority-family recall below 80% or missing",
+        "BruteForce priority-family recall below 80% or missing",
+        "Infiltration priority-family recall below 80% or missing"
+      ]
+    }
+  },
+  "promotion": "not_performed",
+  "note": "ACCEPT means the supplied evaluation report met these criteria; this gate never changes or deploys model artifacts."
+}

@@ -1,0 +1,14 @@
+# Runtime API, dashboard, and flow-analysis dependencies.
+# httpx supports FastAPI TestClient integration checks.
+fastapi==0.138.0
+httpx==0.28.1
+joblib==1.5.3
+numpy==2.4.6
+pandas==3.0.5
+pyarrow==25.0.1
+scikit-learn==1.6.1
+scipy==1.17.1
+shap==0.51.0
+uvicorn==0.49.0
+xgboost==2.1.3
+websockets==17.3

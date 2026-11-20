@@ -1,0 +1,2764 @@
+{
+  "schema": "capture-heldout-12-attack-type-candidate-v1",
+  "scope": {
+    "attack_types": [
+      "Botnet",
+      "FTP-BruteForce",
+      "SSH-BruteForce",
+      "DDoS",
+      "DoS-Hulk",
+      "DoS-GoldenEye",
+      "DoS-Slowloris",
+      "DoS-SlowHTTPTest",
+      "Infiltration",
+      "Web-BruteForce",
+      "Web-XSS",
+      "SQL-Injection"
+    ],
+    "excluded": {
+      "PortScan": "not present in the CSE-CIC-IDS2018 test captures",
+      "Heartbleed": "only 11 CICIDS2017 training rows; absent from the 2018 test source"
+    },
+    "label_mapping": "CICIDS2017 and CSE-CIC-IDS2018 tool/name variants normalized to 12 attack types; attack subtypes kept separate where both datasets label them"
+  },
+  "split": {
+    "training": "complete CICIDS2017 and CSE-CIC-IDS2018 capture files except named calibration/test captures",
+    "calibration": "benign rows only from separate complete CICIDS2017 and CSE-CIC-IDS2018 capture files",
+    "calibration_capture_files": [
+      "Benign-Monday-no-metadata.parquet",
+      "DDoS1-Tuesday-20-02-2018_TrafficForML_CICFlowMeter.parquet"
+    ],
+    "test": "complete named capture files from both CICIDS2017 and CSE-CIC-IDS2018",
+    "test_capture_files": [
+      "Botnet-Friday-02-03-2018_TrafficForML_CICFlowMeter.parquet",
+      "Bruteforce-Wednesday-14-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "DDoS2-Wednesday-21-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "DoS-Wednesday-no-metadata.parquet",
+      "Infil2-Thursday-01-03-2018_TrafficForML_CICFlowMeter.parquet",
+      "Web1-Thursday-22-02-2018_TrafficForML_CICFlowMeter.parquet"
+    ],
+    "target_benign_fpr": 0.01,
+    "duplicate_policy": "feature-identical rows across train/calibration/test capture groups removed from later groups"
+  },
+  "training_rows": 232629,
+  "training_counts": {
+    "Benign": 149359,
+    "Infiltration": 15036,
+    "DDoS": 15000,
+    "DoS-GoldenEye": 15000,
+    "DoS-Hulk": 15000,
+    "DoS-Slowloris": 9908,
+    "FTP-BruteForce": 5931,
+    "SSH-BruteForce": 3219,
+    "Web-BruteForce": 1810,
+    "Botnet": 1437,
+    "Web-XSS": 802,
+    "SQL-Injection": 72,
+    "DoS-SlowHTTPTest": 55
+  },
+  "calibration_capture_quality": {
+    "Benign-Monday-no-metadata.parquet": {
+      "rows_scanned": 458831,
+      "invalid_rows": 0,
+      "rows_sampled": 8000,
+      "label_counts": {
+        "Benign": 8000
+      },
+      "raw_label_counts": {
+        "Benign": 8000
+      },
+      "sample_cap_per_raw_label": 8000,
+      "sampling": "seeded per-label reservoir sampling across the complete capture file"
+    },
+    "DDoS1-Tuesday-20-02-2018_TrafficForML_CICFlowMeter.parquet": {
+      "rows_scanned": 954846,
+      "invalid_rows": 0,
+      "rows_sampled": 16000,
+      "label_counts": {
+        "Benign": 8000,
+        "DDoS": 8000
+      },
+      "raw_label_counts": {
+        "Benign": 8000,
+        "DDoS attacks-LOIC-HTTP": 8000
+      },
+      "sample_cap_per_raw_label": 8000,
+      "sampling": "seeded per-label reservoir sampling across the complete capture file"
+    }
+  },
+  "training_capture_quality": {
+    "Botnet-Friday-no-metadata.parquet": {
+      "rows_scanned": 176038,
+      "invalid_rows": 0,
+      "rows_sampled": 16437,
+      "label_counts": {
+        "Benign": 15000,
+        "Botnet": 1437
+      },
+      "raw_label_counts": {
+        "Benign": 15000,
+        "Bot": 1437
+      },
+      "sample_cap_per_raw_label": 15000,
+      "sampling": "seeded per-label reservoir sampling across the complete capture file"
+    },
+    "Bruteforce-Tuesday-no-metadata.parquet": {
+      "rows_scanned": 389714,
+      "invalid_rows": 0,
+      "rows_sampled": 24150,
+      "label_counts": {
+        "Benign": 15000,
+        "BruteForce": 9150
+      },
+      "raw_label_counts": {
+        "Benign": 15000,
+        "FTP-Patator": 5931,
+        "SSH-Patator": 3219
+      },
+      "sample_cap_per_raw_label": 15000,
+      "sampling": "seeded per-label reservoir sampling across the complete capture file"
+    },
+    "DDoS-Friday-no-metadata.parquet": {
+      "rows_scanned": 221264,
+      "invalid_rows": 0,
+      "rows_sampled": 30000,
+      "label_counts": {
+        "Benign": 15000,
+        "DDoS": 15000
+      },
+      "raw_label_counts": {
+        "Benign": 15000,
+        "DDoS": 15000
+      },
+      "sample_cap_per_raw_label": 15000,
+      "sampling": "seeded per-label reservoir sampling across the complete capture file"
+    },
+    "Infiltration-Thursday-no-metadata.parquet": {
+      "rows_scanned": 207630,
+      "invalid_rows": 0,
+      "rows_sampled": 15036,
+      "label_counts": {
+        "Benign": 15000,
+        "Infiltration": 36
+      },
+      "raw_label_counts": {
+        "Benign": 15000,
+        "Infiltration": 36
+      },
+      "sample_cap_per_raw_label": 15000,
+      "sampling": "seeded per-label reservoir sampling across the complete capture file"
+    },
+    "Portscan-Friday-no-metadata.parquet": {
+      "rows_scanned": 119522,
+      "invalid_rows": 0,
+      "rows_sampled": 16956,
+      "label_counts": {
+        "Benign": 15000,
+        "PortScan": 1956
+      },
+      "raw_label_counts": {
+        "Benign": 15000,
+        "PortScan": 1956
+      },
+      "sample_cap_per_raw_label": 15000,
+      "sampling": "seeded per-label reservoir sampling across the complete capture file"
+    },
+    "WebAttacks-Thursday-no-metadata.parquet": {
+      "rows_scanned": 155820,
+      "invalid_rows": 0,
+      "rows_sampled": 17143,
+      "label_counts": {
+        "Benign": 15000,
+        "WebAttack": 2143
+      },
+      "raw_label_counts": {
+        "Benign": 15000,
+        "Web Attack � Brute Force": 1470,
+        "Web Attack � XSS": 652,
+        "Web Attack � Sql Injection": 21
+      },
+      "sample_cap_per_raw_label": 15000,
+      "sampling": "seeded per-label reservoir sampling across the complete capture file"
+    },
+    "DoS1-Thursday-15-02-2018_TrafficForML_CICFlowMeter.parquet": {
+      "rows_scanned": 794812,
+      "invalid_rows": 0,
+      "rows_sampled": 39908,
+      "label_counts": {
+        "DoS": 24908,
+        "Benign": 15000
+      },
+      "raw_label_counts": {
+        "Benign": 15000,
+        "DoS attacks-GoldenEye": 15000,
+        "DoS attacks-Slowloris": 9908
+      },
+      "sample_cap_per_raw_label": 15000,
+      "sampling": "seeded per-label reservoir sampling across the complete capture file"
+    },
+    "DoS2-Friday-16-02-2018_TrafficForML_CICFlowMeter.parquet": {
+      "rows_scanned": 591873,
+      "invalid_rows": 0,
+      "rows_sampled": 30055,
+      "label_counts": {
+        "DoS": 15055,
+        "Benign": 15000
+      },
+      "raw_label_counts": {
+        "Benign": 15000,
+        "DoS attacks-Hulk": 15000,
+        "DoS attacks-SlowHTTPTest": 55
+      },
+      "sample_cap_per_raw_label": 15000,
+      "sampling": "seeded per-label reservoir sampling across the complete capture file"
+    },
+    "Infil1-Wednesday-28-02-2018_TrafficForML_CICFlowMeter.parquet": {
+      "rows_scanned": 456873,
+      "invalid_rows": 0,
+      "rows_sampled": 30000,
+      "label_counts": {
+        "Benign": 15000,
+        "Infiltration": 15000
+      },
+      "raw_label_counts": {
+        "Benign": 15000,
+        "Infilteration": 15000
+      },
+      "sample_cap_per_raw_label": 15000,
+      "sampling": "seeded per-label reservoir sampling across the complete capture file"
+    },
+    "Web2-Friday-23-02-2018_TrafficForML_CICFlowMeter.parquet": {
+      "rows_scanned": 829405,
+      "invalid_rows": 0,
+      "rows_sampled": 15541,
+      "label_counts": {
+        "Benign": 15000,
+        "WebAttack": 541
+      },
+      "raw_label_counts": {
+        "Benign": 15000,
+        "Brute Force -Web": 340,
+        "Brute Force -XSS": 150,
+        "SQL Injection": 51
+      },
+      "sample_cap_per_raw_label": 15000,
+      "sampling": "seeded per-label reservoir sampling across the complete capture file"
+    }
+  },
+  "test_capture_quality": {
+    "DoS-Wednesday-no-metadata.parquet": {
+      "rows_scanned": 584991,
+      "invalid_rows": 0,
+      "rows_sampled": 34624,
+      "label_counts": {
+        "DoS": 26613,
+        "Benign": 8000,
+        "Heartbleed": 11
+      },
+      "raw_label_counts": {
+        "Benign": 8000,
+        "DoS Hulk": 8000,
+        "DoS GoldenEye": 8000,
+        "DoS slowloris": 5385,
+        "DoS Slowhttptest": 5228,
+        "Heartbleed": 11
+      },
+      "sample_cap_per_raw_label": 8000,
+      "sampling": "seeded per-label reservoir sampling across the complete capture file"
+    },
+    "Botnet-Friday-02-03-2018_TrafficForML_CICFlowMeter.parquet": {
+      "rows_scanned": 771587,
+      "invalid_rows": 0,
+      "rows_sampled": 16000,
+      "label_counts": {
+        "Benign": 8000,
+        "Botnet": 8000
+      },
+      "raw_label_counts": {
+        "Benign": 8000,
+        "Bot": 8000
+      },
+      "sample_cap_per_raw_label": 8000,
+      "sampling": "seeded per-label reservoir sampling across the complete capture file"
+    },
+    "Bruteforce-Wednesday-14-02-2018_TrafficForML_CICFlowMeter.parquet": {
+      "rows_scanned": 619346,
+      "invalid_rows": 0,
+      "rows_sampled": 16053,
+      "label_counts": {
+        "BruteForce": 8053,
+        "Benign": 8000
+      },
+      "raw_label_counts": {
+        "Benign": 8000,
+        "SSH-Bruteforce": 8000,
+        "FTP-BruteForce": 53
+      },
+      "sample_cap_per_raw_label": 8000,
+      "sampling": "seeded per-label reservoir sampling across the complete capture file"
+    },
+    "DDoS2-Wednesday-21-02-2018_TrafficForML_CICFlowMeter.parquet": {
+      "rows_scanned": 561396,
+      "invalid_rows": 0,
+      "rows_sampled": 17730,
+      "label_counts": {
+        "DDoS": 9730,
+        "Benign": 8000
+      },
+      "raw_label_counts": {
+        "Benign": 8000,
+        "DDOS attack-HOIC": 8000,
+        "DDOS attack-LOIC-UDP": 1730
+      },
+      "sample_cap_per_raw_label": 8000,
+      "sampling": "seeded per-label reservoir sampling across the complete capture file"
+    },
+    "Infil2-Thursday-01-03-2018_TrafficForML_CICFlowMeter.parquet": {
+      "rows_scanned": 249170,
+      "invalid_rows": 0,
+      "rows_sampled": 16000,
+      "label_counts": {
+        "Benign": 8000,
+        "Infiltration": 8000
+      },
+      "raw_label_counts": {
+        "Benign": 8000,
+        "Infilteration": 8000
+      },
+      "sample_cap_per_raw_label": 8000,
+      "sampling": "seeded per-label reservoir sampling across the complete capture file"
+    },
+    "Web1-Thursday-22-02-2018_TrafficForML_CICFlowMeter.parquet": {
+      "rows_scanned": 830224,
+      "invalid_rows": 0,
+      "rows_sampled": 8341,
+      "label_counts": {
+        "Benign": 8000,
+        "WebAttack": 341
+      },
+      "raw_label_counts": {
+        "Benign": 8000,
+        "Brute Force -Web": 228,
+        "Brute Force -XSS": 79,
+        "SQL Injection": 34
+      },
+      "sample_cap_per_raw_label": 8000,
+      "sampling": "seeded per-label reservoir sampling across the complete capture file"
+    }
+  },
+  "removed_overlap_rows": {
+    "calibration": 32,
+    "test": 0
+  },
+  "acceptance_criteria": {
+    "minimum_attack_types_with_heldout_examples": 10,
+    "minimum_correct_type_recall_each": 0.8,
+    "maximum_benign_false_positive_rate": 0.01,
+    "promotion": "never; research candidate only"
+  },
+  "promotion": "not_performed",
+  "models": {
+    "random_forest": {
+      "shared_threshold_baseline": {
+        "threshold": 0.7825434442396191,
+        "calibration_benign_fpr": 0.009957414829659318,
+        "heldout": {
+          "rows": 108737,
+          "benign_rows": 48000,
+          "attack_rows_in_scope": 60737,
+          "benign_false_positive_rate": 0.027333333333333334,
+          "attack_detection_recall": 0.04257701236478588,
+          "correct_type_recall_macro": 0.1532823805345808,
+          "per_attack_type": {
+            "Botnet": {
+              "support": 8000,
+              "detected_recall": 0.00025,
+              "correct_type_recall": 0.0,
+              "top_type_accuracy": 0.0
+            },
+            "FTP-BruteForce": {
+              "support": 53,
+              "detected_recall": 0.9811320754716981,
+              "correct_type_recall": 0.0,
+              "top_type_accuracy": 0.0
+            },
+            "SSH-BruteForce": {
+              "support": 8000,
+              "detected_recall": 0.0,
+              "correct_type_recall": 0.0,
+              "top_type_accuracy": 0.99775
+            },
+            "DDoS": {
+              "support": 9730,
+              "detected_recall": 0.00010277492291880781,
+              "correct_type_recall": 0.0,
+              "top_type_accuracy": 0.0
+            },
+            "DoS-Hulk": {
+              "support": 8000,
+              "detected_recall": 0.000125,
+              "correct_type_recall": 0.0,
+              "top_type_accuracy": 0.00825
+            },
+            "DoS-GoldenEye": {
+              "support": 8000,
+              "detected_recall": 0.009625,
+              "correct_type_recall": 0.008625,
+              "top_type_accuracy": 0.289
+            },
+            "DoS-Slowloris": {
+              "support": 5385,
+              "detected_recall": 0.20891364902506965,
+              "correct_type_recall": 0.20872794800371403,
+              "top_type_accuracy": 0.9818012999071495
+            },
+            "DoS-SlowHTTPTest": {
+              "support": 5228,
+              "detected_recall": 0.00019127773527161438,
+              "correct_type_recall": 0.0,
+              "top_type_accuracy": 0.0
+            },
+            "Infiltration": {
+              "support": 8000,
+              "detected_recall": 0.142625,
+              "correct_type_recall": 0.142375,
+              "top_type_accuracy": 0.991375
+            },
+            "Web-BruteForce": {
+              "support": 228,
+              "detected_recall": 0.5526315789473685,
+              "correct_type_recall": 0.5526315789473685,
+              "top_type_accuracy": 0.7807017543859649
+            },
+            "Web-XSS": {
+              "support": 79,
+              "detected_recall": 0.6329113924050633,
+              "correct_type_recall": 0.6329113924050633,
+              "top_type_accuracy": 0.8987341772151899
+            },
+            "SQL-Injection": {
+              "support": 34,
+              "detected_recall": 0.29411764705882354,
+              "correct_type_recall": 0.29411764705882354,
+              "top_type_accuracy": 0.6764705882352942
+            }
+          }
+        }
+      },
+      "per_type_threshold_candidate": {
+        "thresholds": {
+          "Botnet": 0.5556030705214822,
+          "DDoS": 0.2624434266412213,
+          "DoS-GoldenEye": 0.07975162703456135,
+          "DoS-Hulk": 0.1839276785131409,
+          "DoS-SlowHTTPTest": 0.008817247020458663,
+          "DoS-Slowloris": 0.08784504073385731,
+          "FTP-BruteForce": 0.0275342797295769,
+          "Infiltration": 0.9477046184484839,
+          "SQL-Injection": 0.10669451220294943,
+          "SSH-BruteForce": 0.20681873128881048,
+          "Web-BruteForce": 0.2990403726211585,
+          "Web-XSS": 0.2168308613015791
+        },
+        "calibration_benign_fpr_union": 0.009018036072144289,
+        "heldout": {
+          "rows": 108737,
+          "benign_rows": 48000,
+          "attack_rows_in_scope": 60737,
+          "benign_false_positive_rate": 0.009416666666666667,
+          "attack_detection_recall": 0.3076378484284703,
+          "correct_type_recall_macro": 0.31146431698502514,
+          "per_attack_type": {
+            "Botnet": {
+              "support": 8000,
+              "detected_recall": 0.007125,
+              "correct_type_recall": 0.0,
+              "class_detector_recall": 0.0
+            },
+            "FTP-BruteForce": {
+              "support": 53,
+              "detected_recall": 1.0,
+              "correct_type_recall": 0.0,
+              "class_detector_recall": 0.0
+            },
+            "SSH-BruteForce": {
+              "support": 8000,
+              "detected_recall": 0.000875,
+              "correct_type_recall": 0.000125,
+              "class_detector_recall": 0.000375
+            },
+            "DDoS": {
+              "support": 9730,
+              "detected_recall": 0.678622816032888,
+              "correct_type_recall": 0.0,
+              "class_detector_recall": 0.0
+            },
+            "DoS-Hulk": {
+              "support": 8000,
+              "detected_recall": 0.057,
+              "correct_type_recall": 0.001625,
+              "class_detector_recall": 0.00175
+            },
+            "DoS-GoldenEye": {
+              "support": 8000,
+              "detected_recall": 0.395875,
+              "correct_type_recall": 0.28525,
+              "class_detector_recall": 0.287
+            },
+            "DoS-Slowloris": {
+              "support": 5385,
+              "detected_recall": 0.9968430826369545,
+              "correct_type_recall": 0.9784586815227484,
+              "class_detector_recall": 0.9938718662952646
+            },
+            "DoS-SlowHTTPTest": {
+              "support": 5228,
+              "detected_recall": 0.4519892884468248,
+              "correct_type_recall": 0.0,
+              "class_detector_recall": 0.0
+            },
+            "Infiltration": {
+              "support": 8000,
+              "detected_recall": 0.039375,
+              "correct_type_recall": 0.025375,
+              "class_detector_recall": 0.025375
+            },
+            "Web-BruteForce": {
+              "support": 228,
+              "detected_recall": 0.8421052631578947,
+              "correct_type_recall": 0.7412280701754386,
+              "class_detector_recall": 0.7543859649122807
+            },
+            "Web-XSS": {
+              "support": 79,
+              "detected_recall": 0.9367088607594937,
+              "correct_type_recall": 0.9113924050632911,
+              "class_detector_recall": 0.9113924050632911
+            },
+            "SQL-Injection": {
+              "support": 34,
+              "detected_recall": 0.8823529411764706,
+              "correct_type_recall": 0.7941176470588235,
+              "class_detector_recall": 0.8235294117647058
+            }
+          }
+        }
+      },
+      "calibration_rows": 15968,
+      "per_capture": {
+        "Botnet-Friday-02-03-2018_TrafficForML_CICFlowMeter.parquet": {
+          "shared_threshold": {
+            "rows": 16000,
+            "benign_rows": 8000,
+            "attack_rows_in_scope": 8000,
+            "benign_false_positive_rate": 0.028875,
+            "attack_detection_recall": 0.00025,
+            "correct_type_recall_macro": 0.0,
+            "per_attack_type": {
+              "Botnet": {
+                "support": 8000,
+                "detected_recall": 0.00025,
+                "correct_type_recall": 0.0,
+                "top_type_accuracy": 0.0
+              },
+              "FTP-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "SSH-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DDoS": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DoS-Hulk": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DoS-GoldenEye": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DoS-Slowloris": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DoS-SlowHTTPTest": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "Infiltration": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "Web-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "Web-XSS": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "SQL-Injection": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              }
+            }
+          },
+          "per_type_thresholds": {
+            "rows": 16000,
+            "benign_rows": 8000,
+            "attack_rows_in_scope": 8000,
+            "benign_false_positive_rate": 0.00675,
+            "attack_detection_recall": 0.007125,
+            "correct_type_recall_macro": 0.0,
+            "per_attack_type": {
+              "Botnet": {
+                "support": 8000,
+                "detected_recall": 0.007125,
+                "correct_type_recall": 0.0,
+                "class_detector_recall": 0.0
+              },
+              "FTP-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "SSH-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DDoS": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DoS-Hulk": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DoS-GoldenEye": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DoS-Slowloris": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DoS-SlowHTTPTest": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "Infiltration": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "Web-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "Web-XSS": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "SQL-Injection": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              }
+            }
+          }
+        },
+        "Bruteforce-Wednesday-14-02-2018_TrafficForML_CICFlowMeter.parquet": {
+          "shared_threshold": {
+            "rows": 16053,
+            "benign_rows": 8000,
+            "attack_rows_in_scope": 8053,
+            "benign_false_positive_rate": 0.01675,
+            "attack_detection_recall": 0.006457220911461567,
+            "correct_type_recall_macro": 0.0,
+            "per_attack_type": {
+              "Botnet": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "FTP-BruteForce": {
+                "support": 53,
+                "detected_recall": 0.9811320754716981,
+                "correct_type_recall": 0.0,
+                "top_type_accuracy": 0.0
+              },
+              "SSH-BruteForce": {
+                "support": 8000,
+                "detected_recall": 0.0,
+                "correct_type_recall": 0.0,
+                "top_type_accuracy": 0.99775
+              },
+              "DDoS": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DoS-Hulk": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DoS-GoldenEye": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DoS-Slowloris": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DoS-SlowHTTPTest": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "Infiltration": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "Web-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "Web-XSS": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "SQL-Injection": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              }
+            }
+          },
+          "per_type_thresholds": {
+            "rows": 16053,
+            "benign_rows": 8000,
+            "attack_rows_in_scope": 8053,
+            "benign_false_positive_rate": 0.005,
+            "attack_detection_recall": 0.0074506395132248856,
+            "correct_type_recall_macro": 6.25e-05,
+            "per_attack_type": {
+              "Botnet": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "FTP-BruteForce": {
+                "support": 53,
+                "detected_recall": 1.0,
+                "correct_type_recall": 0.0,
+                "class_detector_recall": 0.0
+              },
+              "SSH-BruteForce": {
+                "support": 8000,
+                "detected_recall": 0.000875,
+                "correct_type_recall": 0.000125,
+                "class_detector_recall": 0.000375
+              },
+              "DDoS": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DoS-Hulk": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DoS-GoldenEye": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DoS-Slowloris": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DoS-SlowHTTPTest": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "Infiltration": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "Web-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "Web-XSS": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "SQL-Injection": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              }
+            }
+          }
+        },
+        "DDoS2-Wednesday-21-02-2018_TrafficForML_CICFlowMeter.parquet": {
+          "shared_threshold": {
+            "rows": 17730,
+            "benign_rows": 8000,
+            "attack_rows_in_scope": 9730,
+            "benign_false_positive_rate": 0.000375,
+            "attack_detection_recall": 0.00010277492291880781,
+            "correct_type_recall_macro": 0.0,
+            "per_attack_type": {
+              "Botnet": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "FTP-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "SSH-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DDoS": {
+                "support": 9730,
+                "detected_recall": 0.00010277492291880781,
+                "correct_type_recall": 0.0,
+                "top_type_accuracy": 0.0
+              },
+              "DoS-Hulk": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DoS-GoldenEye": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DoS-Slowloris": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DoS-SlowHTTPTest": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "Infiltration": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "Web-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "Web-XSS": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "SQL-Injection": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              }
+            }
+          },
+          "per_type_thresholds": {
+            "rows": 17730,
+            "benign_rows": 8000,
+            "attack_rows_in_scope": 9730,
+            "benign_false_positive_rate": 0.000875,
+            "attack_detection_recall": 0.678622816032888,
+            "correct_type_recall_macro": 0.0,
+            "per_attack_type": {
+              "Botnet": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "FTP-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "SSH-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DDoS": {
+                "support": 9730,
+                "detected_recall": 0.678622816032888,
+                "correct_type_recall": 0.0,
+                "class_detector_recall": 0.0
+              },
+              "DoS-Hulk": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DoS-GoldenEye": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DoS-Slowloris": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DoS-SlowHTTPTest": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "Infiltration": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "Web-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "Web-XSS": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "SQL-Injection": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              }
+            }
+          }
+        },
+        "DoS-Wednesday-no-metadata.parquet": {
+          "shared_threshold": {
+            "rows": 34613,
+            "benign_rows": 8000,
+            "attack_rows_in_scope": 26613,
+            "benign_false_positive_rate": 0.000125,
+            "attack_detection_recall": 0.04524104760831173,
+            "correct_type_recall_macro": 0.054338237000928505,
+            "per_attack_type": {
+              "Botnet": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "FTP-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "SSH-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DDoS": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DoS-Hulk": {
+                "support": 8000,
+                "detected_recall": 0.000125,
+                "correct_type_recall": 0.0,
+                "top_type_accuracy": 0.00825
+              },
+              "DoS-GoldenEye": {
+                "support": 8000,
+                "detected_recall": 0.009625,
+                "correct_type_recall": 0.008625,
+                "top_type_accuracy": 0.289
+              },
+              "DoS-Slowloris": {
+                "support": 5385,
+                "detected_recall": 0.20891364902506965,
+                "correct_type_recall": 0.20872794800371403,
+                "top_type_accuracy": 0.9818012999071495
+              },
+              "DoS-SlowHTTPTest": {
+                "support": 5228,
+                "detected_recall": 0.00019127773527161438,
+                "correct_type_recall": 0.0,
+                "top_type_accuracy": 0.0
+              },
+              "Infiltration": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "Web-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "Web-XSS": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "SQL-Injection": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              }
+            }
+          },
+          "per_type_thresholds": {
+            "rows": 34613,
+            "benign_rows": 8000,
+            "attack_rows_in_scope": 26613,
+            "benign_false_positive_rate": 0.012,
+            "attack_detection_recall": 0.426633600120242,
+            "correct_type_recall_macro": 0.3163334203806871,
+            "per_attack_type": {
+              "Botnet": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "FTP-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "SSH-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DDoS": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DoS-Hulk": {
+                "support": 8000,
+                "detected_recall": 0.057,
+                "correct_type_recall": 0.001625,
+                "class_detector_recall": 0.00175
+              },
+              "DoS-GoldenEye": {
+                "support": 8000,
+                "detected_recall": 0.395875,
+                "correct_type_recall": 0.28525,
+                "class_detector_recall": 0.287
+              },
+              "DoS-Slowloris": {
+                "support": 5385,
+                "detected_recall": 0.9968430826369545,
+                "correct_type_recall": 0.9784586815227484,
+                "class_detector_recall": 0.9938718662952646
+              },
+              "DoS-SlowHTTPTest": {
+                "support": 5228,
+                "detected_recall": 0.4519892884468248,
+                "correct_type_recall": 0.0,
+                "class_detector_recall": 0.0
+              },
+              "Infiltration": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "Web-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "Web-XSS": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "SQL-Injection": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              }
+            }
+          }
+        },
+        "Infil2-Thursday-01-03-2018_TrafficForML_CICFlowMeter.parquet": {
+          "shared_threshold": {
+            "rows": 16000,
+            "benign_rows": 8000,
+            "attack_rows_in_scope": 8000,
+            "benign_false_positive_rate": 0.104125,
+            "attack_detection_recall": 0.142625,
+            "correct_type_recall_macro": 0.142375,
+            "per_attack_type": {
+              "Botnet": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "FTP-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "SSH-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DDoS": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DoS-Hulk": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DoS-GoldenEye": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DoS-Slowloris": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DoS-SlowHTTPTest": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "Infiltration": {
+                "support": 8000,
+                "detected_recall": 0.142625,
+                "correct_type_recall": 0.142375,
+                "top_type_accuracy": 0.991375
+              },
+              "Web-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "Web-XSS": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "SQL-Injection": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              }
+            }
+          },
+          "per_type_thresholds": {
+            "rows": 16000,
+            "benign_rows": 8000,
+            "attack_rows_in_scope": 8000,
+            "benign_false_positive_rate": 0.0255,
+            "attack_detection_recall": 0.039375,
+            "correct_type_recall_macro": 0.025375,
+            "per_attack_type": {
+              "Botnet": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "FTP-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "SSH-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DDoS": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DoS-Hulk": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DoS-GoldenEye": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DoS-Slowloris": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DoS-SlowHTTPTest": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "Infiltration": {
+                "support": 8000,
+                "detected_recall": 0.039375,
+                "correct_type_recall": 0.025375,
+                "class_detector_recall": 0.025375
+              },
+              "Web-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "Web-XSS": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "SQL-Injection": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              }
+            }
+          }
+        },
+        "Web1-Thursday-22-02-2018_TrafficForML_CICFlowMeter.parquet": {
+          "shared_threshold": {
+            "rows": 8341,
+            "benign_rows": 8000,
+            "attack_rows_in_scope": 341,
+            "benign_false_positive_rate": 0.01375,
+            "attack_detection_recall": 0.5454545454545454,
+            "correct_type_recall_macro": 0.4932202061370851,
+            "per_attack_type": {
+              "Botnet": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "FTP-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "SSH-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DDoS": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DoS-Hulk": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DoS-GoldenEye": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DoS-Slowloris": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DoS-SlowHTTPTest": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "Infiltration": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "Web-BruteForce": {
+                "support": 228,
+                "detected_recall": 0.5526315789473685,
+                "correct_type_recall": 0.5526315789473685,
+                "top_type_accuracy": 0.7807017543859649
+              },
+              "Web-XSS": {
+                "support": 79,
+                "detected_recall": 0.6329113924050633,
+                "correct_type_recall": 0.6329113924050633,
+                "top_type_accuracy": 0.8987341772151899
+              },
+              "SQL-Injection": {
+                "support": 34,
+                "detected_recall": 0.29411764705882354,
+                "correct_type_recall": 0.29411764705882354,
+                "top_type_accuracy": 0.6764705882352942
+              }
+            }
+          },
+          "per_type_thresholds": {
+            "rows": 8341,
+            "benign_rows": 8000,
+            "attack_rows_in_scope": 341,
+            "benign_false_positive_rate": 0.006375,
+            "attack_detection_recall": 0.8680351906158358,
+            "correct_type_recall_macro": 0.8155793740991845,
+            "per_attack_type": {
+              "Botnet": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "FTP-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "SSH-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DDoS": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DoS-Hulk": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DoS-GoldenEye": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DoS-Slowloris": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DoS-SlowHTTPTest": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "Infiltration": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "Web-BruteForce": {
+                "support": 228,
+                "detected_recall": 0.8421052631578947,
+                "correct_type_recall": 0.7412280701754386,
+                "class_detector_recall": 0.7543859649122807
+              },
+              "Web-XSS": {
+                "support": 79,
+                "detected_recall": 0.9367088607594937,
+                "correct_type_recall": 0.9113924050632911,
+                "class_detector_recall": 0.9113924050632911
+              },
+              "SQL-Injection": {
+                "support": 34,
+                "detected_recall": 0.8823529411764706,
+                "correct_type_recall": 0.7941176470588235,
+                "class_detector_recall": 0.8235294117647058
+              }
+            }
+          }
+        }
+      },
+      "decision": "IMPROVE",
+      "failures": [
+        "Botnet correct-type recall below 80% or unobserved",
+        "FTP-BruteForce correct-type recall below 80% or unobserved",
+        "SSH-BruteForce correct-type recall below 80% or unobserved",
+        "DDoS correct-type recall below 80% or unobserved",
+        "DoS-Hulk correct-type recall below 80% or unobserved",
+        "DoS-GoldenEye correct-type recall below 80% or unobserved",
+        "DoS-SlowHTTPTest correct-type recall below 80% or unobserved",
+        "Infiltration correct-type recall below 80% or unobserved",
+        "Web-BruteForce correct-type recall below 80% or unobserved",
+        "SQL-Injection correct-type recall below 80% or unobserved"
+      ]
+    },
+    "xgboost": {
+      "shared_threshold_baseline": {
+        "threshold": 0.8915274143218995,
+        "calibration_benign_fpr": 0.009957414829659318,
+        "heldout": {
+          "rows": 108737,
+          "benign_rows": 48000,
+          "attack_rows_in_scope": 60737,
+          "benign_false_positive_rate": 0.03722916666666667,
+          "attack_detection_recall": 0.3074732041424502,
+          "correct_type_recall_macro": 0.3249692549396948,
+          "per_attack_type": {
+            "Botnet": {
+              "support": 8000,
+              "detected_recall": 0.0015,
+              "correct_type_recall": 0.0,
+              "top_type_accuracy": 0.0
+            },
+            "FTP-BruteForce": {
+              "support": 53,
+              "detected_recall": 1.0,
+              "correct_type_recall": 0.0,
+              "top_type_accuracy": 0.0
+            },
+            "SSH-BruteForce": {
+              "support": 8000,
+              "detected_recall": 0.997,
+              "correct_type_recall": 0.996875,
+              "top_type_accuracy": 0.997125
+            },
+            "DDoS": {
+              "support": 9730,
+              "detected_recall": 0.6734840698869475,
+              "correct_type_recall": 0.0,
+              "top_type_accuracy": 0.0
+            },
+            "DoS-Hulk": {
+              "support": 8000,
+              "detected_recall": 0.076125,
+              "correct_type_recall": 0.075875,
+              "top_type_accuracy": 0.318625
+            },
+            "DoS-GoldenEye": {
+              "support": 8000,
+              "detected_recall": 0.012625,
+              "correct_type_recall": 0.00075,
+              "top_type_accuracy": 0.275
+            },
+            "DoS-Slowloris": {
+              "support": 5385,
+              "detected_recall": 0.2139275766016713,
+              "correct_type_recall": 0.2135561745589601,
+              "top_type_accuracy": 0.6657381615598886
+            },
+            "DoS-SlowHTTPTest": {
+              "support": 5228,
+              "detected_recall": 0.0279265493496557,
+              "correct_type_recall": 0.0,
+              "top_type_accuracy": 0.0
+            },
+            "Infiltration": {
+              "support": 8000,
+              "detected_recall": 0.221875,
+              "correct_type_recall": 0.22,
+              "top_type_accuracy": 0.996125
+            },
+            "Web-BruteForce": {
+              "support": 228,
+              "detected_recall": 0.8859649122807017,
+              "correct_type_recall": 0.8508771929824561,
+              "top_type_accuracy": 0.9078947368421053
+            },
+            "Web-XSS": {
+              "support": 79,
+              "detected_recall": 0.9240506329113924,
+              "correct_type_recall": 0.9240506329113924,
+              "top_type_accuracy": 0.9620253164556962
+            },
+            "SQL-Injection": {
+              "support": 34,
+              "detected_recall": 0.6764705882352942,
+              "correct_type_recall": 0.6176470588235294,
+              "top_type_accuracy": 0.7647058823529411
+            }
+          }
+        }
+      },
+      "per_type_threshold_candidate": {
+        "thresholds": {
+          "Botnet": 0.4304288029670716,
+          "DDoS": 0.15862539410591128,
+          "DoS-GoldenEye": 0.0036488033365458254,
+          "DoS-Hulk": 0.017901536077260975,
+          "DoS-SlowHTTPTest": 0.00020141480490565303,
+          "DoS-Slowloris": 0.007626637350767852,
+          "FTP-BruteForce": 0.0041514215990901,
+          "Infiltration": 0.929797112941742,
+          "SQL-Injection": 0.058960910886526115,
+          "SSH-BruteForce": 0.012375733815133573,
+          "Web-BruteForce": 0.7898600101470948,
+          "Web-XSS": 0.13710978627204898
+        },
+        "calibration_benign_fpr_union": 0.009143286573146293,
+        "heldout": {
+          "rows": 108737,
+          "benign_rows": 48000,
+          "attack_rows_in_scope": 60737,
+          "benign_false_positive_rate": 0.014395833333333333,
+          "attack_detection_recall": 0.545960452442498,
+          "correct_type_recall_macro": 0.44150693867970997,
+          "per_attack_type": {
+            "Botnet": {
+              "support": 8000,
+              "detected_recall": 0.005625,
+              "correct_type_recall": 0.0,
+              "class_detector_recall": 0.0
+            },
+            "FTP-BruteForce": {
+              "support": 53,
+              "detected_recall": 1.0,
+              "correct_type_recall": 0.0,
+              "class_detector_recall": 0.0
+            },
+            "SSH-BruteForce": {
+              "support": 8000,
+              "detected_recall": 1.0,
+              "correct_type_recall": 0.997125,
+              "class_detector_recall": 0.997125
+            },
+            "DDoS": {
+              "support": 9730,
+              "detected_recall": 0.6757451181911613,
+              "correct_type_recall": 0.0,
+              "class_detector_recall": 0.0
+            },
+            "DoS-Hulk": {
+              "support": 8000,
+              "detected_recall": 0.55125,
+              "correct_type_recall": 0.33925,
+              "class_detector_recall": 0.346125
+            },
+            "DoS-GoldenEye": {
+              "support": 8000,
+              "detected_recall": 0.686125,
+              "correct_type_recall": 0.27575,
+              "class_detector_recall": 0.296875
+            },
+            "DoS-Slowloris": {
+              "support": 5385,
+              "detected_recall": 0.9983286908077994,
+              "correct_type_recall": 0.9530176415970287,
+              "class_detector_recall": 0.9938718662952646
+            },
+            "DoS-SlowHTTPTest": {
+              "support": 5228,
+              "detected_recall": 0.4225325172149962,
+              "correct_type_recall": 0.009755164498852333,
+              "class_detector_recall": 0.05202754399387911
+            },
+            "Infiltration": {
+              "support": 8000,
+              "detected_recall": 0.083625,
+              "correct_type_recall": 0.07,
+              "class_detector_recall": 0.07
+            },
+            "Web-BruteForce": {
+              "support": 228,
+              "detected_recall": 0.9692982456140351,
+              "correct_type_recall": 0.8508771929824561,
+              "class_detector_recall": 0.868421052631579
+            },
+            "Web-XSS": {
+              "support": 79,
+              "detected_recall": 1.0,
+              "correct_type_recall": 0.9493670886075949,
+              "class_detector_recall": 0.9620253164556962
+            },
+            "SQL-Injection": {
+              "support": 34,
+              "detected_recall": 1.0,
+              "correct_type_recall": 0.8529411764705882,
+              "class_detector_recall": 0.9117647058823529
+            }
+          }
+        }
+      },
+      "calibration_rows": 15968,
+      "per_capture": {
+        "Botnet-Friday-02-03-2018_TrafficForML_CICFlowMeter.parquet": {
+          "shared_threshold": {
+            "rows": 16000,
+            "benign_rows": 8000,
+            "attack_rows_in_scope": 8000,
+            "benign_false_positive_rate": 0.032125,
+            "attack_detection_recall": 0.0015,
+            "correct_type_recall_macro": 0.0,
+            "per_attack_type": {
+              "Botnet": {
+                "support": 8000,
+                "detected_recall": 0.0015,
+                "correct_type_recall": 0.0,
+                "top_type_accuracy": 0.0
+              },
+              "FTP-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "SSH-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DDoS": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DoS-Hulk": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DoS-GoldenEye": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DoS-Slowloris": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DoS-SlowHTTPTest": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "Infiltration": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "Web-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "Web-XSS": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "SQL-Injection": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              }
+            }
+          },
+          "per_type_thresholds": {
+            "rows": 16000,
+            "benign_rows": 8000,
+            "attack_rows_in_scope": 8000,
+            "benign_false_positive_rate": 0.004875,
+            "attack_detection_recall": 0.005625,
+            "correct_type_recall_macro": 0.0,
+            "per_attack_type": {
+              "Botnet": {
+                "support": 8000,
+                "detected_recall": 0.005625,
+                "correct_type_recall": 0.0,
+                "class_detector_recall": 0.0
+              },
+              "FTP-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "SSH-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DDoS": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DoS-Hulk": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DoS-GoldenEye": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DoS-Slowloris": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DoS-SlowHTTPTest": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "Infiltration": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "Web-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "Web-XSS": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "SQL-Injection": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              }
+            }
+          }
+        },
+        "Bruteforce-Wednesday-14-02-2018_TrafficForML_CICFlowMeter.parquet": {
+          "shared_threshold": {
+            "rows": 16053,
+            "benign_rows": 8000,
+            "attack_rows_in_scope": 8053,
+            "benign_false_positive_rate": 0.015375,
+            "attack_detection_recall": 0.9970197441947101,
+            "correct_type_recall_macro": 0.4984375,
+            "per_attack_type": {
+              "Botnet": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "FTP-BruteForce": {
+                "support": 53,
+                "detected_recall": 1.0,
+                "correct_type_recall": 0.0,
+                "top_type_accuracy": 0.0
+              },
+              "SSH-BruteForce": {
+                "support": 8000,
+                "detected_recall": 0.997,
+                "correct_type_recall": 0.996875,
+                "top_type_accuracy": 0.997125
+              },
+              "DDoS": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DoS-Hulk": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DoS-GoldenEye": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DoS-Slowloris": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DoS-SlowHTTPTest": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "Infiltration": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "Web-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "Web-XSS": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "SQL-Injection": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              }
+            }
+          },
+          "per_type_thresholds": {
+            "rows": 16053,
+            "benign_rows": 8000,
+            "attack_rows_in_scope": 8053,
+            "benign_false_positive_rate": 0.007125,
+            "attack_detection_recall": 1.0,
+            "correct_type_recall_macro": 0.4985625,
+            "per_attack_type": {
+              "Botnet": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "FTP-BruteForce": {
+                "support": 53,
+                "detected_recall": 1.0,
+                "correct_type_recall": 0.0,
+                "class_detector_recall": 0.0
+              },
+              "SSH-BruteForce": {
+                "support": 8000,
+                "detected_recall": 1.0,
+                "correct_type_recall": 0.997125,
+                "class_detector_recall": 0.997125
+              },
+              "DDoS": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DoS-Hulk": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DoS-GoldenEye": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DoS-Slowloris": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DoS-SlowHTTPTest": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "Infiltration": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "Web-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "Web-XSS": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "SQL-Injection": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              }
+            }
+          }
+        },
+        "DDoS2-Wednesday-21-02-2018_TrafficForML_CICFlowMeter.parquet": {
+          "shared_threshold": {
+            "rows": 17730,
+            "benign_rows": 8000,
+            "attack_rows_in_scope": 9730,
+            "benign_false_positive_rate": 0.0015,
+            "attack_detection_recall": 0.6734840698869475,
+            "correct_type_recall_macro": 0.0,
+            "per_attack_type": {
+              "Botnet": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "FTP-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "SSH-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DDoS": {
+                "support": 9730,
+                "detected_recall": 0.6734840698869475,
+                "correct_type_recall": 0.0,
+                "top_type_accuracy": 0.0
+              },
+              "DoS-Hulk": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DoS-GoldenEye": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DoS-Slowloris": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DoS-SlowHTTPTest": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "Infiltration": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "Web-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "Web-XSS": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "SQL-Injection": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              }
+            }
+          },
+          "per_type_thresholds": {
+            "rows": 17730,
+            "benign_rows": 8000,
+            "attack_rows_in_scope": 9730,
+            "benign_false_positive_rate": 0.00125,
+            "attack_detection_recall": 0.6757451181911613,
+            "correct_type_recall_macro": 0.0,
+            "per_attack_type": {
+              "Botnet": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "FTP-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "SSH-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DDoS": {
+                "support": 9730,
+                "detected_recall": 0.6757451181911613,
+                "correct_type_recall": 0.0,
+                "class_detector_recall": 0.0
+              },
+              "DoS-Hulk": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DoS-GoldenEye": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DoS-Slowloris": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DoS-SlowHTTPTest": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "Infiltration": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "Web-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "Web-XSS": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "SQL-Injection": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              }
+            }
+          }
+        },
+        "DoS-Wednesday-no-metadata.parquet": {
+          "shared_threshold": {
+            "rows": 34613,
+            "benign_rows": 8000,
+            "attack_rows_in_scope": 26613,
+            "benign_false_positive_rate": 0.00075,
+            "attack_detection_recall": 0.07545184684176906,
+            "correct_type_recall_macro": 0.07254529363974002,
+            "per_attack_type": {
+              "Botnet": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "FTP-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "SSH-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DDoS": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DoS-Hulk": {
+                "support": 8000,
+                "detected_recall": 0.076125,
+                "correct_type_recall": 0.075875,
+                "top_type_accuracy": 0.318625
+              },
+              "DoS-GoldenEye": {
+                "support": 8000,
+                "detected_recall": 0.012625,
+                "correct_type_recall": 0.00075,
+                "top_type_accuracy": 0.275
+              },
+              "DoS-Slowloris": {
+                "support": 5385,
+                "detected_recall": 0.2139275766016713,
+                "correct_type_recall": 0.2135561745589601,
+                "top_type_accuracy": 0.6657381615598886
+              },
+              "DoS-SlowHTTPTest": {
+                "support": 5228,
+                "detected_recall": 0.0279265493496557,
+                "correct_type_recall": 0.0,
+                "top_type_accuracy": 0.0
+              },
+              "Infiltration": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "Web-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "Web-XSS": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "SQL-Injection": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              }
+            }
+          },
+          "per_type_thresholds": {
+            "rows": 34613,
+            "benign_rows": 8000,
+            "attack_rows_in_scope": 26613,
+            "benign_false_positive_rate": 0.0135,
+            "attack_detection_recall": 0.6569721564648856,
+            "correct_type_recall_macro": 0.3944432015239702,
+            "per_attack_type": {
+              "Botnet": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "FTP-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "SSH-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DDoS": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DoS-Hulk": {
+                "support": 8000,
+                "detected_recall": 0.55125,
+                "correct_type_recall": 0.33925,
+                "class_detector_recall": 0.346125
+              },
+              "DoS-GoldenEye": {
+                "support": 8000,
+                "detected_recall": 0.686125,
+                "correct_type_recall": 0.27575,
+                "class_detector_recall": 0.296875
+              },
+              "DoS-Slowloris": {
+                "support": 5385,
+                "detected_recall": 0.9983286908077994,
+                "correct_type_recall": 0.9530176415970287,
+                "class_detector_recall": 0.9938718662952646
+              },
+              "DoS-SlowHTTPTest": {
+                "support": 5228,
+                "detected_recall": 0.4225325172149962,
+                "correct_type_recall": 0.009755164498852333,
+                "class_detector_recall": 0.05202754399387911
+              },
+              "Infiltration": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "Web-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "Web-XSS": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "SQL-Injection": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              }
+            }
+          }
+        },
+        "Infil2-Thursday-01-03-2018_TrafficForML_CICFlowMeter.parquet": {
+          "shared_threshold": {
+            "rows": 16000,
+            "benign_rows": 8000,
+            "attack_rows_in_scope": 8000,
+            "benign_false_positive_rate": 0.1615,
+            "attack_detection_recall": 0.221875,
+            "correct_type_recall_macro": 0.22,
+            "per_attack_type": {
+              "Botnet": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "FTP-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "SSH-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DDoS": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DoS-Hulk": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DoS-GoldenEye": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DoS-Slowloris": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DoS-SlowHTTPTest": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "Infiltration": {
+                "support": 8000,
+                "detected_recall": 0.221875,
+                "correct_type_recall": 0.22,
+                "top_type_accuracy": 0.996125
+              },
+              "Web-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "Web-XSS": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "SQL-Injection": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              }
+            }
+          },
+          "per_type_thresholds": {
+            "rows": 16000,
+            "benign_rows": 8000,
+            "attack_rows_in_scope": 8000,
+            "benign_false_positive_rate": 0.05225,
+            "attack_detection_recall": 0.083625,
+            "correct_type_recall_macro": 0.07,
+            "per_attack_type": {
+              "Botnet": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "FTP-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "SSH-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DDoS": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DoS-Hulk": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DoS-GoldenEye": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DoS-Slowloris": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DoS-SlowHTTPTest": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "Infiltration": {
+                "support": 8000,
+                "detected_recall": 0.083625,
+                "correct_type_recall": 0.07,
+                "class_detector_recall": 0.07
+              },
+              "Web-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "Web-XSS": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "SQL-Injection": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              }
+            }
+          }
+        },
+        "Web1-Thursday-22-02-2018_TrafficForML_CICFlowMeter.parquet": {
+          "shared_threshold": {
+            "rows": 8341,
+            "benign_rows": 8000,
+            "attack_rows_in_scope": 341,
+            "benign_false_positive_rate": 0.012125,
+            "attack_detection_recall": 0.873900293255132,
+            "correct_type_recall_macro": 0.7975249615724594,
+            "per_attack_type": {
+              "Botnet": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "FTP-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "SSH-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DDoS": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DoS-Hulk": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DoS-GoldenEye": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DoS-Slowloris": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "DoS-SlowHTTPTest": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "Infiltration": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "top_type_accuracy": null
+              },
+              "Web-BruteForce": {
+                "support": 228,
+                "detected_recall": 0.8859649122807017,
+                "correct_type_recall": 0.8508771929824561,
+                "top_type_accuracy": 0.9078947368421053
+              },
+              "Web-XSS": {
+                "support": 79,
+                "detected_recall": 0.9240506329113924,
+                "correct_type_recall": 0.9240506329113924,
+                "top_type_accuracy": 0.9620253164556962
+              },
+              "SQL-Injection": {
+                "support": 34,
+                "detected_recall": 0.6764705882352942,
+                "correct_type_recall": 0.6176470588235294,
+                "top_type_accuracy": 0.7647058823529411
+              }
+            }
+          },
+          "per_type_thresholds": {
+            "rows": 8341,
+            "benign_rows": 8000,
+            "attack_rows_in_scope": 341,
+            "benign_false_positive_rate": 0.007375,
+            "attack_detection_recall": 0.9794721407624634,
+            "correct_type_recall_macro": 0.8843951526868797,
+            "per_attack_type": {
+              "Botnet": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "FTP-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "SSH-BruteForce": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DDoS": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DoS-Hulk": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DoS-GoldenEye": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DoS-Slowloris": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "DoS-SlowHTTPTest": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "Infiltration": {
+                "support": 0,
+                "detected_recall": null,
+                "correct_type_recall": null,
+                "class_detector_recall": null
+              },
+              "Web-BruteForce": {
+                "support": 228,
+                "detected_recall": 0.9692982456140351,
+                "correct_type_recall": 0.8508771929824561,
+                "class_detector_recall": 0.868421052631579
+              },
+              "Web-XSS": {
+                "support": 79,
+                "detected_recall": 1.0,
+                "correct_type_recall": 0.9493670886075949,
+                "class_detector_recall": 0.9620253164556962
+              },
+              "SQL-Injection": {
+                "support": 34,
+                "detected_recall": 1.0,
+                "correct_type_recall": 0.8529411764705882,
+                "class_detector_recall": 0.9117647058823529
+              }
+            }
+          }
+        }
+      },
+      "decision": "IMPROVE",
+      "failures": [
+        "held-out benign false-positive rate exceeds 1%",
+        "Botnet correct-type recall below 80% or unobserved",
+        "FTP-BruteForce correct-type recall below 80% or unobserved",
+        "DDoS correct-type recall below 80% or unobserved",
+        "DoS-Hulk correct-type recall below 80% or unobserved",
+        "DoS-GoldenEye correct-type recall below 80% or unobserved",
+        "DoS-SlowHTTPTest correct-type recall below 80% or unobserved",
+        "Infiltration correct-type recall below 80% or unobserved"
+      ]
+    }
+  },
+  "limitations": [
+    "This is cross-dataset evaluation: CICIDS2017 training and CSE-CIC-IDS2018 calibration/test captures.",
+    "The evaluation can show whether these 12 labels transfer; it cannot guarantee detection of every real-world attack.",
+    "PortScan and Heartbleed are not counted toward the 12-type target because there is no adequate held-out 2018 support.",
+    "Models are in-memory research candidates only and do not replace active production artifacts."
+  ]
+}

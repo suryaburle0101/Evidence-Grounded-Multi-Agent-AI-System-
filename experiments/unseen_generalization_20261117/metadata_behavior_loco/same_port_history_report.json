@@ -1,0 +1,38 @@
+{
+  "history_features": [
+    "behavior_prior_same_dst_port_flows_60s",
+    "behavior_prior_same_dst_port_flows_300s"
+  ],
+  "capture_count": 17,
+  "attack_bearing_captures": 15,
+  "raw_77": {
+    "mean_attack_recall": 0.22907771931432672,
+    "pooled_attack_recall": 0.20034214906602552,
+    "mean_capture_fpr": 0.023565741632840115,
+    "pooled_fpr": 0.02368624650360051,
+    "worst_capture_fpr": 0.1392532795156407,
+    "mean_pr_auc": 0.7474729560165677,
+    "mean_correct_type_recall": 0.13573004571895017
+  },
+  "same_port_history": {
+    "mean_attack_recall": 0.2409698104857691,
+    "pooled_attack_recall": 0.19729054928796005,
+    "mean_capture_fpr": 0.02004626376854271,
+    "pooled_fpr": 0.02011545557340951,
+    "worst_capture_fpr": 0.12650602409638553,
+    "mean_pr_auc": 0.7421220004281724,
+    "mean_correct_type_recall": 0.10327434310221953
+  },
+  "paired_recall_difference": {
+    "mean": 0.011892091171442402,
+    "capture_bootstrap_95ci": [
+      -0.09642781574145683,
+      0.10384561844414272
+    ]
+  },
+  "limitations": [
+    "One seed and 1,000-row cap; exploratory only.",
+    "No source IP fields are present in official CSE processed CSVs.",
+    "No production models or thresholds were changed."
+  ]
+}

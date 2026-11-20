@@ -1,0 +1,6 @@
+family,remaining_need
+Botnet,More independent Botnet scenarios and benign captures; CTU-13 could help only after schema harmonization and capture-level labeling.
+Brute_force,"Independent FTP, SSH, and Web-BruteForce sessions; specifically add SSH captures and separate the three brute-force modalities."
+DoS_DDoS,"More held-out DDoS and each named DoS subtype across varied days; CIC-DDoS2019 can add DDoS, but not the CIC DoS subtypes without compatible labels/features."
+Infiltration,Multiple independent Infiltration scenarios plus varied benign network captures; current recall is near zero.
+Web_attack,More independent SQL-Injection and Web-XSS captures; present SQL support is especially small.

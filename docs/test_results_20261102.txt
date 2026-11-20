@@ -1,0 +1,8 @@
+Project test run
+Date: 2026-11-02
+Command: .\.venv\Scripts\python.exe -m unittest discover -s test
+Result: 72 tests passed
+Elapsed: 130.497 seconds
+Status: OK
+
+Known warnings: upstream Starlette/httpx TestClient deprecation notice and SciPy L-BFGS-B disp/iprint deprecation notice. Tests also emit expected application log entries for rejected unauthenticated requests and a sensitive-error handling case.

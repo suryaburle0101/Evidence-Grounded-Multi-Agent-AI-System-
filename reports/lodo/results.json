@@ -1,0 +1,2034 @@
+{
+  "schema": "lodo-evaluation-v1",
+  "git_commit": "5b929ca",
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "features": [
+    "duration_s",
+    "fwd_packets",
+    "bwd_packets",
+    "fwd_bytes",
+    "bwd_bytes",
+    "fwd_mean_bytes",
+    "bwd_mean_bytes",
+    "packets_per_second",
+    "protocol_tcp",
+    "protocol_udp",
+    "protocol_icmp"
+  ],
+  "train_cap_per_dataset": 50000,
+  "heldout_cap_per_capture": 10000,
+  "validation": "15% stratified split from training datasets only",
+  "duplicate_policy": "remove feature-vector overlaps from train when present in held-out test",
+  "confidence_intervals": "95% percentile bootstrap over capture files; not flow-level",
+  "excluded_dataset": {
+    "name": "CIC_IDS_Collection",
+    "reason": "Full audit reports 57 of 77 production features; no compatible shared-feature mapping is defined for this capture. Evidence: reports/dataset_audit/audit.json."
+  },
+  "production_comparison_limitation": "Active production models require 77 CICIDS features; this LODO mapping uses 11 shared features. A same-row comparison cannot be computed without inventing omitted values.",
+  "captures": {
+    "CICIDS2017": [
+      {
+        "dataset": "CICIDS2017",
+        "file": "data\\raw\\CICIDS2017\\Benign-Monday-no-metadata.parquet",
+        "rows_used": 8680,
+        "benign": 8680,
+        "attack": 0
+      },
+      {
+        "dataset": "CICIDS2017",
+        "file": "data\\raw\\CICIDS2017\\Botnet-Friday-no-metadata.parquet",
+        "rows_used": 8682,
+        "benign": 8608,
+        "attack": 74
+      },
+      {
+        "dataset": "CICIDS2017",
+        "file": "data\\raw\\CICIDS2017\\Bruteforce-Tuesday-no-metadata.parquet",
+        "rows_used": 8623,
+        "benign": 8403,
+        "attack": 220
+      },
+      {
+        "dataset": "CICIDS2017",
+        "file": "data\\raw\\CICIDS2017\\DDoS-Friday-no-metadata.parquet",
+        "rows_used": 7485,
+        "benign": 3863,
+        "attack": 3622
+      },
+      {
+        "dataset": "CICIDS2017",
+        "file": "data\\raw\\CICIDS2017\\DoS-Wednesday-no-metadata.parquet",
+        "rows_used": 8959,
+        "benign": 5919,
+        "attack": 3040
+      },
+      {
+        "dataset": "CICIDS2017",
+        "file": "data\\raw\\CICIDS2017\\Infiltration-Thursday-no-metadata.parquet",
+        "rows_used": 8446,
+        "benign": 8413,
+        "attack": 33
+      },
+      {
+        "dataset": "CICIDS2017",
+        "file": "data\\raw\\CICIDS2017\\Portscan-Friday-no-metadata.parquet",
+        "rows_used": 8513,
+        "benign": 8363,
+        "attack": 150
+      },
+      {
+        "dataset": "CICIDS2017",
+        "file": "data\\raw\\CICIDS2017\\WebAttacks-Thursday-no-metadata.parquet",
+        "rows_used": 8586,
+        "benign": 8452,
+        "attack": 134
+      }
+    ],
+    "CSE-CIC-IDS2018": [
+      {
+        "dataset": "CSE-CIC-IDS2018",
+        "file": "data\\raw\\CSE_CIC_IDS2018\\Botnet-Friday-02-03-2018_TrafficForML_CICFlowMeter.parquet",
+        "rows_used": 8072,
+        "benign": 6594,
+        "attack": 1478
+      },
+      {
+        "dataset": "CSE-CIC-IDS2018",
+        "file": "data\\raw\\CSE_CIC_IDS2018\\Bruteforce-Wednesday-14-02-2018_TrafficForML_CICFlowMeter.parquet",
+        "rows_used": 8544,
+        "benign": 6940,
+        "attack": 1604
+      },
+      {
+        "dataset": "CSE-CIC-IDS2018",
+        "file": "data\\raw\\CSE_CIC_IDS2018\\DDoS1-Tuesday-20-02-2018_TrafficForML_CICFlowMeter.parquet",
+        "rows_used": 6261,
+        "benign": 3208,
+        "attack": 3053
+      },
+      {
+        "dataset": "CSE-CIC-IDS2018",
+        "file": "data\\raw\\CSE_CIC_IDS2018\\DDoS2-Wednesday-21-02-2018_TrafficForML_CICFlowMeter.parquet",
+        "rows_used": 8944,
+        "benign": 6129,
+        "attack": 2815
+      },
+      {
+        "dataset": "CSE-CIC-IDS2018",
+        "file": "data\\raw\\CSE_CIC_IDS2018\\DoS1-Thursday-15-02-2018_TrafficForML_CICFlowMeter.parquet",
+        "rows_used": 8118,
+        "benign": 7696,
+        "attack": 422
+      },
+      {
+        "dataset": "CSE-CIC-IDS2018",
+        "file": "data\\raw\\CSE_CIC_IDS2018\\DoS2-Friday-16-02-2018_TrafficForML_CICFlowMeter.parquet",
+        "rows_used": 7969,
+        "benign": 7475,
+        "attack": 494
+      },
+      {
+        "dataset": "CSE-CIC-IDS2018",
+        "file": "data\\raw\\CSE_CIC_IDS2018\\Infil1-Wednesday-28-02-2018_TrafficForML_CICFlowMeter.parquet",
+        "rows_used": 8361,
+        "benign": 7337,
+        "attack": 1024
+      },
+      {
+        "dataset": "CSE-CIC-IDS2018",
+        "file": "data\\raw\\CSE_CIC_IDS2018\\Infil2-Thursday-01-03-2018_TrafficForML_CICFlowMeter.parquet",
+        "rows_used": 8328,
+        "benign": 6218,
+        "attack": 2110
+      },
+      {
+        "dataset": "CSE-CIC-IDS2018",
+        "file": "data\\raw\\CSE_CIC_IDS2018\\Web1-Thursday-22-02-2018_TrafficForML_CICFlowMeter.parquet",
+        "rows_used": 7545,
+        "benign": 7338,
+        "attack": 207
+      },
+      {
+        "dataset": "CSE-CIC-IDS2018",
+        "file": "data\\raw\\CSE_CIC_IDS2018\\Web2-Friday-23-02-2018_TrafficForML_CICFlowMeter.parquet",
+        "rows_used": 7372,
+        "benign": 7136,
+        "attack": 236
+      }
+    ],
+    "UNSW-NB15": [
+      {
+        "dataset": "UNSW-NB15",
+        "file": "data\\raw\\UNSW_NB15\\UNSW-NB15_1.csv",
+        "rows_used": 8296,
+        "benign": 8163,
+        "attack": 133
+      },
+      {
+        "dataset": "UNSW-NB15",
+        "file": "data\\raw\\UNSW_NB15\\UNSW-NB15_2.csv",
+        "rows_used": 7748,
+        "benign": 7579,
+        "attack": 169
+      },
+      {
+        "dataset": "UNSW-NB15",
+        "file": "data\\raw\\UNSW_NB15\\UNSW-NB15_3.csv",
+        "rows_used": 5700,
+        "benign": 5374,
+        "attack": 326
+      },
+      {
+        "dataset": "UNSW-NB15",
+        "file": "data\\raw\\UNSW_NB15\\UNSW-NB15_4.csv",
+        "rows_used": 5853,
+        "benign": 5553,
+        "attack": 300
+      }
+    ]
+  },
+  "results": [
+    {
+      "held_out_dataset": "CICIDS2017",
+      "seed": 42,
+      "model": "RandomForest",
+      "train_rows": 65563,
+      "validation_rows": 11571,
+      "held_out_rows": 67974,
+      "heldout_capture_row_cap": 10000,
+      "training_rows_per_dataset_cap": 50000,
+      "train_test_duplicate_vectors_removed": 463,
+      "threshold": 0.5,
+      "candidate_model": "models\\experimental\\lodo\\randomforest_except_CICIDS2017_seed_42.joblib",
+      "production_comparator": "not available: active production model requires 77 features; shared mapping has 11",
+      "recall": 0.014574453457995325,
+      "precision": 0.12240184757505773,
+      "f1": 0.026047425973706843,
+      "benign_false_alarm_rate": 0.01252038681405578,
+      "roc_auc": 0.8282693657566778,
+      "pr_auc": 0.28469560725281895,
+      "family_recall": {
+        "botnet": {
+          "support": 74,
+          "recall": 0.0
+        },
+        "bruteforce": {
+          "support": 220,
+          "recall": 0.0
+        },
+        "ddos": {
+          "support": 3622,
+          "recall": 0.0
+        },
+        "dos": {
+          "support": 3040,
+          "recall": 0.024671052631578948
+        },
+        "infiltration": {
+          "support": 33,
+          "recall": 0.42424242424242425
+        },
+        "portscan": {
+          "support": 150,
+          "recall": 0.013333333333333334
+        },
+        "webattack": {
+          "support": 134,
+          "recall": 0.11194029850746269
+        }
+      },
+      "recall_ci": {
+        "low": 0.001329171570116276,
+        "high": 0.06838879634158718,
+        "blocks": 8,
+        "draws": 1000
+      },
+      "benign_false_alarm_ci": {
+        "low": 0.010119517957145791,
+        "high": 0.014979336848672916,
+        "blocks": 8,
+        "draws": 1000
+      }
+    },
+    {
+      "held_out_dataset": "CICIDS2017",
+      "seed": 42,
+      "model": "XGBoost",
+      "train_rows": 65563,
+      "validation_rows": 11571,
+      "held_out_rows": 67974,
+      "heldout_capture_row_cap": 10000,
+      "training_rows_per_dataset_cap": 50000,
+      "train_test_duplicate_vectors_removed": 463,
+      "threshold": 0.5,
+      "candidate_model": "models\\experimental\\lodo\\xgboost_except_CICIDS2017_seed_42.joblib",
+      "production_comparator": "not available: active production model requires 77 features; shared mapping has 11",
+      "recall": 0.26179018286814243,
+      "precision": 0.26269315673289184,
+      "f1": 0.2622408925005165,
+      "benign_false_alarm_rate": 0.08803808833462382,
+      "roc_auc": 0.4730347549776804,
+      "pr_auc": 0.18847722953044155,
+      "family_recall": {
+        "botnet": {
+          "support": 74,
+          "recall": 0.3918918918918919
+        },
+        "bruteforce": {
+          "support": 220,
+          "recall": 0.19090909090909092
+        },
+        "ddos": {
+          "support": 3622,
+          "recall": 0.4387078961899503
+        },
+        "dos": {
+          "support": 3040,
+          "recall": 0.04243421052631579
+        },
+        "infiltration": {
+          "support": 33,
+          "recall": 0.7272727272727273
+        },
+        "portscan": {
+          "support": 150,
+          "recall": 0.37333333333333335
+        },
+        "webattack": {
+          "support": 134,
+          "recall": 0.26119402985074625
+        }
+      },
+      "recall_ci": {
+        "low": 0.05861068513321052,
+        "high": 0.4345607674433624,
+        "blocks": 8,
+        "draws": 1000
+      },
+      "benign_false_alarm_ci": {
+        "low": 0.07713113040062056,
+        "high": 0.10699083197844805,
+        "blocks": 8,
+        "draws": 1000
+      }
+    },
+    {
+      "held_out_dataset": "CICIDS2017",
+      "seed": 43,
+      "model": "RandomForest",
+      "train_rows": 65563,
+      "validation_rows": 11571,
+      "held_out_rows": 67974,
+      "heldout_capture_row_cap": 10000,
+      "training_rows_per_dataset_cap": 50000,
+      "train_test_duplicate_vectors_removed": 463,
+      "threshold": 0.5,
+      "candidate_model": "models\\experimental\\lodo\\randomforest_except_CICIDS2017_seed_43.joblib",
+      "production_comparator": "not available: active production model requires 77 features; shared mapping has 11",
+      "recall": 0.014986937989825382,
+      "precision": 0.12945368171021376,
+      "f1": 0.026863832409118917,
+      "benign_false_alarm_rate": 0.012075583598293273,
+      "roc_auc": 0.7834456366450367,
+      "pr_auc": 0.2771662153411345,
+      "family_recall": {
+        "botnet": {
+          "support": 74,
+          "recall": 0.02702702702702703
+        },
+        "bruteforce": {
+          "support": 220,
+          "recall": 0.045454545454545456
+        },
+        "ddos": {
+          "support": 3622,
+          "recall": 0.0
+        },
+        "dos": {
+          "support": 3040,
+          "recall": 0.020723684210526314
+        },
+        "infiltration": {
+          "support": 33,
+          "recall": 0.3333333333333333
+        },
+        "portscan": {
+          "support": 150,
+          "recall": 0.006666666666666667
+        },
+        "webattack": {
+          "support": 134,
+          "recall": 0.16417910447761194
+        }
+      },
+      "recall_ci": {
+        "low": 0.0030856354133088665,
+        "high": 0.09926680347739801,
+        "blocks": 8,
+        "draws": 1000
+      },
+      "benign_false_alarm_ci": {
+        "low": 0.009200981318652957,
+        "high": 0.015177729870022553,
+        "blocks": 8,
+        "draws": 1000
+      }
+    },
+    {
+      "held_out_dataset": "CICIDS2017",
+      "seed": 43,
+      "model": "XGBoost",
+      "train_rows": 65563,
+      "validation_rows": 11571,
+      "held_out_rows": 67974,
+      "heldout_capture_row_cap": 10000,
+      "training_rows_per_dataset_cap": 50000,
+      "train_test_duplicate_vectors_removed": 463,
+      "threshold": 0.5,
+      "candidate_model": "models\\experimental\\lodo\\xgboost_except_CICIDS2017_seed_43.joblib",
+      "production_comparator": "not available: active production model requires 77 features; shared mapping has 11",
+      "recall": 0.13653238003574866,
+      "precision": 0.16661073825503356,
+      "f1": 0.15007934708682838,
+      "benign_false_alarm_rate": 0.08182731750712509,
+      "roc_auc": 0.41596289814178505,
+      "pr_auc": 0.11530934829199177,
+      "family_recall": {
+        "botnet": {
+          "support": 74,
+          "recall": 0.44594594594594594
+        },
+        "bruteforce": {
+          "support": 220,
+          "recall": 0.19090909090909092
+        },
+        "ddos": {
+          "support": 3622,
+          "recall": 0.19574820541137494
+        },
+        "dos": {
+          "support": 3040,
+          "recall": 0.03355263157894737
+        },
+        "infiltration": {
+          "support": 33,
+          "recall": 0.5454545454545454
+        },
+        "portscan": {
+          "support": 150,
+          "recall": 0.4533333333333333
+        },
+        "webattack": {
+          "support": 134,
+          "recall": 0.15671641791044777
+        }
+      },
+      "recall_ci": {
+        "low": 0.047203320416983954,
+        "high": 0.33760574379531066,
+        "blocks": 8,
+        "draws": 1000
+      },
+      "benign_false_alarm_ci": {
+        "low": 0.06858206623767658,
+        "high": 0.10154928400267821,
+        "blocks": 8,
+        "draws": 1000
+      }
+    },
+    {
+      "held_out_dataset": "CICIDS2017",
+      "seed": 44,
+      "model": "RandomForest",
+      "train_rows": 65571,
+      "validation_rows": 11572,
+      "held_out_rows": 67974,
+      "heldout_capture_row_cap": 10000,
+      "training_rows_per_dataset_cap": 50000,
+      "train_test_duplicate_vectors_removed": 454,
+      "threshold": 0.5,
+      "candidate_model": "models\\experimental\\lodo\\randomforest_except_CICIDS2017_seed_44.joblib",
+      "production_comparator": "not available: active production model requires 77 features; shared mapping has 11",
+      "recall": 0.015949401897428845,
+      "precision": 0.1500646830530401,
+      "f1": 0.028834203330847626,
+      "benign_false_alarm_rate": 0.010823544916887695,
+      "roc_auc": 0.791332294775853,
+      "pr_auc": 0.25663394239818726,
+      "family_recall": {
+        "botnet": {
+          "support": 74,
+          "recall": 0.013513513513513514
+        },
+        "bruteforce": {
+          "support": 220,
+          "recall": 0.04090909090909091
+        },
+        "ddos": {
+          "support": 3622,
+          "recall": 0.0
+        },
+        "dos": {
+          "support": 3040,
+          "recall": 0.022039473684210525
+        },
+        "infiltration": {
+          "support": 33,
+          "recall": 0.42424242424242425
+        },
+        "portscan": {
+          "support": 150,
+          "recall": 0.04
+        },
+        "webattack": {
+          "support": 134,
+          "recall": 0.1417910447761194
+        }
+      },
+      "recall_ci": {
+        "low": 0.0038811217549394946,
+        "high": 0.09837604207463771,
+        "blocks": 8,
+        "draws": 1000
+      },
+      "benign_false_alarm_ci": {
+        "low": 0.008105154057465716,
+        "high": 0.014145908207718098,
+        "blocks": 8,
+        "draws": 1000
+      }
+    },
+    {
+      "held_out_dataset": "CICIDS2017",
+      "seed": 44,
+      "model": "XGBoost",
+      "train_rows": 65571,
+      "validation_rows": 11572,
+      "held_out_rows": 67974,
+      "heldout_capture_row_cap": 10000,
+      "training_rows_per_dataset_cap": 50000,
+      "train_test_duplicate_vectors_removed": 454,
+      "threshold": 0.5,
+      "candidate_model": "models\\experimental\\lodo\\xgboost_except_CICIDS2017_seed_44.joblib",
+      "production_comparator": "not available: active production model requires 77 features; shared mapping has 11",
+      "recall": 0.3452495531417572,
+      "precision": 0.3285789060455378,
+      "f1": 0.3367080120683875,
+      "benign_false_alarm_rate": 0.08452908518805291,
+      "roc_auc": 0.5169842883787198,
+      "pr_auc": 0.24581093301071544,
+      "family_recall": {
+        "botnet": {
+          "support": 74,
+          "recall": 0.3918918918918919
+        },
+        "bruteforce": {
+          "support": 220,
+          "recall": 0.19090909090909092
+        },
+        "ddos": {
+          "support": 3622,
+          "recall": 0.6013252346769741
+        },
+        "dos": {
+          "support": 3040,
+          "recall": 0.05460526315789474
+        },
+        "infiltration": {
+          "support": 33,
+          "recall": 0.5454545454545454
+        },
+        "portscan": {
+          "support": 150,
+          "recall": 0.36666666666666664
+        },
+        "webattack": {
+          "support": 134,
+          "recall": 0.17164179104477612
+        }
+      },
+      "recall_ci": {
+        "low": 0.06730310786939064,
+        "high": 0.5878830012309142,
+        "blocks": 8,
+        "draws": 1000
+      },
+      "benign_false_alarm_ci": {
+        "low": 0.06817001592533849,
+        "high": 0.11335485277262257,
+        "blocks": 8,
+        "draws": 1000
+      }
+    },
+    {
+      "held_out_dataset": "CICIDS2017",
+      "seed": 45,
+      "model": "RandomForest",
+      "train_rows": 65567,
+      "validation_rows": 11571,
+      "held_out_rows": 67974,
+      "heldout_capture_row_cap": 10000,
+      "training_rows_per_dataset_cap": 50000,
+      "train_test_duplicate_vectors_removed": 459,
+      "threshold": 0.5,
+      "candidate_model": "models\\experimental\\lodo\\randomforest_except_CICIDS2017_seed_45.joblib",
+      "production_comparator": "not available: active production model requires 77 features; shared mapping has 11",
+      "recall": 0.0129245153306751,
+      "precision": 0.13803230543318648,
+      "f1": 0.023635906462157404,
+      "benign_false_alarm_rate": 0.009670351394540453,
+      "roc_auc": 0.84750292060173,
+      "pr_auc": 0.31659820822062046,
+      "family_recall": {
+        "botnet": {
+          "support": 74,
+          "recall": 0.02702702702702703
+        },
+        "bruteforce": {
+          "support": 220,
+          "recall": 0.01818181818181818
+        },
+        "ddos": {
+          "support": 3622,
+          "recall": 0.0
+        },
+        "dos": {
+          "support": 3040,
+          "recall": 0.019736842105263157
+        },
+        "infiltration": {
+          "support": 33,
+          "recall": 0.3333333333333333
+        },
+        "portscan": {
+          "support": 150,
+          "recall": 0.006666666666666667
+        },
+        "webattack": {
+          "support": 134,
+          "recall": 0.11940298507462686
+        }
+      },
+      "recall_ci": {
+        "low": 0.0016892342958978728,
+        "high": 0.07006698950766746,
+        "blocks": 8,
+        "draws": 1000
+      },
+      "benign_false_alarm_ci": {
+        "low": 0.007877158537974913,
+        "high": 0.012276327086374507,
+        "blocks": 8,
+        "draws": 1000
+      }
+    },
+    {
+      "held_out_dataset": "CICIDS2017",
+      "seed": 45,
+      "model": "XGBoost",
+      "train_rows": 65567,
+      "validation_rows": 11571,
+      "held_out_rows": 67974,
+      "heldout_capture_row_cap": 10000,
+      "training_rows_per_dataset_cap": 50000,
+      "train_test_duplicate_vectors_removed": 459,
+      "threshold": 0.5,
+      "candidate_model": "models\\experimental\\lodo\\xgboost_except_CICIDS2017_seed_45.joblib",
+      "production_comparator": "not available: active production model requires 77 features; shared mapping has 11",
+      "recall": 0.2646775745909528,
+      "precision": 0.2503250975292588,
+      "f1": 0.2573013433135066,
+      "benign_false_alarm_rate": 0.09497372366188366,
+      "roc_auc": 0.5457249714472423,
+      "pr_auc": 0.17287062674801396,
+      "family_recall": {
+        "botnet": {
+          "support": 74,
+          "recall": 0.40540540540540543
+        },
+        "bruteforce": {
+          "support": 220,
+          "recall": 0.08636363636363636
+        },
+        "ddos": {
+          "support": 3622,
+          "recall": 0.45057979017117616
+        },
+        "dos": {
+          "support": 3040,
+          "recall": 0.046052631578947366
+        },
+        "infiltration": {
+          "support": 33,
+          "recall": 0.5151515151515151
+        },
+        "portscan": {
+          "support": 150,
+          "recall": 0.4066666666666667
+        },
+        "webattack": {
+          "support": 134,
+          "recall": 0.19402985074626866
+        }
+      },
+      "recall_ci": {
+        "low": 0.05745448366083698,
+        "high": 0.44638321642148326,
+        "blocks": 8,
+        "draws": 1000
+      },
+      "benign_false_alarm_ci": {
+        "low": 0.08335233617689175,
+        "high": 0.1155649432735149,
+        "blocks": 8,
+        "draws": 1000
+      }
+    },
+    {
+      "held_out_dataset": "CICIDS2017",
+      "seed": 46,
+      "model": "RandomForest",
+      "train_rows": 65573,
+      "validation_rows": 11572,
+      "held_out_rows": 67974,
+      "heldout_capture_row_cap": 10000,
+      "training_rows_per_dataset_cap": 50000,
+      "train_test_duplicate_vectors_removed": 452,
+      "threshold": 0.5,
+      "candidate_model": "models\\experimental\\lodo\\randomforest_except_CICIDS2017_seed_46.joblib",
+      "production_comparator": "not available: active production model requires 77 features; shared mapping has 11",
+      "recall": 0.045785783033136254,
+      "precision": 0.3704115684093437,
+      "f1": 0.08149779735682819,
+      "benign_false_alarm_rate": 0.00932439333783628,
+      "roc_auc": 0.8778136862436974,
+      "pr_auc": 0.39241465945884296,
+      "family_recall": {
+        "botnet": {
+          "support": 74,
+          "recall": 0.0
+        },
+        "bruteforce": {
+          "support": 220,
+          "recall": 0.0
+        },
+        "ddos": {
+          "support": 3622,
+          "recall": 0.06405300938707896
+        },
+        "dos": {
+          "support": 3040,
+          "recall": 0.023355263157894737
+        },
+        "infiltration": {
+          "support": 33,
+          "recall": 0.09090909090909091
+        },
+        "portscan": {
+          "support": 150,
+          "recall": 0.013333333333333334
+        },
+        "webattack": {
+          "support": 134,
+          "recall": 0.1865671641791045
+        }
+      },
+      "recall_ci": {
+        "low": 0.01859325112253721,
+        "high": 0.07233890861328302,
+        "blocks": 8,
+        "draws": 1000
+      },
+      "benign_false_alarm_ci": {
+        "low": 0.007737148019600189,
+        "high": 0.01099608906552727,
+        "blocks": 8,
+        "draws": 1000
+      }
+    },
+    {
+      "held_out_dataset": "CICIDS2017",
+      "seed": 46,
+      "model": "XGBoost",
+      "train_rows": 65573,
+      "validation_rows": 11572,
+      "held_out_rows": 67974,
+      "heldout_capture_row_cap": 10000,
+      "training_rows_per_dataset_cap": 50000,
+      "train_test_duplicate_vectors_removed": 452,
+      "threshold": 0.5,
+      "candidate_model": "models\\experimental\\lodo\\xgboost_except_CICIDS2017_seed_46.joblib",
+      "production_comparator": "not available: active production model requires 77 features; shared mapping has 11",
+      "recall": 0.2781520692974013,
+      "precision": 0.28388998035363455,
+      "f1": 0.2809917355371901,
+      "benign_false_alarm_rate": 0.08406780777911402,
+      "roc_auc": 0.5000228278452952,
+      "pr_auc": 0.2256261269948457,
+      "family_recall": {
+        "botnet": {
+          "support": 74,
+          "recall": 0.25675675675675674
+        },
+        "bruteforce": {
+          "support": 220,
+          "recall": 0.004545454545454545
+        },
+        "ddos": {
+          "support": 3622,
+          "recall": 0.4950303699613473
+        },
+        "dos": {
+          "support": 3040,
+          "recall": 0.04078947368421053
+        },
+        "infiltration": {
+          "support": 33,
+          "recall": 0.30303030303030304
+        },
+        "portscan": {
+          "support": 150,
+          "recall": 0.3
+        },
+        "webattack": {
+          "support": 134,
+          "recall": 0.23134328358208955
+        }
+      },
+      "recall_ci": {
+        "low": 0.045531719838358735,
+        "high": 0.4840336519600897,
+        "blocks": 8,
+        "draws": 1000
+      },
+      "benign_false_alarm_ci": {
+        "low": 0.07276583712521757,
+        "high": 0.10385770497054438,
+        "blocks": 8,
+        "draws": 1000
+      }
+    },
+    {
+      "held_out_dataset": "CSE-CIC-IDS2018",
+      "seed": 42,
+      "model": "RandomForest",
+      "train_rows": 65508,
+      "validation_rows": 11561,
+      "held_out_rows": 79514,
+      "heldout_capture_row_cap": 10000,
+      "training_rows_per_dataset_cap": 50000,
+      "train_test_duplicate_vectors_removed": 528,
+      "threshold": 0.5,
+      "candidate_model": "models\\experimental\\lodo\\randomforest_except_CSE_CIC_IDS2018_seed_42.joblib",
+      "production_comparator": "not available: active production model requires 77 features; shared mapping has 11",
+      "recall": 0.010116789407126386,
+      "precision": 0.3177570093457944,
+      "f1": 0.019609256722658785,
+      "benign_false_alarm_rate": 0.004419488126409469,
+      "roc_auc": 0.6762358973793262,
+      "pr_auc": 0.273966553842527,
+      "family_recall": {
+        "Attack (family unavailable)": {
+          "support": 3134,
+          "recall": 0.0022335673261008296
+        },
+        "botnet": {
+          "support": 1478,
+          "recall": 0.0
+        },
+        "bruteforce": {
+          "support": 1604,
+          "recall": 0.0
+        },
+        "ddos": {
+          "support": 5868,
+          "recall": 0.0
+        },
+        "dos": {
+          "support": 916,
+          "recall": 0.1091703056768559
+        },
+        "web": {
+          "support": 443,
+          "recall": 0.0654627539503386
+        }
+      },
+      "recall_ci": {
+        "low": 0.0009478098475596831,
+        "high": 0.03633565131393917,
+        "blocks": 10,
+        "draws": 1000
+      },
+      "benign_false_alarm_ci": {
+        "low": 0.0020597779901444756,
+        "high": 0.006873739969101279,
+        "blocks": 10,
+        "draws": 1000
+      }
+    },
+    {
+      "held_out_dataset": "CSE-CIC-IDS2018",
+      "seed": 42,
+      "model": "XGBoost",
+      "train_rows": 65508,
+      "validation_rows": 11561,
+      "held_out_rows": 79514,
+      "heldout_capture_row_cap": 10000,
+      "training_rows_per_dataset_cap": 50000,
+      "train_test_duplicate_vectors_removed": 528,
+      "threshold": 0.5,
+      "candidate_model": "models\\experimental\\lodo\\xgboost_except_CSE_CIC_IDS2018_seed_42.joblib",
+      "production_comparator": "not available: active production model requires 77 features; shared mapping has 11",
+      "recall": 0.0124972104440973,
+      "precision": 0.15342465753424658,
+      "f1": 0.02311184482047049,
+      "benign_false_alarm_rate": 0.0140303612780191,
+      "roc_auc": 0.5531323282928188,
+      "pr_auc": 0.1814323776120431,
+      "family_recall": {
+        "Attack (family unavailable)": {
+          "support": 3134,
+          "recall": 0.009253350350989151
+        },
+        "botnet": {
+          "support": 1478,
+          "recall": 0.0
+        },
+        "bruteforce": {
+          "support": 1604,
+          "recall": 0.0
+        },
+        "ddos": {
+          "support": 5868,
+          "recall": 0.0
+        },
+        "dos": {
+          "support": 916,
+          "recall": 0.11135371179039301
+        },
+        "web": {
+          "support": 443,
+          "recall": 0.0835214446952596
+        }
+      },
+      "recall_ci": {
+        "low": 0.0019056875199250454,
+        "high": 0.03861584571899452,
+        "blocks": 10,
+        "draws": 1000
+      },
+      "benign_false_alarm_ci": {
+        "low": 0.007963413260936338,
+        "high": 0.019587721748817365,
+        "blocks": 10,
+        "draws": 1000
+      }
+    },
+    {
+      "held_out_dataset": "CSE-CIC-IDS2018",
+      "seed": 43,
+      "model": "RandomForest",
+      "train_rows": 65506,
+      "validation_rows": 11561,
+      "held_out_rows": 79514,
+      "heldout_capture_row_cap": 10000,
+      "training_rows_per_dataset_cap": 50000,
+      "train_test_duplicate_vectors_removed": 530,
+      "threshold": 0.5,
+      "candidate_model": "models\\experimental\\lodo\\randomforest_except_CSE_CIC_IDS2018_seed_43.joblib",
+      "production_comparator": "not available: active production model requires 77 features; shared mapping has 11",
+      "recall": 0.010116789407126386,
+      "precision": 0.38526912181303113,
+      "f1": 0.019715859669469413,
+      "benign_false_alarm_rate": 0.0032843456281878586,
+      "roc_auc": 0.6405223198851026,
+      "pr_auc": 0.25491433364739174,
+      "family_recall": {
+        "Attack (family unavailable)": {
+          "support": 3134,
+          "recall": 0.0019144862795149968
+        },
+        "botnet": {
+          "support": 1478,
+          "recall": 0.0
+        },
+        "bruteforce": {
+          "support": 1604,
+          "recall": 0.0
+        },
+        "ddos": {
+          "support": 5868,
+          "recall": 0.0
+        },
+        "dos": {
+          "support": 916,
+          "recall": 0.1091703056768559
+        },
+        "web": {
+          "support": 443,
+          "recall": 0.06772009029345373
+        }
+      },
+      "recall_ci": {
+        "low": 0.0007549652876306302,
+        "high": 0.03688246239984714,
+        "blocks": 10,
+        "draws": 1000
+      },
+      "benign_false_alarm_ci": {
+        "low": 0.0020620203834542917,
+        "high": 0.0045062527984801775,
+        "blocks": 10,
+        "draws": 1000
+      }
+    },
+    {
+      "held_out_dataset": "CSE-CIC-IDS2018",
+      "seed": 43,
+      "model": "XGBoost",
+      "train_rows": 65506,
+      "validation_rows": 11561,
+      "held_out_rows": 79514,
+      "heldout_capture_row_cap": 10000,
+      "training_rows_per_dataset_cap": 50000,
+      "train_test_duplicate_vectors_removed": 530,
+      "threshold": 0.5,
+      "candidate_model": "models\\experimental\\lodo\\xgboost_except_CSE_CIC_IDS2018_seed_43.joblib",
+      "production_comparator": "not available: active production model requires 77 features; shared mapping has 11",
+      "recall": 0.024548091943762552,
+      "precision": 0.2815699658703072,
+      "f1": 0.04515908313376668,
+      "benign_false_alarm_rate": 0.012743866446701276,
+      "roc_auc": 0.5677353661324118,
+      "pr_auc": 0.19666489475611632,
+      "family_recall": {
+        "Attack (family unavailable)": {
+          "support": 3134,
+          "recall": 0.01021059349074665
+        },
+        "botnet": {
+          "support": 1478,
+          "recall": 0.0
+        },
+        "bruteforce": {
+          "support": 1604,
+          "recall": 0.0
+        },
+        "ddos": {
+          "support": 5868,
+          "recall": 0.0
+        },
+        "dos": {
+          "support": 916,
+          "recall": 0.13427947598253276
+        },
+        "web": {
+          "support": 443,
+          "recall": 0.39503386004514673
+        }
+      },
+      "recall_ci": {
+        "low": 0.003994618724672798,
+        "high": 0.08115738748519394,
+        "blocks": 10,
+        "draws": 1000
+      },
+      "benign_false_alarm_ci": {
+        "low": 0.008430142378127066,
+        "high": 0.016590698222101262,
+        "blocks": 10,
+        "draws": 1000
+      }
+    },
+    {
+      "held_out_dataset": "CSE-CIC-IDS2018",
+      "seed": 44,
+      "model": "RandomForest",
+      "train_rows": 65515,
+      "validation_rows": 11562,
+      "held_out_rows": 79514,
+      "heldout_capture_row_cap": 10000,
+      "training_rows_per_dataset_cap": 50000,
+      "train_test_duplicate_vectors_removed": 520,
+      "threshold": 0.5,
+      "candidate_model": "models\\experimental\\lodo\\randomforest_except_CSE_CIC_IDS2018_seed_44.joblib",
+      "production_comparator": "not available: active production model requires 77 features; shared mapping has 11",
+      "recall": 0.010265565721937068,
+      "precision": 0.43670886075949367,
+      "f1": 0.020059597354458898,
+      "benign_false_alarm_rate": 0.0026940715291126215,
+      "roc_auc": 0.6256669414640927,
+      "pr_auc": 0.29068230844182597,
+      "family_recall": {
+        "Attack (family unavailable)": {
+          "support": 3134,
+          "recall": 0.0022335673261008296
+        },
+        "botnet": {
+          "support": 1478,
+          "recall": 0.0
+        },
+        "bruteforce": {
+          "support": 1604,
+          "recall": 0.0
+        },
+        "ddos": {
+          "support": 5868,
+          "recall": 0.0
+        },
+        "dos": {
+          "support": 916,
+          "recall": 0.11026200873362445
+        },
+        "web": {
+          "support": 443,
+          "recall": 0.06772009029345373
+        }
+      },
+      "recall_ci": {
+        "low": 0.00078740429990857,
+        "high": 0.03625728006623056,
+        "blocks": 10,
+        "draws": 1000
+      },
+      "benign_false_alarm_ci": {
+        "low": 0.0016897149534123392,
+        "high": 0.0036172487608709023,
+        "blocks": 10,
+        "draws": 1000
+      }
+    },
+    {
+      "held_out_dataset": "CSE-CIC-IDS2018",
+      "seed": 44,
+      "model": "XGBoost",
+      "train_rows": 65515,
+      "validation_rows": 11562,
+      "held_out_rows": 79514,
+      "heldout_capture_row_cap": 10000,
+      "training_rows_per_dataset_cap": 50000,
+      "train_test_duplicate_vectors_removed": 520,
+      "threshold": 0.5,
+      "candidate_model": "models\\experimental\\lodo\\xgboost_except_CSE_CIC_IDS2018_seed_44.joblib",
+      "production_comparator": "not available: active production model requires 77 features; shared mapping has 11",
+      "recall": 0.013092315703340029,
+      "precision": 0.1537117903930131,
+      "f1": 0.024129421442281328,
+      "benign_false_alarm_rate": 0.014666041077023202,
+      "roc_auc": 0.5689995758160309,
+      "pr_auc": 0.1927592194116558,
+      "family_recall": {
+        "Attack (family unavailable)": {
+          "support": 3134,
+          "recall": 0.011167836630504148
+        },
+        "botnet": {
+          "support": 1478,
+          "recall": 0.0
+        },
+        "bruteforce": {
+          "support": 1604,
+          "recall": 0.0
+        },
+        "ddos": {
+          "support": 5868,
+          "recall": 0.0
+        },
+        "dos": {
+          "support": 916,
+          "recall": 0.11026200873362445
+        },
+        "web": {
+          "support": 443,
+          "recall": 0.09029345372460497
+        }
+      },
+      "recall_ci": {
+        "low": 0.0022495058100607196,
+        "high": 0.039323496375092484,
+        "blocks": 10,
+        "draws": 1000
+      },
+      "benign_false_alarm_ci": {
+        "low": 0.009348939711299837,
+        "high": 0.019325887227139314,
+        "blocks": 10,
+        "draws": 1000
+      }
+    },
+    {
+      "held_out_dataset": "CSE-CIC-IDS2018",
+      "seed": 45,
+      "model": "RandomForest",
+      "train_rows": 65511,
+      "validation_rows": 11561,
+      "held_out_rows": 79514,
+      "heldout_capture_row_cap": 10000,
+      "training_rows_per_dataset_cap": 50000,
+      "train_test_duplicate_vectors_removed": 525,
+      "threshold": 0.5,
+      "candidate_model": "models\\experimental\\lodo\\randomforest_except_CSE_CIC_IDS2018_seed_45.joblib",
+      "production_comparator": "not available: active production model requires 77 features; shared mapping has 11",
+      "recall": 0.010116789407126386,
+      "precision": 0.23652173913043478,
+      "f1": 0.019403623912112998,
+      "benign_false_alarm_rate": 0.006644367422923824,
+      "roc_auc": 0.6877407108524485,
+      "pr_auc": 0.2795549451369071,
+      "family_recall": {
+        "Attack (family unavailable)": {
+          "support": 3134,
+          "recall": 0.004148053605615826
+        },
+        "botnet": {
+          "support": 1478,
+          "recall": 0.0
+        },
+        "bruteforce": {
+          "support": 1604,
+          "recall": 0.0
+        },
+        "ddos": {
+          "support": 5868,
+          "recall": 0.0
+        },
+        "dos": {
+          "support": 916,
+          "recall": 0.1091703056768559
+        },
+        "web": {
+          "support": 443,
+          "recall": 0.05191873589164785
+        }
+      },
+      "recall_ci": {
+        "low": 0.0009489882695869474,
+        "high": 0.03716116453404946,
+        "blocks": 10,
+        "draws": 1000
+      },
+      "benign_false_alarm_ci": {
+        "low": 0.003238826354847248,
+        "high": 0.01085672362501445,
+        "blocks": 10,
+        "draws": 1000
+      }
+    },
+    {
+      "held_out_dataset": "CSE-CIC-IDS2018",
+      "seed": 45,
+      "model": "XGBoost",
+      "train_rows": 65511,
+      "validation_rows": 11561,
+      "held_out_rows": 79514,
+      "heldout_capture_row_cap": 10000,
+      "training_rows_per_dataset_cap": 50000,
+      "train_test_duplicate_vectors_removed": 525,
+      "threshold": 0.5,
+      "candidate_model": "models\\experimental\\lodo\\xgboost_except_CSE_CIC_IDS2018_seed_45.joblib",
+      "production_comparator": "not available: active production model requires 77 features; shared mapping has 11",
+      "recall": 0.01391058543479878,
+      "precision": 0.06683345246604717,
+      "f1": 0.023028138661412473,
+      "benign_false_alarm_rate": 0.03951809417142165,
+      "roc_auc": 0.5409533613769628,
+      "pr_auc": 0.17614633173235167,
+      "family_recall": {
+        "Attack (family unavailable)": {
+          "support": 3134,
+          "recall": 0.01244416081684748
+        },
+        "botnet": {
+          "support": 1478,
+          "recall": 0.0
+        },
+        "bruteforce": {
+          "support": 1604,
+          "recall": 0.0
+        },
+        "ddos": {
+          "support": 5868,
+          "recall": 0.0
+        },
+        "dos": {
+          "support": 916,
+          "recall": 0.11135371179039301
+        },
+        "web": {
+          "support": 443,
+          "recall": 0.1038374717832957
+        }
+      },
+      "recall_ci": {
+        "low": 0.0024660769615623183,
+        "high": 0.04411437342360519,
+        "blocks": 10,
+        "draws": 1000
+      },
+      "benign_false_alarm_ci": {
+        "low": 0.01628546765474573,
+        "high": 0.06311357666861848,
+        "blocks": 10,
+        "draws": 1000
+      }
+    },
+    {
+      "held_out_dataset": "CSE-CIC-IDS2018",
+      "seed": 46,
+      "model": "RandomForest",
+      "train_rows": 65486,
+      "validation_rows": 11557,
+      "held_out_rows": 79514,
+      "heldout_capture_row_cap": 10000,
+      "training_rows_per_dataset_cap": 50000,
+      "train_test_duplicate_vectors_removed": 554,
+      "threshold": 0.5,
+      "candidate_model": "models\\experimental\\lodo\\randomforest_except_CSE_CIC_IDS2018_seed_46.joblib",
+      "production_comparator": "not available: active production model requires 77 features; shared mapping has 11",
+      "recall": 0.009372907833072975,
+      "precision": 0.4329896907216495,
+      "f1": 0.01834862385321101,
+      "benign_false_alarm_rate": 0.0024973134960875423,
+      "roc_auc": 0.6795470294319197,
+      "pr_auc": 0.28114112535163893,
+      "family_recall": {
+        "Attack (family unavailable)": {
+          "support": 3134,
+          "recall": 0.0012763241863433313
+        },
+        "botnet": {
+          "support": 1478,
+          "recall": 0.0
+        },
+        "bruteforce": {
+          "support": 1604,
+          "recall": 0.0
+        },
+        "ddos": {
+          "support": 5868,
+          "recall": 0.0
+        },
+        "dos": {
+          "support": 916,
+          "recall": 0.11026200873362445
+        },
+        "web": {
+          "support": 443,
+          "recall": 0.04740406320541761
+        }
+      },
+      "recall_ci": {
+        "low": 0.0002760237245517871,
+        "high": 0.03532352736745888,
+        "blocks": 10,
+        "draws": 1000
+      },
+      "benign_false_alarm_ci": {
+        "low": 0.0015399695059297373,
+        "high": 0.0034454196767529813,
+        "blocks": 10,
+        "draws": 1000
+      }
+    },
+    {
+      "held_out_dataset": "CSE-CIC-IDS2018",
+      "seed": 46,
+      "model": "XGBoost",
+      "train_rows": 65486,
+      "validation_rows": 11557,
+      "held_out_rows": 79514,
+      "heldout_capture_row_cap": 10000,
+      "training_rows_per_dataset_cap": 50000,
+      "train_test_duplicate_vectors_removed": 554,
+      "threshold": 0.5,
+      "candidate_model": "models\\experimental\\lodo\\xgboost_except_CSE_CIC_IDS2018_seed_46.joblib",
+      "production_comparator": "not available: active production model requires 77 features; shared mapping has 11",
+      "recall": 0.017704381462471174,
+      "precision": 0.2025531914893617,
+      "f1": 0.0325625940621152,
+      "benign_false_alarm_rate": 0.014181713611115315,
+      "roc_auc": 0.5894605006286853,
+      "pr_auc": 0.1966231724874807,
+      "family_recall": {
+        "Attack (family unavailable)": {
+          "support": 3134,
+          "recall": 0.009253350350989151
+        },
+        "botnet": {
+          "support": 1478,
+          "recall": 0.0
+        },
+        "bruteforce": {
+          "support": 1604,
+          "recall": 0.0
+        },
+        "ddos": {
+          "support": 5868,
+          "recall": 0.0
+        },
+        "dos": {
+          "support": 916,
+          "recall": 0.1146288209606987
+        },
+        "web": {
+          "support": 443,
+          "recall": 0.23476297968397292
+        }
+      },
+      "recall_ci": {
+        "low": 0.0025175608107571045,
+        "high": 0.05756281147753266,
+        "blocks": 10,
+        "draws": 1000
+      },
+      "benign_false_alarm_ci": {
+        "low": 0.008538769435041215,
+        "high": 0.020251075494803438,
+        "blocks": 10,
+        "draws": 1000
+      }
+    },
+    {
+      "held_out_dataset": "UNSW-NB15",
+      "seed": 42,
+      "model": "RandomForest",
+      "train_rows": 85000,
+      "validation_rows": 15000,
+      "held_out_rows": 27597,
+      "heldout_capture_row_cap": 10000,
+      "training_rows_per_dataset_cap": 50000,
+      "train_test_duplicate_vectors_removed": 0,
+      "threshold": 0.5,
+      "candidate_model": "models\\experimental\\lodo\\randomforest_except_UNSW_NB15_seed_42.joblib",
+      "production_comparator": "not available: active production model requires 77 features; shared mapping has 11",
+      "recall": 0.0021551724137931034,
+      "precision": 0.05263157894736842,
+      "f1": 0.004140786749482402,
+      "benign_false_alarm_rate": 0.0013498818853350332,
+      "roc_auc": 0.5163884097641456,
+      "pr_auc": 0.033695246393361786,
+      "family_recall": {
+        "Attack (family unavailable)": {
+          "support": 928,
+          "recall": 0.0021551724137931034
+        }
+      },
+      "recall_ci": {
+        "low": 0.0,
+        "high": 0.00528169014084507,
+        "blocks": 4,
+        "draws": 1000
+      },
+      "benign_false_alarm_ci": {
+        "low": 0.0011720188862471956,
+        "high": 0.0015557792623775968,
+        "blocks": 4,
+        "draws": 1000
+      }
+    },
+    {
+      "held_out_dataset": "UNSW-NB15",
+      "seed": 42,
+      "model": "XGBoost",
+      "train_rows": 85000,
+      "validation_rows": 15000,
+      "held_out_rows": 27597,
+      "heldout_capture_row_cap": 10000,
+      "training_rows_per_dataset_cap": 50000,
+      "train_test_duplicate_vectors_removed": 0,
+      "threshold": 0.5,
+      "candidate_model": "models\\experimental\\lodo\\xgboost_except_UNSW_NB15_seed_42.joblib",
+      "production_comparator": "not available: active production model requires 77 features; shared mapping has 11",
+      "recall": 0.003232758620689655,
+      "precision": 0.0034403669724770644,
+      "f1": 0.0033333333333333335,
+      "benign_false_alarm_rate": 0.03258464884322622,
+      "roc_auc": 0.6531316104129681,
+      "pr_auc": 0.04621972122494528,
+      "family_recall": {
+        "Attack (family unavailable)": {
+          "support": 928,
+          "recall": 0.003232758620689655
+        }
+      },
+      "recall_ci": {
+        "low": 0.0,
+        "high": 0.006535947712418301,
+        "blocks": 4,
+        "draws": 1000
+      },
+      "benign_false_alarm_ci": {
+        "low": 0.029973410684070584,
+        "high": 0.03524271844660194,
+        "blocks": 4,
+        "draws": 1000
+      }
+    },
+    {
+      "held_out_dataset": "UNSW-NB15",
+      "seed": 43,
+      "model": "RandomForest",
+      "train_rows": 85000,
+      "validation_rows": 15000,
+      "held_out_rows": 27597,
+      "heldout_capture_row_cap": 10000,
+      "training_rows_per_dataset_cap": 50000,
+      "train_test_duplicate_vectors_removed": 0,
+      "threshold": 0.5,
+      "candidate_model": "models\\experimental\\lodo\\randomforest_except_UNSW_NB15_seed_43.joblib",
+      "production_comparator": "not available: active production model requires 77 features; shared mapping has 11",
+      "recall": 0.0010775862068965517,
+      "precision": 0.027777777777777776,
+      "f1": 0.002074688796680498,
+      "benign_false_alarm_rate": 0.0013123851662979488,
+      "roc_auc": 0.4838820676466671,
+      "pr_auc": 0.03216055564048951,
+      "family_recall": {
+        "Attack (family unavailable)": {
+          "support": 928,
+          "recall": 0.0010775862068965517
+        }
+      },
+      "recall_ci": {
+        "low": 0.0,
+        "high": 0.0026155187445510027,
+        "blocks": 4,
+        "draws": 1000
+      },
+      "benign_false_alarm_ci": {
+        "low": 0.0012473493825620556,
+        "high": 0.0014027560029705422,
+        "blocks": 4,
+        "draws": 1000
+      }
+    },
+    {
+      "held_out_dataset": "UNSW-NB15",
+      "seed": 43,
+      "model": "XGBoost",
+      "train_rows": 85000,
+      "validation_rows": 15000,
+      "held_out_rows": 27597,
+      "heldout_capture_row_cap": 10000,
+      "training_rows_per_dataset_cap": 50000,
+      "train_test_duplicate_vectors_removed": 0,
+      "threshold": 0.5,
+      "candidate_model": "models\\experimental\\lodo\\xgboost_except_UNSW_NB15_seed_43.joblib",
+      "production_comparator": "not available: active production model requires 77 features; shared mapping has 11",
+      "recall": 0.0021551724137931034,
+      "precision": 0.0020876826722338203,
+      "f1": 0.0021208907741251328,
+      "benign_false_alarm_rate": 0.03584686339945255,
+      "roc_auc": 0.6152610757550093,
+      "pr_auc": 0.04036686433567135,
+      "family_recall": {
+        "Attack (family unavailable)": {
+          "support": 928,
+          "recall": 0.0021551724137931034
+        }
+      },
+      "recall_ci": {
+        "low": 0.0,
+        "high": 0.00528169014084507,
+        "blocks": 4,
+        "draws": 1000
+      },
+      "benign_false_alarm_ci": {
+        "low": 0.033086733536059544,
+        "high": 0.03790627653825369,
+        "blocks": 4,
+        "draws": 1000
+      }
+    },
+    {
+      "held_out_dataset": "UNSW-NB15",
+      "seed": 44,
+      "model": "RandomForest",
+      "train_rows": 85000,
+      "validation_rows": 15000,
+      "held_out_rows": 27597,
+      "heldout_capture_row_cap": 10000,
+      "training_rows_per_dataset_cap": 50000,
+      "train_test_duplicate_vectors_removed": 0,
+      "threshold": 0.5,
+      "candidate_model": "models\\experimental\\lodo\\randomforest_except_UNSW_NB15_seed_44.joblib",
+      "production_comparator": "not available: active production model requires 77 features; shared mapping has 11",
+      "recall": 0.0010775862068965517,
+      "precision": 0.016129032258064516,
+      "f1": 0.00202020202020202,
+      "benign_false_alarm_rate": 0.0022872998612621397,
+      "roc_auc": 0.46145868621193914,
+      "pr_auc": 0.03019519465389856,
+      "family_recall": {
+        "Attack (family unavailable)": {
+          "support": 928,
+          "recall": 0.0010775862068965517
+        }
+      },
+      "recall_ci": {
+        "low": 0.0,
+        "high": 0.0026155187445510027,
+        "blocks": 4,
+        "draws": 1000
+      },
+      "benign_false_alarm_ci": {
+        "low": 0.0018925220007397553,
+        "high": 0.002702076738979387,
+        "blocks": 4,
+        "draws": 1000
+      }
+    },
+    {
+      "held_out_dataset": "UNSW-NB15",
+      "seed": 44,
+      "model": "XGBoost",
+      "train_rows": 85000,
+      "validation_rows": 15000,
+      "held_out_rows": 27597,
+      "heldout_capture_row_cap": 10000,
+      "training_rows_per_dataset_cap": 50000,
+      "train_test_duplicate_vectors_removed": 0,
+      "threshold": 0.5,
+      "candidate_model": "models\\experimental\\lodo\\xgboost_except_UNSW_NB15_seed_44.joblib",
+      "production_comparator": "not available: active production model requires 77 features; shared mapping has 11",
+      "recall": 0.005387931034482759,
+      "precision": 0.004940711462450593,
+      "f1": 0.005154639175257732,
+      "benign_false_alarm_rate": 0.037759196070343844,
+      "roc_auc": 0.61218032430783,
+      "pr_auc": 0.04080982919863068,
+      "family_recall": {
+        "Attack (family unavailable)": {
+          "support": 928,
+          "recall": 0.005387931034482759
+        }
+      },
+      "recall_ci": {
+        "low": 0.0016313213703099511,
+        "high": 0.011034482758620689,
+        "blocks": 4,
+        "draws": 1000
+      },
+      "benign_false_alarm_ci": {
+        "low": 0.03492869228909838,
+        "high": 0.040679611650485434,
+        "blocks": 4,
+        "draws": 1000
+      }
+    },
+    {
+      "held_out_dataset": "UNSW-NB15",
+      "seed": 45,
+      "model": "RandomForest",
+      "train_rows": 85000,
+      "validation_rows": 15000,
+      "held_out_rows": 27597,
+      "heldout_capture_row_cap": 10000,
+      "training_rows_per_dataset_cap": 50000,
+      "train_test_duplicate_vectors_removed": 0,
+      "threshold": 0.5,
+      "candidate_model": "models\\experimental\\lodo\\randomforest_except_UNSW_NB15_seed_45.joblib",
+      "production_comparator": "not available: active production model requires 77 features; shared mapping has 11",
+      "recall": 0.0010775862068965517,
+      "precision": 0.01694915254237288,
+      "f1": 0.002026342451874367,
+      "benign_false_alarm_rate": 0.0021748097041508867,
+      "roc_auc": 0.5130478278732508,
+      "pr_auc": 0.03335060732448926,
+      "family_recall": {
+        "Attack (family unavailable)": {
+          "support": 928,
+          "recall": 0.0010775862068965517
+        }
+      },
+      "recall_ci": {
+        "low": 0.0,
+        "high": 0.0026155187445510027,
+        "blocks": 4,
+        "draws": 1000
+      },
+      "benign_false_alarm_ci": {
+        "low": 0.00193063045070235,
+        "high": 0.0023606457508376483,
+        "blocks": 4,
+        "draws": 1000
+      }
+    },
+    {
+      "held_out_dataset": "UNSW-NB15",
+      "seed": 45,
+      "model": "XGBoost",
+      "train_rows": 85000,
+      "validation_rows": 15000,
+      "held_out_rows": 27597,
+      "heldout_capture_row_cap": 10000,
+      "training_rows_per_dataset_cap": 50000,
+      "train_test_duplicate_vectors_removed": 0,
+      "threshold": 0.5,
+      "candidate_model": "models\\experimental\\lodo\\xgboost_except_UNSW_NB15_seed_45.joblib",
+      "production_comparator": "not available: active production model requires 77 features; shared mapping has 11",
+      "recall": 0.003232758620689655,
+      "precision": 0.003424657534246575,
+      "f1": 0.0033259423503325942,
+      "benign_false_alarm_rate": 0.03273463571937456,
+      "roc_auc": 0.5832357058304812,
+      "pr_auc": 0.03825183886920058,
+      "family_recall": {
+        "Attack (family unavailable)": {
+          "support": 928,
+          "recall": 0.003232758620689655
+        }
+      },
+      "recall_ci": {
+        "low": 0.0009354536950420954,
+        "high": 0.006622516556291391,
+        "blocks": 4,
+        "draws": 1000
+      },
+      "benign_false_alarm_ci": {
+        "low": 0.02955980598517434,
+        "high": 0.03550211660915656,
+        "blocks": 4,
+        "draws": 1000
+      }
+    },
+    {
+      "held_out_dataset": "UNSW-NB15",
+      "seed": 46,
+      "model": "RandomForest",
+      "train_rows": 85000,
+      "validation_rows": 15000,
+      "held_out_rows": 27597,
+      "heldout_capture_row_cap": 10000,
+      "training_rows_per_dataset_cap": 50000,
+      "train_test_duplicate_vectors_removed": 0,
+      "threshold": 0.5,
+      "candidate_model": "models\\experimental\\lodo\\randomforest_except_UNSW_NB15_seed_46.joblib",
+      "production_comparator": "not available: active production model requires 77 features; shared mapping has 11",
+      "recall": 0.0010775862068965517,
+      "precision": 0.02564102564102564,
+      "f1": 0.002068252326783868,
+      "benign_false_alarm_rate": 0.0014248753234092017,
+      "roc_auc": 0.4555899648112686,
+      "pr_auc": 0.029051785059110817,
+      "family_recall": {
+        "Attack (family unavailable)": {
+          "support": 928,
+          "recall": 0.0010775862068965517
+        }
+      },
+      "recall_ci": {
+        "low": 0.0,
+        "high": 0.0026155187445510027,
+        "blocks": 4,
+        "draws": 1000
+      },
+      "benign_false_alarm_ci": {
+        "low": 0.0013123359580052493,
+        "high": 0.0015647519044677785,
+        "blocks": 4,
+        "draws": 1000
+      }
+    },
+    {
+      "held_out_dataset": "UNSW-NB15",
+      "seed": 46,
+      "model": "XGBoost",
+      "train_rows": 85000,
+      "validation_rows": 15000,
+      "held_out_rows": 27597,
+      "heldout_capture_row_cap": 10000,
+      "training_rows_per_dataset_cap": 50000,
+      "train_test_duplicate_vectors_removed": 0,
+      "threshold": 0.5,
+      "candidate_model": "models\\experimental\\lodo\\xgboost_except_UNSW_NB15_seed_46.joblib",
+      "production_comparator": "not available: active production model requires 77 features; shared mapping has 11",
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "benign_false_alarm_rate": 0.02606021973077356,
+      "roc_auc": 0.6813757311860211,
+      "pr_auc": 0.05162875115800644,
+      "family_recall": {
+        "Attack (family unavailable)": {
+          "support": 928,
+          "recall": 0.0
+        }
+      },
+      "recall_ci": {
+        "low": 0.0,
+        "high": 0.0,
+        "blocks": 4,
+        "draws": 1000
+      },
+      "benign_false_alarm_ci": {
+        "low": 0.023611238217259998,
+        "high": 0.028419936373276777,
+        "blocks": 4,
+        "draws": 1000
+      }
+    }
+  ],
+  "seed_mean_sd": [
+    {
+      "held_out_dataset": "CICIDS2017",
+      "model": "RandomForest",
+      "seed_count": 5,
+      "recall_mean": 0.02084421834181218,
+      "recall_sd": 0.013985530539457884,
+      "precision_mean": 0.18207281723616836,
+      "precision_sd": 0.10578866972769455,
+      "f1_mean": 0.037375833106531794,
+      "f1_sd": 0.02473523660464725,
+      "benign_false_alarm_rate_mean": 0.010882852012322695,
+      "benign_false_alarm_rate_sd": 0.0014147965739667414,
+      "roc_auc_mean": 0.825672780804599,
+      "roc_auc_sd": 0.03925675725766074,
+      "pr_auc_mean": 0.30550172653432084,
+      "pr_auc_sd": 0.05315271850025144,
+      "family_recall_mean_sd": {
+        "botnet": {
+          "mean": 0.013513513513513514,
+          "sd": 0.013513513513513514,
+          "mean_support": 74.0
+        },
+        "bruteforce": {
+          "mean": 0.020909090909090912,
+          "sd": 0.02170424797511513,
+          "mean_support": 220.0
+        },
+        "ddos": {
+          "mean": 0.012810601877415792,
+          "sd": 0.02864537663058814,
+          "mean_support": 3622.0
+        },
+        "dos": {
+          "mean": 0.02210526315789474,
+          "sd": 0.0019791590732225433,
+          "mean_support": 3040.0
+        },
+        "infiltration": {
+          "mean": 0.32121212121212117,
+          "sd": 0.136531882740228,
+          "mean_support": 33.0
+        },
+        "portscan": {
+          "mean": 0.016,
+          "sd": 0.013824294235551813,
+          "mean_support": 150.0
+        },
+        "webattack": {
+          "mean": 0.14477611940298507,
+          "sd": 0.031039752750873766,
+          "mean_support": 134.0
+        }
+      }
+    },
+    {
+      "held_out_dataset": "CICIDS2017",
+      "model": "XGBoost",
+      "seed_count": 5,
+      "recall_mean": 0.2572803519868005,
+      "recall_sd": 0.07554690454025989,
+      "precision_mean": 0.25841957578327135,
+      "precision_sd": 0.059337424641729614,
+      "f1_mean": 0.2574642661012858,
+      "f1_sd": 0.06780021502231785,
+      "benign_false_alarm_rate_mean": 0.0866872044941599,
+      "benign_false_alarm_rate_sd": 0.005138786497910156,
+      "roc_auc_mean": 0.4903459481581446,
+      "roc_auc_sd": 0.049250875448332704,
+      "pr_auc_mean": 0.1896188529152017,
+      "pr_auc_sd": 0.05064035572829736,
+      "family_recall_mean_sd": {
+        "botnet": {
+          "mean": 0.3783783783783784,
+          "sd": 0.07150679219093488,
+          "mean_support": 74.0
+        },
+        "bruteforce": {
+          "mean": 0.13272727272727275,
+          "sd": 0.0847577978567203,
+          "mean_support": 220.0
+        },
+        "ddos": {
+          "mean": 0.43627829928216455,
+          "sd": 0.1489609498598406,
+          "mean_support": 3622.0
+        },
+        "dos": {
+          "mean": 0.04348684210526316,
+          "sd": 0.007701865532906986,
+          "mean_support": 3040.0
+        },
+        "infiltration": {
+          "mean": 0.5272727272727272,
+          "sd": 0.15090787391501495,
+          "mean_support": 33.0
+        },
+        "portscan": {
+          "mean": 0.38,
+          "sd": 0.05637178175095921,
+          "mean_support": 150.0
+        },
+        "webattack": {
+          "mean": 0.20298507462686569,
+          "sd": 0.04299958295787441,
+          "mean_support": 134.0
+        }
+      }
+    },
+    {
+      "held_out_dataset": "CSE-CIC-IDS2018",
+      "model": "RandomForest",
+      "seed_count": 5,
+      "recall_mean": 0.009997768355277839,
+      "recall_sd": 0.0003551985832422324,
+      "precision_mean": 0.3618492843540807,
+      "precision_sd": 0.08494781440910605,
+      "f1_mean": 0.01942739230238222,
+      "f1_sd": 0.000648127614828143,
+      "benign_false_alarm_rate_mean": 0.003907917240544264,
+      "benign_false_alarm_rate_sd": 0.00170308031685848,
+      "roc_auc_mean": 0.6619425798025779,
+      "roc_auc_sd": 0.027177695871637493,
+      "pr_auc_mean": 0.2760518532840581,
+      "pr_auc_sd": 0.0132605219635401,
+      "family_recall_mean_sd": {
+        "Attack (family unavailable)": {
+          "mean": 0.002361199744735163,
+          "sd": 0.0010726060187601538,
+          "mean_support": 3134.0
+        },
+        "botnet": {
+          "mean": 0.0,
+          "sd": 0.0,
+          "mean_support": 1478.0
+        },
+        "bruteforce": {
+          "mean": 0.0,
+          "sd": 0.0,
+          "mean_support": 1604.0
+        },
+        "ddos": {
+          "mean": 0.0,
+          "sd": 0.0,
+          "mean_support": 5868.0
+        },
+        "dos": {
+          "mean": 0.10960698689956332,
+          "sd": 0.0005979503902894764,
+          "mean_support": 916.0
+        },
+        "web": {
+          "mean": 0.06004514672686231,
+          "sd": 0.009656546111154601,
+          "mean_support": 443.0
+        }
+      }
+    },
+    {
+      "held_out_dataset": "CSE-CIC-IDS2018",
+      "model": "XGBoost",
+      "seed_count": 5,
+      "recall_mean": 0.016350516997693968,
+      "recall_sd": 0.005011244782674527,
+      "precision_mean": 0.17161861155059516,
+      "precision_sd": 0.07854592975422,
+      "f1_mean": 0.029598216424009238,
+      "f1_sd": 0.009566540185433745,
+      "benign_false_alarm_rate_mean": 0.019028015316856106,
+      "benign_false_alarm_rate_sd": 0.011476321970393194,
+      "roc_auc_mean": 0.564056226449382,
+      "roc_auc_sd": 0.01827856561545913,
+      "pr_auc_mean": 0.18872519919992953,
+      "pr_auc_sd": 0.0093955204768556,
+      "family_recall_mean_sd": {
+        "Attack (family unavailable)": {
+          "mean": 0.010465858328015318,
+          "sd": 0.0013612462672432382,
+          "mean_support": 3134.0
+        },
+        "botnet": {
+          "mean": 0.0,
+          "sd": 0.0,
+          "mean_support": 1478.0
+        },
+        "bruteforce": {
+          "mean": 0.0,
+          "sd": 0.0,
+          "mean_support": 1604.0
+        },
+        "ddos": {
+          "mean": 0.0,
+          "sd": 0.0,
+          "mean_support": 5868.0
+        },
+        "dos": {
+          "mean": 0.11637554585152839,
+          "sd": 0.010141680491260784,
+          "mean_support": 916.0
+        },
+        "web": {
+          "mean": 0.18148984198645599,
+          "sd": 0.13452095891232865,
+          "mean_support": 443.0
+        }
+      }
+    },
+    {
+      "held_out_dataset": "UNSW-NB15",
+      "model": "RandomForest",
+      "seed_count": 5,
+      "recall_mean": 0.0012931034482758623,
+      "recall_sd": 0.0004819112020473685,
+      "precision_mean": 0.027825713433321846,
+      "precision_sd": 0.014792042200183052,
+      "f1_mean": 0.002466054469004631,
+      "f1_sd": 0.0009365192081873541,
+      "benign_false_alarm_rate_mean": 0.001709850388091042,
+      "benign_false_alarm_rate_sd": 0.0004791664044615063,
+      "roc_auc_mean": 0.4860733912614542,
+      "roc_auc_sd": 0.028224747427326835,
+      "pr_auc_mean": 0.031690677814269985,
+      "pr_auc_sd": 0.0020121301644611465,
+      "family_recall_mean_sd": {
+        "Attack (family unavailable)": {
+          "mean": 0.0012931034482758623,
+          "sd": 0.0004819112020473685,
+          "mean_support": 928.0
+        }
+      }
+    },
+    {
+      "held_out_dataset": "UNSW-NB15",
+      "model": "XGBoost",
+      "seed_count": 5,
+      "recall_mean": 0.0028017241379310344,
+      "recall_sd": 0.0019575325565285508,
+      "precision_mean": 0.0027786837282816105,
+      "precision_sd": 0.0018525682523347082,
+      "f1_mean": 0.0027869611266097584,
+      "f1_sd": 0.0018977437080351604,
+      "benign_false_alarm_rate_mean": 0.03299711275263414,
+      "benign_false_alarm_rate_sd": 0.00444853969691577,
+      "roc_auc_mean": 0.6290368894984619,
+      "roc_auc_sd": 0.03837829850596476,
+      "pr_auc_mean": 0.04345540095729087,
+      "pr_auc_sd": 0.005432777531880403,
+      "family_recall_mean_sd": {
+        "Attack (family unavailable)": {
+          "mean": 0.0028017241379310344,
+          "sd": 0.0019575325565285508,
+          "mean_support": 928.0
+        }
+      }
+    }
+  ]
+}

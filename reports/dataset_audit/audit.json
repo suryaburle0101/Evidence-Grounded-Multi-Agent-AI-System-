@@ -1,0 +1,1301 @@
+{
+  "schema": "dataset-audit-v1",
+  "generated_at_utc": "2026-10-31T17:14:52.954104+00:00",
+  "data_root": "D:\\cyber\\data\\raw",
+  "production_feature_count": 77,
+  "production_feature_source": "models/drift_baseline.json",
+  "training_evidence_sources": [
+    "train_multidataset.py",
+    "models/drift_baseline.json",
+    "reports/production_model_validation/production_2017_source_check.json",
+    "reports/production_model_validation/production_external_2018.json"
+  ],
+  "skipped_non_capture_inputs": [
+    "CICIDS2017/CICIDS2017.zip",
+    "UNSW_NB15/NUSW-NB15_features.csv (column dictionary)"
+  ],
+  "captures": [
+    {
+      "dataset": "CICIDS2017",
+      "file": "CICIDS2017/Benign-Monday-no-metadata.parquet",
+      "row_count": 458831,
+      "label_column": "Label",
+      "label_counts": {
+        "Benign": 458831
+      },
+      "production_features_present": 77,
+      "production_feature_columns": 77,
+      "row_limit_applied": false,
+      "duplicate_row_count": 0,
+      "duplicate_row_rate": 0.0,
+      "rows_with_nan": 0,
+      "rows_with_inf": 0,
+      "rows_with_nan_or_inf": 0,
+      "date_column": null,
+      "date_min": null,
+      "date_max": null,
+      "cross_dataset_duplicate_vector_count": 5,
+      "cross_dataset_comparison": "all 77 production features available",
+      "used_for_active_training": "unknown",
+      "training_evidence": "train_multidataset.py; models/drift_baseline.json; models/random_forest_binary_cicids2017.pkl; models/random_forest_multiclass_cicids2017.pkl; models/rare_heartbleed.pkl; models/rare_infiltration.pkl; models/xgboost_binary_cicids2017.pkl; models/xgboost_binary_cicids2017.ubj; models/xgboost_multiclass_cicids2017.pkl; models/xgboost_multiclass_cicids2017.ubj; reports/production_model_validation/production_2017_source_check.json",
+      "complete": true
+    },
+    {
+      "dataset": "CICIDS2017",
+      "file": "CICIDS2017/Botnet-Friday-no-metadata.parquet",
+      "row_count": 176038,
+      "label_column": "Label",
+      "label_counts": {
+        "Benign": 174601,
+        "Bot": 1437
+      },
+      "production_features_present": 77,
+      "production_feature_columns": 77,
+      "row_limit_applied": false,
+      "duplicate_row_count": 0,
+      "duplicate_row_rate": 0.0,
+      "rows_with_nan": 0,
+      "rows_with_inf": 0,
+      "rows_with_nan_or_inf": 0,
+      "date_column": null,
+      "date_min": null,
+      "date_max": null,
+      "cross_dataset_duplicate_vector_count": 5,
+      "cross_dataset_comparison": "all 77 production features available",
+      "used_for_active_training": "unknown",
+      "training_evidence": "train_multidataset.py; models/drift_baseline.json; models/random_forest_binary_cicids2017.pkl; models/random_forest_multiclass_cicids2017.pkl; models/rare_heartbleed.pkl; models/rare_infiltration.pkl; models/xgboost_binary_cicids2017.pkl; models/xgboost_binary_cicids2017.ubj; models/xgboost_multiclass_cicids2017.pkl; models/xgboost_multiclass_cicids2017.ubj; reports/production_model_validation/production_2017_source_check.json",
+      "complete": true
+    },
+    {
+      "dataset": "CICIDS2017",
+      "file": "CICIDS2017/Bruteforce-Tuesday-no-metadata.parquet",
+      "row_count": 389714,
+      "label_column": "Label",
+      "label_counts": {
+        "Benign": 380564,
+        "FTP-Patator": 5931,
+        "SSH-Patator": 3219
+      },
+      "production_features_present": 77,
+      "production_feature_columns": 77,
+      "row_limit_applied": false,
+      "duplicate_row_count": 0,
+      "duplicate_row_rate": 0.0,
+      "rows_with_nan": 0,
+      "rows_with_inf": 0,
+      "rows_with_nan_or_inf": 0,
+      "date_column": null,
+      "date_min": null,
+      "date_max": null,
+      "cross_dataset_duplicate_vector_count": 9028,
+      "cross_dataset_comparison": "all 77 production features available",
+      "used_for_active_training": "unknown",
+      "training_evidence": "train_multidataset.py; models/drift_baseline.json; models/random_forest_binary_cicids2017.pkl; models/random_forest_multiclass_cicids2017.pkl; models/rare_heartbleed.pkl; models/rare_infiltration.pkl; models/xgboost_binary_cicids2017.pkl; models/xgboost_binary_cicids2017.ubj; models/xgboost_multiclass_cicids2017.pkl; models/xgboost_multiclass_cicids2017.ubj; reports/production_model_validation/production_2017_source_check.json",
+      "complete": true
+    },
+    {
+      "dataset": "CICIDS2017",
+      "file": "CICIDS2017/DDoS-Friday-no-metadata.parquet",
+      "row_count": 221264,
+      "label_column": "Label",
+      "label_counts": {
+        "Benign": 93250,
+        "DDoS": 128014
+      },
+      "production_features_present": 77,
+      "production_feature_columns": 77,
+      "row_limit_applied": false,
+      "duplicate_row_count": 0,
+      "duplicate_row_rate": 0.0,
+      "rows_with_nan": 0,
+      "rows_with_inf": 0,
+      "rows_with_nan_or_inf": 0,
+      "date_column": null,
+      "date_min": null,
+      "date_max": null,
+      "cross_dataset_duplicate_vector_count": 4,
+      "cross_dataset_comparison": "all 77 production features available",
+      "used_for_active_training": "unknown",
+      "training_evidence": "train_multidataset.py; models/drift_baseline.json; models/random_forest_binary_cicids2017.pkl; models/random_forest_multiclass_cicids2017.pkl; models/rare_heartbleed.pkl; models/rare_infiltration.pkl; models/xgboost_binary_cicids2017.pkl; models/xgboost_binary_cicids2017.ubj; models/xgboost_multiclass_cicids2017.pkl; models/xgboost_multiclass_cicids2017.ubj; reports/production_model_validation/production_2017_source_check.json",
+      "complete": true
+    },
+    {
+      "dataset": "CICIDS2017",
+      "file": "CICIDS2017/DoS-Wednesday-no-metadata.parquet",
+      "row_count": 584991,
+      "label_column": "Label",
+      "label_counts": {
+        "Benign": 391235,
+        "DoS slowloris": 5385,
+        "DoS GoldenEye": 10286,
+        "DoS Hulk": 172846,
+        "DoS Slowhttptest": 5228,
+        "Heartbleed": 11
+      },
+      "production_features_present": 77,
+      "production_feature_columns": 77,
+      "row_limit_applied": false,
+      "duplicate_row_count": 0,
+      "duplicate_row_rate": 0.0,
+      "rows_with_nan": 0,
+      "rows_with_inf": 0,
+      "rows_with_nan_or_inf": 0,
+      "date_column": null,
+      "date_min": null,
+      "date_max": null,
+      "cross_dataset_duplicate_vector_count": 8,
+      "cross_dataset_comparison": "all 77 production features available",
+      "used_for_active_training": "unknown",
+      "training_evidence": "train_multidataset.py; models/drift_baseline.json; models/random_forest_binary_cicids2017.pkl; models/random_forest_multiclass_cicids2017.pkl; models/rare_heartbleed.pkl; models/rare_infiltration.pkl; models/xgboost_binary_cicids2017.pkl; models/xgboost_binary_cicids2017.ubj; models/xgboost_multiclass_cicids2017.pkl; models/xgboost_multiclass_cicids2017.ubj; reports/production_model_validation/production_2017_source_check.json",
+      "complete": true
+    },
+    {
+      "dataset": "CICIDS2017",
+      "file": "CICIDS2017/Infiltration-Thursday-no-metadata.parquet",
+      "row_count": 207630,
+      "label_column": "Label",
+      "label_counts": {
+        "Benign": 207594,
+        "Infiltration": 36
+      },
+      "production_features_present": 77,
+      "production_feature_columns": 77,
+      "row_limit_applied": false,
+      "duplicate_row_count": 0,
+      "duplicate_row_rate": 0.0,
+      "rows_with_nan": 0,
+      "rows_with_inf": 0,
+      "rows_with_nan_or_inf": 0,
+      "date_column": null,
+      "date_min": null,
+      "date_max": null,
+      "cross_dataset_duplicate_vector_count": 4,
+      "cross_dataset_comparison": "all 77 production features available",
+      "used_for_active_training": "unknown",
+      "training_evidence": "train_multidataset.py; models/drift_baseline.json; models/random_forest_binary_cicids2017.pkl; models/random_forest_multiclass_cicids2017.pkl; models/rare_heartbleed.pkl; models/rare_infiltration.pkl; models/xgboost_binary_cicids2017.pkl; models/xgboost_binary_cicids2017.ubj; models/xgboost_multiclass_cicids2017.pkl; models/xgboost_multiclass_cicids2017.ubj; reports/production_model_validation/production_2017_source_check.json",
+      "complete": true
+    },
+    {
+      "dataset": "CICIDS2017",
+      "file": "CICIDS2017/Portscan-Friday-no-metadata.parquet",
+      "row_count": 119522,
+      "label_column": "Label",
+      "label_counts": {
+        "Benign": 117566,
+        "PortScan": 1956
+      },
+      "production_features_present": 77,
+      "production_feature_columns": 77,
+      "row_limit_applied": false,
+      "duplicate_row_count": 0,
+      "duplicate_row_rate": 0.0,
+      "rows_with_nan": 0,
+      "rows_with_inf": 0,
+      "rows_with_nan_or_inf": 0,
+      "date_column": null,
+      "date_min": null,
+      "date_max": null,
+      "cross_dataset_duplicate_vector_count": 5,
+      "cross_dataset_comparison": "all 77 production features available",
+      "used_for_active_training": "unknown",
+      "training_evidence": "train_multidataset.py; models/drift_baseline.json; models/random_forest_binary_cicids2017.pkl; models/random_forest_multiclass_cicids2017.pkl; models/rare_heartbleed.pkl; models/rare_infiltration.pkl; models/xgboost_binary_cicids2017.pkl; models/xgboost_binary_cicids2017.ubj; models/xgboost_multiclass_cicids2017.pkl; models/xgboost_multiclass_cicids2017.ubj; reports/production_model_validation/production_2017_source_check.json",
+      "complete": true
+    },
+    {
+      "dataset": "CICIDS2017",
+      "file": "CICIDS2017/WebAttacks-Thursday-no-metadata.parquet",
+      "row_count": 155820,
+      "label_column": "Label",
+      "label_counts": {
+        "Benign": 153677,
+        "Web Attack � Brute Force": 1470,
+        "Web Attack � Sql Injection": 21,
+        "Web Attack � XSS": 652
+      },
+      "production_features_present": 77,
+      "production_feature_columns": 77,
+      "row_limit_applied": false,
+      "duplicate_row_count": 0,
+      "duplicate_row_rate": 0.0,
+      "rows_with_nan": 0,
+      "rows_with_inf": 0,
+      "rows_with_nan_or_inf": 0,
+      "date_column": null,
+      "date_min": null,
+      "date_max": null,
+      "cross_dataset_duplicate_vector_count": 4,
+      "cross_dataset_comparison": "all 77 production features available",
+      "used_for_active_training": "unknown",
+      "training_evidence": "train_multidataset.py; models/drift_baseline.json; models/random_forest_binary_cicids2017.pkl; models/random_forest_multiclass_cicids2017.pkl; models/rare_heartbleed.pkl; models/rare_infiltration.pkl; models/xgboost_binary_cicids2017.pkl; models/xgboost_binary_cicids2017.ubj; models/xgboost_multiclass_cicids2017.pkl; models/xgboost_multiclass_cicids2017.ubj; reports/production_model_validation/production_2017_source_check.json",
+      "complete": true
+    },
+    {
+      "dataset": "CIC_IDS_Collection",
+      "file": "CIC_IDS_Collection/cic-collection.parquet",
+      "row_count": 9167581,
+      "label_column": "Label",
+      "label_counts": {
+        "Benign": 7186189,
+        "Botnet": 145968,
+        "Bruteforce-FTP": 5984,
+        "Bruteforce-SSH": 97260,
+        "DDoS-Ddossim": 5115,
+        "DoS-Slowread": 2786,
+        "DoS-Slowheaders": 1649,
+        "DoS-Hulk": 318740,
+        "DoS-Rudy": 699,
+        "DoS-Goldeneye": 52324,
+        "DoS-Slowbody": 621,
+        "DDoS-Slowloris": 1858,
+        "DDoS": 128062,
+        "DDoS-LOIC-HTTP": 575364,
+        "DDoS-HOIC": 198861,
+        "DDoS-UDP": 28863,
+        "DDoS-DNS": 3668,
+        "DoS-Slowloris": 15243,
+        "DoS-Slowhttptest": 5271,
+        "DoS-Heartbleed": 11,
+        "Infiltration": 94857,
+        "DDoS-MSSQL": 11784,
+        "DDoS-LDAP": 2092,
+        "DDoS-NetBIOS": 675,
+        "DDoS-NTP": 121328,
+        "Portscan": 2255,
+        "DDoS-Syn": 47757,
+        "DDoS-SNMP": 2017,
+        "DDoS-TFTP": 98833,
+        "DDoS-UDPLag": 8452,
+        "Webattack-bruteforce": 2020,
+        "Webattack-XSS": 876,
+        "Webattack-SQLi": 99
+      },
+      "production_features_present": 57,
+      "production_feature_columns": 77,
+      "row_limit_applied": false,
+      "duplicate_row_count": 310,
+      "duplicate_row_rate": 3.381480894469326e-05,
+      "rows_with_nan": 0,
+      "rows_with_inf": 0,
+      "rows_with_nan_or_inf": 0,
+      "date_column": null,
+      "date_min": null,
+      "date_max": null,
+      "cross_dataset_duplicate_vector_count": 0,
+      "cross_dataset_comparison": "not compared: only 57 of 77 production features are present",
+      "used_for_active_training": "unknown",
+      "training_evidence": "train_multidataset.py; models/drift_baseline.json; models/random_forest_binary_cicids2017.pkl; models/random_forest_multiclass_cicids2017.pkl; models/rare_heartbleed.pkl; models/rare_infiltration.pkl; models/xgboost_binary_cicids2017.pkl; models/xgboost_binary_cicids2017.ubj; models/xgboost_multiclass_cicids2017.pkl; models/xgboost_multiclass_cicids2017.ubj",
+      "complete": true
+    },
+    {
+      "dataset": "CSE_CIC_IDS2018",
+      "file": "CSE_CIC_IDS2018/Botnet-Friday-02-03-2018_TrafficForML_CICFlowMeter.parquet",
+      "row_count": 771587,
+      "label_column": "Label",
+      "label_counts": {
+        "Bot": 144535,
+        "Benign": 627052
+      },
+      "production_features_present": 77,
+      "production_feature_columns": 77,
+      "row_limit_applied": false,
+      "duplicate_row_count": 0,
+      "duplicate_row_rate": 0.0,
+      "rows_with_nan": 0,
+      "rows_with_inf": 0,
+      "rows_with_nan_or_inf": 0,
+      "date_column": null,
+      "date_min": null,
+      "date_max": null,
+      "cross_dataset_duplicate_vector_count": 2909,
+      "cross_dataset_comparison": "all 77 production features available",
+      "used_for_active_training": "no",
+      "training_evidence": "train_multidataset.py; models/drift_baseline.json; models/random_forest_binary_cicids2017.pkl; models/random_forest_multiclass_cicids2017.pkl; models/rare_heartbleed.pkl; models/rare_infiltration.pkl; models/xgboost_binary_cicids2017.pkl; models/xgboost_binary_cicids2017.ubj; models/xgboost_multiclass_cicids2017.pkl; models/xgboost_multiclass_cicids2017.ubj; reports/production_model_validation/production_external_2018.json; train_multidataset.py documents candidate output under models/multidataset/",
+      "complete": true
+    },
+    {
+      "dataset": "CSE_CIC_IDS2018",
+      "file": "CSE_CIC_IDS2018/Bruteforce-Wednesday-14-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "row_count": 619346,
+      "label_column": "Label",
+      "label_counts": {
+        "SSH-Bruteforce": 94048,
+        "Benign": 525245,
+        "FTP-BruteForce": 53
+      },
+      "production_features_present": 77,
+      "production_feature_columns": 77,
+      "row_limit_applied": false,
+      "duplicate_row_count": 0,
+      "duplicate_row_rate": 0.0,
+      "rows_with_nan": 0,
+      "rows_with_inf": 0,
+      "rows_with_nan_or_inf": 0,
+      "date_column": null,
+      "date_min": null,
+      "date_max": null,
+      "cross_dataset_duplicate_vector_count": 441,
+      "cross_dataset_comparison": "all 77 production features available",
+      "used_for_active_training": "no",
+      "training_evidence": "train_multidataset.py; models/drift_baseline.json; models/random_forest_binary_cicids2017.pkl; models/random_forest_multiclass_cicids2017.pkl; models/rare_heartbleed.pkl; models/rare_infiltration.pkl; models/xgboost_binary_cicids2017.pkl; models/xgboost_binary_cicids2017.ubj; models/xgboost_multiclass_cicids2017.pkl; models/xgboost_multiclass_cicids2017.ubj; reports/production_model_validation/production_external_2018.json; train_multidataset.py documents candidate output under models/multidataset/",
+      "complete": true
+    },
+    {
+      "dataset": "CSE_CIC_IDS2018",
+      "file": "CSE_CIC_IDS2018/DDoS1-Tuesday-20-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "row_count": 954846,
+      "label_column": "Label",
+      "label_counts": {
+        "DDoS attacks-LOIC-HTTP": 575364,
+        "Benign": 379482
+      },
+      "production_features_present": 77,
+      "production_feature_columns": 77,
+      "row_limit_applied": false,
+      "duplicate_row_count": 0,
+      "duplicate_row_rate": 0.0,
+      "rows_with_nan": 0,
+      "rows_with_inf": 0,
+      "rows_with_nan_or_inf": 0,
+      "date_column": null,
+      "date_min": null,
+      "date_max": null,
+      "cross_dataset_duplicate_vector_count": 364,
+      "cross_dataset_comparison": "all 77 production features available",
+      "used_for_active_training": "no",
+      "training_evidence": "train_multidataset.py; models/drift_baseline.json; models/random_forest_binary_cicids2017.pkl; models/random_forest_multiclass_cicids2017.pkl; models/rare_heartbleed.pkl; models/rare_infiltration.pkl; models/xgboost_binary_cicids2017.pkl; models/xgboost_binary_cicids2017.ubj; models/xgboost_multiclass_cicids2017.pkl; models/xgboost_multiclass_cicids2017.ubj; reports/production_model_validation/production_external_2018.json; train_multidataset.py documents candidate output under models/multidataset/",
+      "complete": true
+    },
+    {
+      "dataset": "CSE_CIC_IDS2018",
+      "file": "CSE_CIC_IDS2018/DDoS2-Wednesday-21-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "row_count": 561396,
+      "label_column": "Label",
+      "label_counts": {
+        "DDOS attack-HOIC": 198861,
+        "Benign": 360805,
+        "DDOS attack-LOIC-UDP": 1730
+      },
+      "production_features_present": 77,
+      "production_feature_columns": 77,
+      "row_limit_applied": false,
+      "duplicate_row_count": 0,
+      "duplicate_row_rate": 0.0,
+      "rows_with_nan": 0,
+      "rows_with_inf": 0,
+      "rows_with_nan_or_inf": 0,
+      "date_column": null,
+      "date_min": null,
+      "date_max": null,
+      "cross_dataset_duplicate_vector_count": 0,
+      "cross_dataset_comparison": "all 77 production features available",
+      "used_for_active_training": "no",
+      "training_evidence": "train_multidataset.py; models/drift_baseline.json; models/random_forest_binary_cicids2017.pkl; models/random_forest_multiclass_cicids2017.pkl; models/rare_heartbleed.pkl; models/rare_infiltration.pkl; models/xgboost_binary_cicids2017.pkl; models/xgboost_binary_cicids2017.ubj; models/xgboost_multiclass_cicids2017.pkl; models/xgboost_multiclass_cicids2017.ubj; reports/production_model_validation/production_external_2018.json; train_multidataset.py documents candidate output under models/multidataset/",
+      "complete": true
+    },
+    {
+      "dataset": "CSE_CIC_IDS2018",
+      "file": "CSE_CIC_IDS2018/DoS1-Thursday-15-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "row_count": 794812,
+      "label_column": "Label",
+      "label_counts": {
+        "DoS attacks-GoldenEye": 41406,
+        "DoS attacks-Slowloris": 9908,
+        "Benign": 743498
+      },
+      "production_features_present": 77,
+      "production_feature_columns": 77,
+      "row_limit_applied": false,
+      "duplicate_row_count": 0,
+      "duplicate_row_rate": 0.0,
+      "rows_with_nan": 0,
+      "rows_with_inf": 0,
+      "rows_with_nan_or_inf": 0,
+      "date_column": null,
+      "date_min": null,
+      "date_max": null,
+      "cross_dataset_duplicate_vector_count": 573,
+      "cross_dataset_comparison": "all 77 production features available",
+      "used_for_active_training": "no",
+      "training_evidence": "train_multidataset.py; models/drift_baseline.json; models/random_forest_binary_cicids2017.pkl; models/random_forest_multiclass_cicids2017.pkl; models/rare_heartbleed.pkl; models/rare_infiltration.pkl; models/xgboost_binary_cicids2017.pkl; models/xgboost_binary_cicids2017.ubj; models/xgboost_multiclass_cicids2017.pkl; models/xgboost_multiclass_cicids2017.ubj; reports/production_model_validation/production_external_2018.json; train_multidataset.py documents candidate output under models/multidataset/",
+      "complete": true
+    },
+    {
+      "dataset": "CSE_CIC_IDS2018",
+      "file": "CSE_CIC_IDS2018/DoS2-Friday-16-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "row_count": 591873,
+      "label_column": "Label",
+      "label_counts": {
+        "DoS attacks-Hulk": 145199,
+        "Benign": 446619,
+        "DoS attacks-SlowHTTPTest": 55
+      },
+      "production_features_present": 77,
+      "production_feature_columns": 77,
+      "row_limit_applied": false,
+      "duplicate_row_count": 0,
+      "duplicate_row_rate": 0.0,
+      "rows_with_nan": 0,
+      "rows_with_inf": 0,
+      "rows_with_nan_or_inf": 0,
+      "date_column": null,
+      "date_min": null,
+      "date_max": null,
+      "cross_dataset_duplicate_vector_count": 1,
+      "cross_dataset_comparison": "all 77 production features available",
+      "used_for_active_training": "no",
+      "training_evidence": "train_multidataset.py; models/drift_baseline.json; models/random_forest_binary_cicids2017.pkl; models/random_forest_multiclass_cicids2017.pkl; models/rare_heartbleed.pkl; models/rare_infiltration.pkl; models/xgboost_binary_cicids2017.pkl; models/xgboost_binary_cicids2017.ubj; models/xgboost_multiclass_cicids2017.pkl; models/xgboost_multiclass_cicids2017.ubj; reports/production_model_validation/production_external_2018.json; train_multidataset.py documents candidate output under models/multidataset/",
+      "complete": true
+    },
+    {
+      "dataset": "CSE_CIC_IDS2018",
+      "file": "CSE_CIC_IDS2018/Infil1-Wednesday-28-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "row_count": 456873,
+      "label_column": "Label",
+      "label_counts": {
+        "Benign": 400424,
+        "Infilteration": 56449
+      },
+      "production_features_present": 77,
+      "production_feature_columns": 77,
+      "row_limit_applied": false,
+      "duplicate_row_count": 0,
+      "duplicate_row_rate": 0.0,
+      "rows_with_nan": 0,
+      "rows_with_inf": 0,
+      "rows_with_nan_or_inf": 0,
+      "date_column": null,
+      "date_min": null,
+      "date_max": null,
+      "cross_dataset_duplicate_vector_count": 2006,
+      "cross_dataset_comparison": "all 77 production features available",
+      "used_for_active_training": "no",
+      "training_evidence": "train_multidataset.py; models/drift_baseline.json; models/random_forest_binary_cicids2017.pkl; models/random_forest_multiclass_cicids2017.pkl; models/rare_heartbleed.pkl; models/rare_infiltration.pkl; models/xgboost_binary_cicids2017.pkl; models/xgboost_binary_cicids2017.ubj; models/xgboost_multiclass_cicids2017.pkl; models/xgboost_multiclass_cicids2017.ubj; reports/production_model_validation/production_external_2018.json; train_multidataset.py documents candidate output under models/multidataset/",
+      "complete": true
+    },
+    {
+      "dataset": "CSE_CIC_IDS2018",
+      "file": "CSE_CIC_IDS2018/Infil2-Thursday-01-03-2018_TrafficForML_CICFlowMeter.parquet",
+      "row_count": 249170,
+      "label_column": "Label",
+      "label_counts": {
+        "Benign": 187136,
+        "Infilteration": 62034
+      },
+      "production_features_present": 77,
+      "production_feature_columns": 77,
+      "row_limit_applied": false,
+      "duplicate_row_count": 0,
+      "duplicate_row_rate": 0.0,
+      "rows_with_nan": 0,
+      "rows_with_inf": 0,
+      "rows_with_nan_or_inf": 0,
+      "date_column": null,
+      "date_min": null,
+      "date_max": null,
+      "cross_dataset_duplicate_vector_count": 1852,
+      "cross_dataset_comparison": "all 77 production features available",
+      "used_for_active_training": "no",
+      "training_evidence": "train_multidataset.py; models/drift_baseline.json; models/random_forest_binary_cicids2017.pkl; models/random_forest_multiclass_cicids2017.pkl; models/rare_heartbleed.pkl; models/rare_infiltration.pkl; models/xgboost_binary_cicids2017.pkl; models/xgboost_binary_cicids2017.ubj; models/xgboost_multiclass_cicids2017.pkl; models/xgboost_multiclass_cicids2017.ubj; reports/production_model_validation/production_external_2018.json; train_multidataset.py documents candidate output under models/multidataset/",
+      "complete": true
+    },
+    {
+      "dataset": "CSE_CIC_IDS2018",
+      "file": "CSE_CIC_IDS2018/Web1-Thursday-22-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "row_count": 830224,
+      "label_column": "Label",
+      "label_counts": {
+        "Benign": 829883,
+        "Brute Force -Web": 228,
+        "Brute Force -XSS": 79,
+        "SQL Injection": 34
+      },
+      "production_features_present": 77,
+      "production_feature_columns": 77,
+      "row_limit_applied": false,
+      "duplicate_row_count": 0,
+      "duplicate_row_rate": 0.0,
+      "rows_with_nan": 0,
+      "rows_with_inf": 0,
+      "rows_with_nan_or_inf": 0,
+      "date_column": null,
+      "date_min": null,
+      "date_max": null,
+      "cross_dataset_duplicate_vector_count": 465,
+      "cross_dataset_comparison": "all 77 production features available",
+      "used_for_active_training": "no",
+      "training_evidence": "train_multidataset.py; models/drift_baseline.json; models/random_forest_binary_cicids2017.pkl; models/random_forest_multiclass_cicids2017.pkl; models/rare_heartbleed.pkl; models/rare_infiltration.pkl; models/xgboost_binary_cicids2017.pkl; models/xgboost_binary_cicids2017.ubj; models/xgboost_multiclass_cicids2017.pkl; models/xgboost_multiclass_cicids2017.ubj; reports/production_model_validation/production_external_2018.json; train_multidataset.py documents candidate output under models/multidataset/",
+      "complete": true
+    },
+    {
+      "dataset": "CSE_CIC_IDS2018",
+      "file": "CSE_CIC_IDS2018/Web2-Friday-23-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "row_count": 829405,
+      "label_column": "Label",
+      "label_counts": {
+        "Benign": 828864,
+        "Brute Force -Web": 340,
+        "Brute Force -XSS": 150,
+        "SQL Injection": 51
+      },
+      "production_features_present": 77,
+      "production_feature_columns": 77,
+      "row_limit_applied": false,
+      "duplicate_row_count": 0,
+      "duplicate_row_rate": 0.0,
+      "rows_with_nan": 0,
+      "rows_with_inf": 0,
+      "rows_with_nan_or_inf": 0,
+      "date_column": null,
+      "date_min": null,
+      "date_max": null,
+      "cross_dataset_duplicate_vector_count": 452,
+      "cross_dataset_comparison": "all 77 production features available",
+      "used_for_active_training": "no",
+      "training_evidence": "train_multidataset.py; models/drift_baseline.json; models/random_forest_binary_cicids2017.pkl; models/random_forest_multiclass_cicids2017.pkl; models/rare_heartbleed.pkl; models/rare_infiltration.pkl; models/xgboost_binary_cicids2017.pkl; models/xgboost_binary_cicids2017.ubj; models/xgboost_multiclass_cicids2017.pkl; models/xgboost_multiclass_cicids2017.ubj; reports/production_model_validation/production_external_2018.json; train_multidataset.py documents candidate output under models/multidataset/",
+      "complete": true
+    },
+    {
+      "dataset": "UNSW_NB15",
+      "file": "UNSW_NB15/UNSW-NB15_1.csv",
+      "row_count": 700001,
+      "label_column": "Label",
+      "label_counts": {
+        "0": 677786,
+        "1": 22215
+      },
+      "production_features_present": 0,
+      "production_feature_columns": 77,
+      "row_limit_applied": false,
+      "duplicate_row_count": 59211,
+      "duplicate_row_rate": 0.08458702201853997,
+      "rows_with_nan": 677786,
+      "rows_with_inf": 0,
+      "rows_with_nan_or_inf": 677786,
+      "date_column": "Stime",
+      "date_min": "2015-01-22T11:49:37+00:00",
+      "date_max": "2015-01-22T19:44:02+00:00",
+      "cross_dataset_duplicate_vector_count": 0,
+      "cross_dataset_comparison": "not compared: only 0 of 77 production features are present",
+      "used_for_active_training": "unknown",
+      "training_evidence": "train_multidataset.py; models/drift_baseline.json; models/random_forest_binary_cicids2017.pkl; models/random_forest_multiclass_cicids2017.pkl; models/rare_heartbleed.pkl; models/rare_infiltration.pkl; models/xgboost_binary_cicids2017.pkl; models/xgboost_binary_cicids2017.ubj; models/xgboost_multiclass_cicids2017.pkl; models/xgboost_multiclass_cicids2017.ubj",
+      "complete": true
+    },
+    {
+      "dataset": "UNSW_NB15",
+      "file": "UNSW_NB15/UNSW-NB15_2.csv",
+      "row_count": 700001,
+      "label_column": "Label",
+      "label_counts": {
+        "0": 647252,
+        "1": 52749
+      },
+      "production_features_present": 0,
+      "production_feature_columns": 77,
+      "row_limit_applied": false,
+      "duplicate_row_count": 63248,
+      "duplicate_row_rate": 0.09035415663691909,
+      "rows_with_nan": 700001,
+      "rows_with_inf": 0,
+      "rows_with_nan_or_inf": 700001,
+      "date_column": "Stime",
+      "date_min": "2015-01-22T19:43:15+00:00",
+      "date_max": "2015-02-18T03:45:29+00:00",
+      "cross_dataset_duplicate_vector_count": 0,
+      "cross_dataset_comparison": "not compared: only 0 of 77 production features are present",
+      "used_for_active_training": "unknown",
+      "training_evidence": "train_multidataset.py; models/drift_baseline.json; models/random_forest_binary_cicids2017.pkl; models/random_forest_multiclass_cicids2017.pkl; models/rare_heartbleed.pkl; models/rare_infiltration.pkl; models/xgboost_binary_cicids2017.pkl; models/xgboost_binary_cicids2017.ubj; models/xgboost_multiclass_cicids2017.pkl; models/xgboost_multiclass_cicids2017.ubj",
+      "complete": true
+    },
+    {
+      "dataset": "UNSW_NB15",
+      "file": "UNSW_NB15/UNSW-NB15_3.csv",
+      "row_count": 700001,
+      "label_column": "Label",
+      "label_counts": {
+        "0": 542576,
+        "1": 157425
+      },
+      "production_features_present": 0,
+      "production_feature_columns": 77,
+      "row_limit_applied": false,
+      "duplicate_row_count": 224843,
+      "duplicate_row_rate": 0.3212038268516759,
+      "rows_with_nan": 700001,
+      "rows_with_inf": 0,
+      "rows_with_nan_or_inf": 700001,
+      "date_column": "Stime",
+      "date_min": "2015-02-18T03:44:59+00:00",
+      "date_max": "2015-02-18T09:00:09+00:00",
+      "cross_dataset_duplicate_vector_count": 0,
+      "cross_dataset_comparison": "not compared: only 0 of 77 production features are present",
+      "used_for_active_training": "unknown",
+      "training_evidence": "train_multidataset.py; models/drift_baseline.json; models/random_forest_binary_cicids2017.pkl; models/random_forest_multiclass_cicids2017.pkl; models/rare_heartbleed.pkl; models/rare_infiltration.pkl; models/xgboost_binary_cicids2017.pkl; models/xgboost_binary_cicids2017.ubj; models/xgboost_multiclass_cicids2017.pkl; models/xgboost_multiclass_cicids2017.ubj",
+      "complete": true
+    },
+    {
+      "dataset": "UNSW_NB15",
+      "file": "UNSW_NB15/UNSW-NB15_4.csv",
+      "row_count": 440044,
+      "label_column": "Label",
+      "label_counts": {
+        "0": 351150,
+        "1": 88894
+      },
+      "production_features_present": 0,
+      "production_feature_columns": 77,
+      "row_limit_applied": false,
+      "duplicate_row_count": 133325,
+      "duplicate_row_rate": 0.30298106552981063,
+      "rows_with_nan": 440044,
+      "rows_with_inf": 0,
+      "rows_with_nan_or_inf": 440044,
+      "date_column": "Stime",
+      "date_min": "2015-02-18T08:59:44+00:00",
+      "date_max": "2015-02-18T12:21:08+00:00",
+      "cross_dataset_duplicate_vector_count": 0,
+      "cross_dataset_comparison": "not compared: only 0 of 77 production features are present",
+      "used_for_active_training": "unknown",
+      "training_evidence": "train_multidataset.py; models/drift_baseline.json; models/random_forest_binary_cicids2017.pkl; models/random_forest_multiclass_cicids2017.pkl; models/rare_heartbleed.pkl; models/rare_infiltration.pkl; models/xgboost_binary_cicids2017.pkl; models/xgboost_binary_cicids2017.ubj; models/xgboost_multiclass_cicids2017.pkl; models/xgboost_multiclass_cicids2017.ubj",
+      "complete": true
+    }
+  ],
+  "cross_dataset_duplicate_feature_vectors": [
+    {
+      "dataset_a": "CICIDS2017",
+      "capture_a": "CICIDS2017/Benign-Monday-no-metadata.parquet",
+      "dataset_b": "CSE_CIC_IDS2018",
+      "capture_b": "CSE_CIC_IDS2018/Bruteforce-Wednesday-14-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "unique_duplicate_feature_vectors": 1,
+      "sample_vector_hashes_pandas64": [
+        {
+          "hash": "ab60fc7ead759fd1",
+          "row_a": 4971,
+          "row_b": 131877
+        }
+      ]
+    },
+    {
+      "dataset_a": "CICIDS2017",
+      "capture_a": "CICIDS2017/Benign-Monday-no-metadata.parquet",
+      "dataset_b": "CSE_CIC_IDS2018",
+      "capture_b": "CSE_CIC_IDS2018/DoS1-Thursday-15-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "unique_duplicate_feature_vectors": 2,
+      "sample_vector_hashes_pandas64": [
+        {
+          "hash": "ab60fc7ead759fd1",
+          "row_a": 4971,
+          "row_b": 677658
+        },
+        {
+          "hash": "b553b523813e03aa",
+          "row_a": 119888,
+          "row_b": 311821
+        }
+      ]
+    },
+    {
+      "dataset_a": "CICIDS2017",
+      "capture_a": "CICIDS2017/Benign-Monday-no-metadata.parquet",
+      "dataset_b": "CSE_CIC_IDS2018",
+      "capture_b": "CSE_CIC_IDS2018/Infil1-Wednesday-28-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "unique_duplicate_feature_vectors": 1,
+      "sample_vector_hashes_pandas64": [
+        {
+          "hash": "ab60fc7ead759fd1",
+          "row_a": 4971,
+          "row_b": 7049
+        }
+      ]
+    },
+    {
+      "dataset_a": "CICIDS2017",
+      "capture_a": "CICIDS2017/Benign-Monday-no-metadata.parquet",
+      "dataset_b": "CSE_CIC_IDS2018",
+      "capture_b": "CSE_CIC_IDS2018/Infil2-Thursday-01-03-2018_TrafficForML_CICFlowMeter.parquet",
+      "unique_duplicate_feature_vectors": 1,
+      "sample_vector_hashes_pandas64": [
+        {
+          "hash": "ab60fc7ead759fd1",
+          "row_a": 4971,
+          "row_b": 1823
+        }
+      ]
+    },
+    {
+      "dataset_a": "CICIDS2017",
+      "capture_a": "CICIDS2017/Botnet-Friday-no-metadata.parquet",
+      "dataset_b": "CSE_CIC_IDS2018",
+      "capture_b": "CSE_CIC_IDS2018/Bruteforce-Wednesday-14-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "unique_duplicate_feature_vectors": 1,
+      "sample_vector_hashes_pandas64": [
+        {
+          "hash": "ab60fc7ead759fd1",
+          "row_a": 163517,
+          "row_b": 131877
+        }
+      ]
+    },
+    {
+      "dataset_a": "CICIDS2017",
+      "capture_a": "CICIDS2017/Botnet-Friday-no-metadata.parquet",
+      "dataset_b": "CSE_CIC_IDS2018",
+      "capture_b": "CSE_CIC_IDS2018/DoS1-Thursday-15-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "unique_duplicate_feature_vectors": 2,
+      "sample_vector_hashes_pandas64": [
+        {
+          "hash": "ab60fc7ead759fd1",
+          "row_a": 163517,
+          "row_b": 677658
+        },
+        {
+          "hash": "b553b523813e03aa",
+          "row_a": 171530,
+          "row_b": 311821
+        }
+      ]
+    },
+    {
+      "dataset_a": "CICIDS2017",
+      "capture_a": "CICIDS2017/Botnet-Friday-no-metadata.parquet",
+      "dataset_b": "CSE_CIC_IDS2018",
+      "capture_b": "CSE_CIC_IDS2018/Infil1-Wednesday-28-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "unique_duplicate_feature_vectors": 1,
+      "sample_vector_hashes_pandas64": [
+        {
+          "hash": "ab60fc7ead759fd1",
+          "row_a": 163517,
+          "row_b": 7049
+        }
+      ]
+    },
+    {
+      "dataset_a": "CICIDS2017",
+      "capture_a": "CICIDS2017/Botnet-Friday-no-metadata.parquet",
+      "dataset_b": "CSE_CIC_IDS2018",
+      "capture_b": "CSE_CIC_IDS2018/Infil2-Thursday-01-03-2018_TrafficForML_CICFlowMeter.parquet",
+      "unique_duplicate_feature_vectors": 1,
+      "sample_vector_hashes_pandas64": [
+        {
+          "hash": "ab60fc7ead759fd1",
+          "row_a": 163517,
+          "row_b": 1823
+        }
+      ]
+    },
+    {
+      "dataset_a": "CICIDS2017",
+      "capture_a": "CICIDS2017/Bruteforce-Tuesday-no-metadata.parquet",
+      "dataset_b": "CSE_CIC_IDS2018",
+      "capture_b": "CSE_CIC_IDS2018/Botnet-Friday-02-03-2018_TrafficForML_CICFlowMeter.parquet",
+      "unique_duplicate_feature_vectors": 2909,
+      "sample_vector_hashes_pandas64": [
+        {
+          "hash": "000c99cad9e60fc9",
+          "row_a": 306498,
+          "row_b": 277473
+        },
+        {
+          "hash": "000eec59190788b6",
+          "row_a": 208055,
+          "row_b": 639023
+        },
+        {
+          "hash": "0018241653412c66",
+          "row_a": 376464,
+          "row_b": 189322
+        }
+      ]
+    },
+    {
+      "dataset_a": "CICIDS2017",
+      "capture_a": "CICIDS2017/Bruteforce-Tuesday-no-metadata.parquet",
+      "dataset_b": "CSE_CIC_IDS2018",
+      "capture_b": "CSE_CIC_IDS2018/Bruteforce-Wednesday-14-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "unique_duplicate_feature_vectors": 434,
+      "sample_vector_hashes_pandas64": [
+        {
+          "hash": "000c99cad9e60fc9",
+          "row_a": 306498,
+          "row_b": 111742
+        },
+        {
+          "hash": "00b06b4197039ea4",
+          "row_a": 310343,
+          "row_b": 117661
+        },
+        {
+          "hash": "00b7edc4693051c1",
+          "row_a": 363601,
+          "row_b": 452909
+        }
+      ]
+    },
+    {
+      "dataset_a": "CICIDS2017",
+      "capture_a": "CICIDS2017/Bruteforce-Tuesday-no-metadata.parquet",
+      "dataset_b": "CSE_CIC_IDS2018",
+      "capture_b": "CSE_CIC_IDS2018/DDoS1-Tuesday-20-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "unique_duplicate_feature_vectors": 363,
+      "sample_vector_hashes_pandas64": [
+        {
+          "hash": "000c99cad9e60fc9",
+          "row_a": 306498,
+          "row_b": 582992
+        },
+        {
+          "hash": "019845b4ba6d1d83",
+          "row_a": 278478,
+          "row_b": 584841
+        },
+        {
+          "hash": "021d3f425da499cc",
+          "row_a": 280783,
+          "row_b": 821669
+        }
+      ]
+    },
+    {
+      "dataset_a": "CICIDS2017",
+      "capture_a": "CICIDS2017/Bruteforce-Tuesday-no-metadata.parquet",
+      "dataset_b": "CSE_CIC_IDS2018",
+      "capture_b": "CSE_CIC_IDS2018/DoS1-Thursday-15-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "unique_duplicate_feature_vectors": 563,
+      "sample_vector_hashes_pandas64": [
+        {
+          "hash": "000c99cad9e60fc9",
+          "row_a": 306498,
+          "row_b": 196664
+        },
+        {
+          "hash": "00b06b4197039ea4",
+          "row_a": 310343,
+          "row_b": 62951
+        },
+        {
+          "hash": "019845b4ba6d1d83",
+          "row_a": 278478,
+          "row_b": 75178
+        }
+      ]
+    },
+    {
+      "dataset_a": "CICIDS2017",
+      "capture_a": "CICIDS2017/Bruteforce-Tuesday-no-metadata.parquet",
+      "dataset_b": "CSE_CIC_IDS2018",
+      "capture_b": "CSE_CIC_IDS2018/Infil1-Wednesday-28-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "unique_duplicate_feature_vectors": 1997,
+      "sample_vector_hashes_pandas64": [
+        {
+          "hash": "000c99cad9e60fc9",
+          "row_a": 306498,
+          "row_b": 10901
+        },
+        {
+          "hash": "001c85f40cc815f4",
+          "row_a": 57109,
+          "row_b": 398575
+        },
+        {
+          "hash": "002923eed1620868",
+          "row_a": 25848,
+          "row_b": 267875
+        }
+      ]
+    },
+    {
+      "dataset_a": "CICIDS2017",
+      "capture_a": "CICIDS2017/Bruteforce-Tuesday-no-metadata.parquet",
+      "dataset_b": "CSE_CIC_IDS2018",
+      "capture_b": "CSE_CIC_IDS2018/Infil2-Thursday-01-03-2018_TrafficForML_CICFlowMeter.parquet",
+      "unique_duplicate_feature_vectors": 1845,
+      "sample_vector_hashes_pandas64": [
+        {
+          "hash": "000c99cad9e60fc9",
+          "row_a": 306498,
+          "row_b": 101903
+        },
+        {
+          "hash": "002923eed1620868",
+          "row_a": 25848,
+          "row_b": 42637
+        },
+        {
+          "hash": "004d4eaa5c5129dc",
+          "row_a": 281675,
+          "row_b": 108577
+        }
+      ]
+    },
+    {
+      "dataset_a": "CICIDS2017",
+      "capture_a": "CICIDS2017/Bruteforce-Tuesday-no-metadata.parquet",
+      "dataset_b": "CSE_CIC_IDS2018",
+      "capture_b": "CSE_CIC_IDS2018/Web1-Thursday-22-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "unique_duplicate_feature_vectors": 465,
+      "sample_vector_hashes_pandas64": [
+        {
+          "hash": "000c99cad9e60fc9",
+          "row_a": 306498,
+          "row_b": 13949
+        },
+        {
+          "hash": "00b06b4197039ea4",
+          "row_a": 310343,
+          "row_b": 557035
+        },
+        {
+          "hash": "00b7edc4693051c1",
+          "row_a": 363601,
+          "row_b": 121621
+        }
+      ]
+    },
+    {
+      "dataset_a": "CICIDS2017",
+      "capture_a": "CICIDS2017/Bruteforce-Tuesday-no-metadata.parquet",
+      "dataset_b": "CSE_CIC_IDS2018",
+      "capture_b": "CSE_CIC_IDS2018/Web2-Friday-23-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "unique_duplicate_feature_vectors": 452,
+      "sample_vector_hashes_pandas64": [
+        {
+          "hash": "000c99cad9e60fc9",
+          "row_a": 306498,
+          "row_b": 67160
+        },
+        {
+          "hash": "00b06b4197039ea4",
+          "row_a": 310343,
+          "row_b": 274954
+        },
+        {
+          "hash": "00b7edc4693051c1",
+          "row_a": 363601,
+          "row_b": 180068
+        }
+      ]
+    },
+    {
+      "dataset_a": "CICIDS2017",
+      "capture_a": "CICIDS2017/DDoS-Friday-no-metadata.parquet",
+      "dataset_b": "CSE_CIC_IDS2018",
+      "capture_b": "CSE_CIC_IDS2018/Bruteforce-Wednesday-14-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "unique_duplicate_feature_vectors": 1,
+      "sample_vector_hashes_pandas64": [
+        {
+          "hash": "ab60fc7ead759fd1",
+          "row_a": 6754,
+          "row_b": 131877
+        }
+      ]
+    },
+    {
+      "dataset_a": "CICIDS2017",
+      "capture_a": "CICIDS2017/DDoS-Friday-no-metadata.parquet",
+      "dataset_b": "CSE_CIC_IDS2018",
+      "capture_b": "CSE_CIC_IDS2018/DoS1-Thursday-15-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "unique_duplicate_feature_vectors": 1,
+      "sample_vector_hashes_pandas64": [
+        {
+          "hash": "ab60fc7ead759fd1",
+          "row_a": 6754,
+          "row_b": 677658
+        }
+      ]
+    },
+    {
+      "dataset_a": "CICIDS2017",
+      "capture_a": "CICIDS2017/DDoS-Friday-no-metadata.parquet",
+      "dataset_b": "CSE_CIC_IDS2018",
+      "capture_b": "CSE_CIC_IDS2018/Infil1-Wednesday-28-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "unique_duplicate_feature_vectors": 1,
+      "sample_vector_hashes_pandas64": [
+        {
+          "hash": "ab60fc7ead759fd1",
+          "row_a": 6754,
+          "row_b": 7049
+        }
+      ]
+    },
+    {
+      "dataset_a": "CICIDS2017",
+      "capture_a": "CICIDS2017/DDoS-Friday-no-metadata.parquet",
+      "dataset_b": "CSE_CIC_IDS2018",
+      "capture_b": "CSE_CIC_IDS2018/Infil2-Thursday-01-03-2018_TrafficForML_CICFlowMeter.parquet",
+      "unique_duplicate_feature_vectors": 1,
+      "sample_vector_hashes_pandas64": [
+        {
+          "hash": "ab60fc7ead759fd1",
+          "row_a": 6754,
+          "row_b": 1823
+        }
+      ]
+    },
+    {
+      "dataset_a": "CICIDS2017",
+      "capture_a": "CICIDS2017/DoS-Wednesday-no-metadata.parquet",
+      "dataset_b": "CSE_CIC_IDS2018",
+      "capture_b": "CSE_CIC_IDS2018/Bruteforce-Wednesday-14-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "unique_duplicate_feature_vectors": 1,
+      "sample_vector_hashes_pandas64": [
+        {
+          "hash": "ab60fc7ead759fd1",
+          "row_a": 7294,
+          "row_b": 131877
+        }
+      ]
+    },
+    {
+      "dataset_a": "CICIDS2017",
+      "capture_a": "CICIDS2017/DoS-Wednesday-no-metadata.parquet",
+      "dataset_b": "CSE_CIC_IDS2018",
+      "capture_b": "CSE_CIC_IDS2018/DDoS1-Tuesday-20-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "unique_duplicate_feature_vectors": 1,
+      "sample_vector_hashes_pandas64": [
+        {
+          "hash": "f7f000f855596d7d",
+          "row_a": 52252,
+          "row_b": 614516
+        }
+      ]
+    },
+    {
+      "dataset_a": "CICIDS2017",
+      "capture_a": "CICIDS2017/DoS-Wednesday-no-metadata.parquet",
+      "dataset_b": "CSE_CIC_IDS2018",
+      "capture_b": "CSE_CIC_IDS2018/DoS1-Thursday-15-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "unique_duplicate_feature_vectors": 2,
+      "sample_vector_hashes_pandas64": [
+        {
+          "hash": "ab60fc7ead759fd1",
+          "row_a": 7294,
+          "row_b": 677658
+        },
+        {
+          "hash": "b553b523813e03aa",
+          "row_a": 60790,
+          "row_b": 311821
+        }
+      ]
+    },
+    {
+      "dataset_a": "CICIDS2017",
+      "capture_a": "CICIDS2017/DoS-Wednesday-no-metadata.parquet",
+      "dataset_b": "CSE_CIC_IDS2018",
+      "capture_b": "CSE_CIC_IDS2018/DoS2-Friday-16-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "unique_duplicate_feature_vectors": 1,
+      "sample_vector_hashes_pandas64": [
+        {
+          "hash": "df9f1f27bb743fa0",
+          "row_a": 18694,
+          "row_b": 394803
+        }
+      ]
+    },
+    {
+      "dataset_a": "CICIDS2017",
+      "capture_a": "CICIDS2017/DoS-Wednesday-no-metadata.parquet",
+      "dataset_b": "CSE_CIC_IDS2018",
+      "capture_b": "CSE_CIC_IDS2018/Infil1-Wednesday-28-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "unique_duplicate_feature_vectors": 2,
+      "sample_vector_hashes_pandas64": [
+        {
+          "hash": "26dcfa3fbda9b574",
+          "row_a": 482305,
+          "row_b": 391726
+        },
+        {
+          "hash": "ab60fc7ead759fd1",
+          "row_a": 7294,
+          "row_b": 7049
+        }
+      ]
+    },
+    {
+      "dataset_a": "CICIDS2017",
+      "capture_a": "CICIDS2017/DoS-Wednesday-no-metadata.parquet",
+      "dataset_b": "CSE_CIC_IDS2018",
+      "capture_b": "CSE_CIC_IDS2018/Infil2-Thursday-01-03-2018_TrafficForML_CICFlowMeter.parquet",
+      "unique_duplicate_feature_vectors": 1,
+      "sample_vector_hashes_pandas64": [
+        {
+          "hash": "ab60fc7ead759fd1",
+          "row_a": 7294,
+          "row_b": 1823
+        }
+      ]
+    },
+    {
+      "dataset_a": "CICIDS2017",
+      "capture_a": "CICIDS2017/Infiltration-Thursday-no-metadata.parquet",
+      "dataset_b": "CSE_CIC_IDS2018",
+      "capture_b": "CSE_CIC_IDS2018/Bruteforce-Wednesday-14-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "unique_duplicate_feature_vectors": 1,
+      "sample_vector_hashes_pandas64": [
+        {
+          "hash": "ab60fc7ead759fd1",
+          "row_a": 12142,
+          "row_b": 131877
+        }
+      ]
+    },
+    {
+      "dataset_a": "CICIDS2017",
+      "capture_a": "CICIDS2017/Infiltration-Thursday-no-metadata.parquet",
+      "dataset_b": "CSE_CIC_IDS2018",
+      "capture_b": "CSE_CIC_IDS2018/DoS1-Thursday-15-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "unique_duplicate_feature_vectors": 1,
+      "sample_vector_hashes_pandas64": [
+        {
+          "hash": "ab60fc7ead759fd1",
+          "row_a": 12142,
+          "row_b": 677658
+        }
+      ]
+    },
+    {
+      "dataset_a": "CICIDS2017",
+      "capture_a": "CICIDS2017/Infiltration-Thursday-no-metadata.parquet",
+      "dataset_b": "CSE_CIC_IDS2018",
+      "capture_b": "CSE_CIC_IDS2018/Infil1-Wednesday-28-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "unique_duplicate_feature_vectors": 1,
+      "sample_vector_hashes_pandas64": [
+        {
+          "hash": "ab60fc7ead759fd1",
+          "row_a": 12142,
+          "row_b": 7049
+        }
+      ]
+    },
+    {
+      "dataset_a": "CICIDS2017",
+      "capture_a": "CICIDS2017/Infiltration-Thursday-no-metadata.parquet",
+      "dataset_b": "CSE_CIC_IDS2018",
+      "capture_b": "CSE_CIC_IDS2018/Infil2-Thursday-01-03-2018_TrafficForML_CICFlowMeter.parquet",
+      "unique_duplicate_feature_vectors": 1,
+      "sample_vector_hashes_pandas64": [
+        {
+          "hash": "ab60fc7ead759fd1",
+          "row_a": 12142,
+          "row_b": 1823
+        }
+      ]
+    },
+    {
+      "dataset_a": "CICIDS2017",
+      "capture_a": "CICIDS2017/Portscan-Friday-no-metadata.parquet",
+      "dataset_b": "CSE_CIC_IDS2018",
+      "capture_b": "CSE_CIC_IDS2018/Bruteforce-Wednesday-14-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "unique_duplicate_feature_vectors": 1,
+      "sample_vector_hashes_pandas64": [
+        {
+          "hash": "ab60fc7ead759fd1",
+          "row_a": 63020,
+          "row_b": 131877
+        }
+      ]
+    },
+    {
+      "dataset_a": "CICIDS2017",
+      "capture_a": "CICIDS2017/Portscan-Friday-no-metadata.parquet",
+      "dataset_b": "CSE_CIC_IDS2018",
+      "capture_b": "CSE_CIC_IDS2018/DoS1-Thursday-15-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "unique_duplicate_feature_vectors": 1,
+      "sample_vector_hashes_pandas64": [
+        {
+          "hash": "ab60fc7ead759fd1",
+          "row_a": 63020,
+          "row_b": 677658
+        }
+      ]
+    },
+    {
+      "dataset_a": "CICIDS2017",
+      "capture_a": "CICIDS2017/Portscan-Friday-no-metadata.parquet",
+      "dataset_b": "CSE_CIC_IDS2018",
+      "capture_b": "CSE_CIC_IDS2018/Infil1-Wednesday-28-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "unique_duplicate_feature_vectors": 2,
+      "sample_vector_hashes_pandas64": [
+        {
+          "hash": "26dcfa3fbda9b574",
+          "row_a": 28322,
+          "row_b": 391726
+        },
+        {
+          "hash": "ab60fc7ead759fd1",
+          "row_a": 63020,
+          "row_b": 7049
+        }
+      ]
+    },
+    {
+      "dataset_a": "CICIDS2017",
+      "capture_a": "CICIDS2017/Portscan-Friday-no-metadata.parquet",
+      "dataset_b": "CSE_CIC_IDS2018",
+      "capture_b": "CSE_CIC_IDS2018/Infil2-Thursday-01-03-2018_TrafficForML_CICFlowMeter.parquet",
+      "unique_duplicate_feature_vectors": 1,
+      "sample_vector_hashes_pandas64": [
+        {
+          "hash": "ab60fc7ead759fd1",
+          "row_a": 63020,
+          "row_b": 1823
+        }
+      ]
+    },
+    {
+      "dataset_a": "CICIDS2017",
+      "capture_a": "CICIDS2017/WebAttacks-Thursday-no-metadata.parquet",
+      "dataset_b": "CSE_CIC_IDS2018",
+      "capture_b": "CSE_CIC_IDS2018/Bruteforce-Wednesday-14-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "unique_duplicate_feature_vectors": 1,
+      "sample_vector_hashes_pandas64": [
+        {
+          "hash": "ab60fc7ead759fd1",
+          "row_a": 42841,
+          "row_b": 131877
+        }
+      ]
+    },
+    {
+      "dataset_a": "CICIDS2017",
+      "capture_a": "CICIDS2017/WebAttacks-Thursday-no-metadata.parquet",
+      "dataset_b": "CSE_CIC_IDS2018",
+      "capture_b": "CSE_CIC_IDS2018/DoS1-Thursday-15-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "unique_duplicate_feature_vectors": 1,
+      "sample_vector_hashes_pandas64": [
+        {
+          "hash": "ab60fc7ead759fd1",
+          "row_a": 42841,
+          "row_b": 677658
+        }
+      ]
+    },
+    {
+      "dataset_a": "CICIDS2017",
+      "capture_a": "CICIDS2017/WebAttacks-Thursday-no-metadata.parquet",
+      "dataset_b": "CSE_CIC_IDS2018",
+      "capture_b": "CSE_CIC_IDS2018/Infil1-Wednesday-28-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "unique_duplicate_feature_vectors": 1,
+      "sample_vector_hashes_pandas64": [
+        {
+          "hash": "ab60fc7ead759fd1",
+          "row_a": 42841,
+          "row_b": 7049
+        }
+      ]
+    },
+    {
+      "dataset_a": "CICIDS2017",
+      "capture_a": "CICIDS2017/WebAttacks-Thursday-no-metadata.parquet",
+      "dataset_b": "CSE_CIC_IDS2018",
+      "capture_b": "CSE_CIC_IDS2018/Infil2-Thursday-01-03-2018_TrafficForML_CICFlowMeter.parquet",
+      "unique_duplicate_feature_vectors": 1,
+      "sample_vector_hashes_pandas64": [
+        {
+          "hash": "ab60fc7ead759fd1",
+          "row_a": 42841,
+          "row_b": 1823
+        }
+      ]
+    }
+  ]
+}

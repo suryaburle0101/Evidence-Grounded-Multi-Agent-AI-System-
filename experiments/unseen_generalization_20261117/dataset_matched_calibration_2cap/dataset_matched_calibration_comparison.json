@@ -1,0 +1,33 @@
+{
+  "captures": 18,
+  "attack_bearing_captures": 16,
+  "calibration_policy": "For each held-out capture, reserve the first two eligible benign captures from the same dataset, excluding the test capture; exclude calibration captures from training; take the maximum per-capture 99th percentile threshold.",
+  "baseline_cross_dataset_calibration": {
+    "mean_attack_recall": 0.2238885619323488,
+    "mean_capture_fpr": 0.0060560004448893335,
+    "pooled_fpr": 0.0060558919939996654,
+    "worst_capture_fpr": 0.035,
+    "mean_attack_pr_auc": 0.7765376526615488,
+    "mean_correct_type_recall": 0.13880707193423714
+  },
+  "dataset_matched_calibration_candidate": {
+    "mean_attack_recall": 0.2503299382285462,
+    "mean_capture_fpr": 0.023666944722500277,
+    "pooled_fpr": 0.023667981554530808,
+    "worst_capture_fpr": 0.118,
+    "mean_attack_pr_auc": 0.7159216384787311,
+    "mean_correct_type_recall": 0.15028367513840415
+  },
+  "paired_recall_difference": {
+    "mean": 0.026441376296197423,
+    "capture_bootstrap_95ci": [
+      0.00336168275787293,
+      0.05304598095152956
+    ]
+  },
+  "limitations": [
+    "One seed, reduced 1,000-row cap, and the same 18 captures; exploratory only.",
+    "Dataset identity is known for offline evaluation; this does not calibrate an unknown future dataset.",
+    "No production model, decision threshold, or existing report was changed."
+  ]
+}

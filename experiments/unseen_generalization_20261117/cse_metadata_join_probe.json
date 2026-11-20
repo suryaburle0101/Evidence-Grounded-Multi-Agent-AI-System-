@@ -1,0 +1,15 @@
+{
+  "source_file": "Wednesday-14-02-2018_TrafficForML_CICFlowMeter.csv",
+  "source_rows": 1048575,
+  "finite_feature_rows": 1044751,
+  "target_seed42_rows": 2053,
+  "unique_exact_feature_and_label_matched_rows": 3,
+  "ambiguous_exact_match_rows": 13,
+  "unmatched_rows": 2037,
+  "metadata_fields_present": [
+    "Timestamp",
+    "Dst Port"
+  ],
+  "source_ip_present": false,
+  "interpretation": "Only unique rows may be assigned metadata. This flow file has timestamp and destination port, but not source/destination IP; it cannot support source-host behavior aggregates."
+}

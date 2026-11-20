@@ -1,0 +1,55 @@
+{
+  "captures": 18,
+  "attack_bearing_captures": 16,
+  "sample_cap_per_raw_label": 1000,
+  "calibration_policy": "For each held-out capture, reserve four same-dataset benign captures chosen by greedy farthest-point coverage of benign feature medians; selection excludes the test capture and uses no test rows. Exclude calibration captures from training; take the maximum per-capture 99th percentile threshold.",
+  "baseline_cross_dataset_calibration": {
+    "mean_attack_recall": 0.2238885619323488,
+    "mean_capture_fpr": 0.0060560004448893335,
+    "pooled_fpr": 0.0060558919939996654,
+    "worst_capture_fpr": 0.035,
+    "mean_attack_pr_auc": 0.7765376526615488,
+    "mean_correct_type_recall": 0.13880707193423714
+  },
+  "dataset_matched_calibration_candidate": {
+    "mean_attack_recall": 0.18618950992108052,
+    "mean_capture_fpr": 0.0028333333333333335,
+    "pooled_fpr": 0.0028334907494860827,
+    "worst_capture_fpr": 0.011,
+    "mean_attack_pr_auc": 0.7199133895105794,
+    "mean_correct_type_recall": 0.13289903364032069
+  },
+  "paired_recall_difference": {
+    "mean": -0.03769905201126827,
+    "capture_bootstrap_95ci": [
+      -0.09159950266953779,
+      -0.005580876038974823
+    ]
+  },
+  "by_dataset": {
+    "CICIDS2017": {
+      "captures": 8,
+      "baseline_mean_recall": 0.1568296445728454,
+      "candidate_mean_recall": 0.14650462962962962,
+      "baseline_mean_capture_fpr": 0.005751001001001,
+      "candidate_mean_capture_fpr": 0.003125,
+      "baseline_worst_capture_fpr": 0.02,
+      "candidate_worst_capture_fpr": 0.007
+    },
+    "CSE-CIC-IDS2018": {
+      "captures": 10,
+      "baseline_mean_recall": 0.2641239123480509,
+      "candidate_mean_recall": 0.2100004380959511,
+      "baseline_mean_capture_fpr": 0.006300000000000002,
+      "candidate_mean_capture_fpr": 0.0026000000000000003,
+      "baseline_worst_capture_fpr": 0.035,
+      "candidate_worst_capture_fpr": 0.011
+    }
+  },
+  "limitations": [
+    "One seed, 1000-row cap, and the same 18 captures; exploratory only.",
+    "This calibration-pool selection was formulated after observing dataset-specific FPR drift; treat it as a follow-up exploratory candidate, not a preregistered confirmatory result.",
+    "Dataset identity is known for offline evaluation; this does not calibrate an unknown future dataset.",
+    "No production model, decision threshold, or existing report was changed."
+  ]
+}

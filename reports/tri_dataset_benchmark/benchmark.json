@@ -1,0 +1,1646 @@
+{
+  "schema": "tri-dataset-common-flow-binary-v1",
+  "datasets": [
+    "CICIDS2017",
+    "CSE-CIC-IDS2018",
+    "UNSW-NB15"
+  ],
+  "features": [
+    "duration_s",
+    "fwd_packets",
+    "bwd_packets",
+    "fwd_bytes",
+    "bwd_bytes",
+    "fwd_mean_bytes",
+    "bwd_mean_bytes",
+    "packets_per_second",
+    "protocol_tcp",
+    "protocol_udp",
+    "protocol_icmp"
+  ],
+  "feature_transform": "duration normalized to seconds; log1p nonnegative numeric features; protocol TCP/UDP/ICMP flags",
+  "split_method": "explicit whole-capture file manifest; separate calibration and test captures; exact duplicates removed only within each capture file",
+  "split_manifest": {
+    "CICIDS2017": {
+      "calibration": [
+        "Infiltration-Thursday-no-metadata.parquet"
+      ],
+      "test": [
+        "Portscan-Friday-no-metadata.parquet",
+        "WebAttacks-Thursday-no-metadata.parquet"
+      ]
+    },
+    "CSE-CIC-IDS2018": {
+      "calibration": [
+        "Infil2-Thursday-01-03-2018_TrafficForML_CICFlowMeter.parquet"
+      ],
+      "test": [
+        "Web1-Thursday-22-02-2018_TrafficForML_CICFlowMeter.parquet",
+        "Web2-Friday-23-02-2018_TrafficForML_CICFlowMeter.parquet"
+      ]
+    },
+    "UNSW-NB15": {
+      "calibration": [
+        "UNSW-NB15_3.csv"
+      ],
+      "test": [
+        "UNSW-NB15_4.csv"
+      ]
+    }
+  },
+  "target": "binary attack vs benign; family labels are not merged across incompatible taxonomies",
+  "target_benign_fpr": 0.01,
+  "acceptance_criteria": {
+    "minimum_attack_recall": 0.8,
+    "maximum_false_positive_rate": 0.01,
+    "promotion": "never; this benchmark writes research reports only"
+  },
+  "source_files": {
+    "CICIDS2017": [
+      {
+        "file": "Benign-Monday-no-metadata.parquet",
+        "rows_used": 17024,
+        "attacks": 0
+      },
+      {
+        "file": "Botnet-Friday-no-metadata.parquet",
+        "rows_used": 16937,
+        "attacks": 155
+      },
+      {
+        "file": "Bruteforce-Tuesday-no-metadata.parquet",
+        "rows_used": 16953,
+        "attacks": 410
+      },
+      {
+        "file": "DDoS-Friday-no-metadata.parquet",
+        "rows_used": 14938,
+        "attacks": 7376
+      },
+      {
+        "file": "DoS-Wednesday-no-metadata.parquet",
+        "rows_used": 17645,
+        "attacks": 6011
+      },
+      {
+        "file": "Infiltration-Thursday-no-metadata.parquet",
+        "rows_used": 16511,
+        "attacks": 33
+      },
+      {
+        "file": "Portscan-Friday-no-metadata.parquet",
+        "rows_used": 16630,
+        "attacks": 297
+      },
+      {
+        "file": "WebAttacks-Thursday-no-metadata.parquet",
+        "rows_used": 16937,
+        "attacks": 825
+      }
+    ],
+    "CSE-CIC-IDS2018": [
+      {
+        "file": "Botnet-Friday-02-03-2018_TrafficForML_CICFlowMeter.parquet",
+        "rows_used": 15503,
+        "attacks": 2468
+      },
+      {
+        "file": "Bruteforce-Wednesday-14-02-2018_TrafficForML_CICFlowMeter.parquet",
+        "rows_used": 16859,
+        "attacks": 3099
+      },
+      {
+        "file": "DDoS1-Tuesday-20-02-2018_TrafficForML_CICFlowMeter.parquet",
+        "rows_used": 12497,
+        "attacks": 6067
+      },
+      {
+        "file": "DDoS2-Wednesday-21-02-2018_TrafficForML_CICFlowMeter.parquet",
+        "rows_used": 17258,
+        "attacks": 5700
+      },
+      {
+        "file": "DoS1-Thursday-15-02-2018_TrafficForML_CICFlowMeter.parquet",
+        "rows_used": 16039,
+        "attacks": 871
+      },
+      {
+        "file": "DoS2-Friday-16-02-2018_TrafficForML_CICFlowMeter.parquet",
+        "rows_used": 15898,
+        "attacks": 902
+      },
+      {
+        "file": "Infil1-Wednesday-28-02-2018_TrafficForML_CICFlowMeter.parquet",
+        "rows_used": 16568,
+        "attacks": 2064
+      },
+      {
+        "file": "Infil2-Thursday-01-03-2018_TrafficForML_CICFlowMeter.parquet",
+        "rows_used": 16623,
+        "attacks": 4174
+      },
+      {
+        "file": "Web1-Thursday-22-02-2018_TrafficForML_CICFlowMeter.parquet",
+        "rows_used": 15000,
+        "attacks": 207
+      },
+      {
+        "file": "Web2-Friday-23-02-2018_TrafficForML_CICFlowMeter.parquet",
+        "rows_used": 14726,
+        "attacks": 236
+      }
+    ],
+    "UNSW-NB15": [
+      {
+        "file": "UNSW-NB15_1.csv",
+        "rows_used": 16069,
+        "attacks": 275
+      },
+      {
+        "file": "UNSW-NB15_2.csv",
+        "rows_used": 15001,
+        "attacks": 355
+      },
+      {
+        "file": "UNSW-NB15_3.csv",
+        "rows_used": 11007,
+        "attacks": 631
+      },
+      {
+        "file": "UNSW-NB15_4.csv",
+        "rows_used": 11275,
+        "attacks": 615
+      }
+    ],
+    "quality": {
+      "rows_after_per_file_validation_and_deduplication": 343898,
+      "rows_in_exact_duplicate_sets_across_capture_groups": 22603,
+      "rows_retained_to_preserve_capture_group_splits": 343898,
+      "nonfinite_or_negative_feature_rows_removed": "counted during per-file normalization; invalid rows are excluded"
+    }
+  },
+  "splits": {
+    "CICIDS2017": {
+      "train_groups": [
+        "Benign-Monday-no-metadata.parquet",
+        "Botnet-Friday-no-metadata.parquet",
+        "Bruteforce-Tuesday-no-metadata.parquet",
+        "DDoS-Friday-no-metadata.parquet",
+        "DoS-Wednesday-no-metadata.parquet"
+      ],
+      "calibration_groups": [
+        "Infiltration-Thursday-no-metadata.parquet"
+      ],
+      "test_groups": [
+        "Portscan-Friday-no-metadata.parquet",
+        "WebAttacks-Thursday-no-metadata.parquet"
+      ],
+      "rows_train": 83497,
+      "rows_calibration": 16511,
+      "rows_test": 33567
+    },
+    "CSE-CIC-IDS2018": {
+      "train_groups": [
+        "Botnet-Friday-02-03-2018_TrafficForML_CICFlowMeter.parquet",
+        "Bruteforce-Wednesday-14-02-2018_TrafficForML_CICFlowMeter.parquet",
+        "DDoS1-Tuesday-20-02-2018_TrafficForML_CICFlowMeter.parquet",
+        "DDoS2-Wednesday-21-02-2018_TrafficForML_CICFlowMeter.parquet",
+        "DoS1-Thursday-15-02-2018_TrafficForML_CICFlowMeter.parquet",
+        "DoS2-Friday-16-02-2018_TrafficForML_CICFlowMeter.parquet",
+        "Infil1-Wednesday-28-02-2018_TrafficForML_CICFlowMeter.parquet"
+      ],
+      "calibration_groups": [
+        "Infil2-Thursday-01-03-2018_TrafficForML_CICFlowMeter.parquet"
+      ],
+      "test_groups": [
+        "Web1-Thursday-22-02-2018_TrafficForML_CICFlowMeter.parquet",
+        "Web2-Friday-23-02-2018_TrafficForML_CICFlowMeter.parquet"
+      ],
+      "rows_train": 110622,
+      "rows_calibration": 16623,
+      "rows_test": 29726
+    },
+    "UNSW-NB15": {
+      "train_groups": [
+        "UNSW-NB15_1.csv",
+        "UNSW-NB15_2.csv"
+      ],
+      "calibration_groups": [
+        "UNSW-NB15_3.csv"
+      ],
+      "test_groups": [
+        "UNSW-NB15_4.csv"
+      ],
+      "rows_train": 31070,
+      "rows_calibration": 11007,
+      "rows_test": 11275
+    }
+  },
+  "results": [
+    {
+      "experiment": "RF_2017_2018_to_heldout_2017_2018",
+      "model": "RandomForest",
+      "test": "CICIDS2017 held-out groups",
+      "metrics": {
+        "rows": 30377,
+        "threshold": 0.3262,
+        "accuracy": 0.959772,
+        "precision_attack": 0.067114,
+        "recall_attack": 0.009149,
+        "f1_attack": 0.016103,
+        "false_positive_rate": 0.004747,
+        "confusion_matrix_tn_fp_fn_tp": [
+          29145,
+          139,
+          1083,
+          10
+        ],
+        "brier_score": 0.036429,
+        "expected_calibration_error_10_bins": 0.046864,
+        "roc_auc": 0.810785,
+        "average_precision": 0.112932,
+        "novelty_attack_recall": 0.029277,
+        "novelty_benign_false_positive_rate": 0.009903,
+        "ml_or_novelty_review": {
+          "recall_attack": 0.038426,
+          "false_positive_rate": 0.01465,
+          "precision_review": 0.089172,
+          "confusion_matrix_tn_fp_fn_tp": [
+            28855,
+            429,
+            1051,
+            42
+          ],
+          "interpretation": "candidate analyst-review union; not a confirmed attack verdict"
+        },
+        "candidate_acceptance": {
+          "binary_classifier": {
+            "decision": "IMPROVE",
+            "failures": [
+              "attack recall below 80%"
+            ]
+          },
+          "ml_or_novelty_review": {
+            "decision": "IMPROVE",
+            "failures": [
+              "attack recall below 80%",
+              "false-positive rate above 1.00%"
+            ]
+          }
+        },
+        "feature_drift": {
+          "method": "population stability index, test distribution against train quantile bins",
+          "mean_psi": 0.35941,
+          "max_psi": 1.137398,
+          "top_shifted_features": [
+            {
+              "feature": "bwd_packets",
+              "psi": 1.137398
+            },
+            {
+              "feature": "fwd_bytes",
+              "psi": 0.741187
+            },
+            {
+              "feature": "duration_s",
+              "psi": 0.434732
+            },
+            {
+              "feature": "fwd_mean_bytes",
+              "psi": 0.396766
+            },
+            {
+              "feature": "packets_per_second",
+              "psi": 0.369917
+            }
+          ],
+          "interpretation": "screening signal only; thresholds are not universal and this does not establish model failure"
+        },
+        "per_capture": {
+          "Portscan-Friday-no-metadata.parquet": {
+            "rows": 15027,
+            "threshold": 0.3262,
+            "accuracy": 0.973049,
+            "precision_attack": 0.075188,
+            "recall_attack": 0.034247,
+            "f1_attack": 0.047059,
+            "false_positive_rate": 0.008347,
+            "confusion_matrix_tn_fp_fn_tp": [
+              14612,
+              123,
+              282,
+              10
+            ],
+            "brier_score": 0.023844,
+            "expected_calibration_error_10_bins": 0.064877,
+            "roc_auc": 0.920626,
+            "average_precision": 0.185036,
+            "novelty_attack_recall": 0.0,
+            "novelty_benign_false_positive_rate": 0.009976,
+            "ml_or_novelty_review": {
+              "recall_attack": 0.034247,
+              "false_positive_rate": 0.018324,
+              "precision_review": 0.035714,
+              "confusion_matrix_tn_fp_fn_tp": [
+                14465,
+                270,
+                282,
+                10
+              ],
+              "interpretation": "candidate analyst-review union; not a confirmed attack verdict"
+            }
+          },
+          "WebAttacks-Thursday-no-metadata.parquet": {
+            "rows": 15350,
+            "threshold": 0.3262,
+            "accuracy": 0.946775,
+            "precision_attack": 0.0,
+            "recall_attack": 0.0,
+            "f1_attack": 0.0,
+            "false_positive_rate": 0.0011,
+            "confusion_matrix_tn_fp_fn_tp": [
+              14533,
+              16,
+              801,
+              0
+            ],
+            "brier_score": 0.048748,
+            "expected_calibration_error_10_bins": 0.030035,
+            "roc_auc": 0.773471,
+            "average_precision": 0.117362,
+            "novelty_attack_recall": 0.03995,
+            "novelty_benign_false_positive_rate": 0.009829,
+            "ml_or_novelty_review": {
+              "recall_attack": 0.03995,
+              "false_positive_rate": 0.010929,
+              "precision_review": 0.167539,
+              "confusion_matrix_tn_fp_fn_tp": [
+                14390,
+                159,
+                769,
+                32
+              ],
+              "interpretation": "candidate analyst-review union; not a confirmed attack verdict"
+            }
+          }
+        }
+      },
+      "calibration": {
+        "method": "Platt scaling on held-out capture groups",
+        "target_benign_fpr": 0.01,
+        "chosen_threshold": 0.3262003740803432,
+        "calibration_rows": 31098,
+        "overlapping_feature_rows_removed": 2036
+      },
+      "test_rows_removed_for_prior_split_overlap": 3190,
+      "top_global_features": [
+        {
+          "feature": "bwd_bytes",
+          "importance": 0.198685
+        },
+        {
+          "feature": "bwd_mean_bytes",
+          "importance": 0.171905
+        },
+        {
+          "feature": "bwd_packets",
+          "importance": 0.142905
+        },
+        {
+          "feature": "fwd_bytes",
+          "importance": 0.137942
+        },
+        {
+          "feature": "fwd_mean_bytes",
+          "importance": 0.083151
+        },
+        {
+          "feature": "packets_per_second",
+          "importance": 0.073658
+        },
+        {
+          "feature": "fwd_packets",
+          "importance": 0.073402
+        },
+        {
+          "feature": "duration_s",
+          "importance": 0.064273
+        }
+      ]
+    },
+    {
+      "experiment": "RF_2017_2018_to_heldout_2017_2018",
+      "model": "RandomForest",
+      "test": "CSE-CIC-IDS2018 held-out groups",
+      "metrics": {
+        "rows": 28188,
+        "threshold": 0.3262,
+        "accuracy": 0.979991,
+        "precision_attack": 0.0,
+        "recall_attack": 0.0,
+        "f1_attack": 0.0,
+        "false_positive_rate": 0.004361,
+        "confusion_matrix_tn_fp_fn_tp": [
+          27624,
+          121,
+          443,
+          0
+        ],
+        "brier_score": 0.030506,
+        "expected_calibration_error_10_bins": 0.105698,
+        "roc_auc": 0.623232,
+        "average_precision": 0.024627,
+        "novelty_attack_recall": 0.537246,
+        "novelty_benign_false_positive_rate": 0.006884,
+        "ml_or_novelty_review": {
+          "recall_attack": 0.537246,
+          "false_positive_rate": 0.011245,
+          "precision_review": 0.432727,
+          "confusion_matrix_tn_fp_fn_tp": [
+            27433,
+            312,
+            205,
+            238
+          ],
+          "interpretation": "candidate analyst-review union; not a confirmed attack verdict"
+        },
+        "candidate_acceptance": {
+          "binary_classifier": {
+            "decision": "IMPROVE",
+            "failures": [
+              "attack recall below 80%"
+            ]
+          },
+          "ml_or_novelty_review": {
+            "decision": "IMPROVE",
+            "failures": [
+              "attack recall below 80%",
+              "false-positive rate above 1.00%"
+            ]
+          }
+        },
+        "feature_drift": {
+          "method": "population stability index, test distribution against train quantile bins",
+          "mean_psi": 0.274419,
+          "max_psi": 1.165559,
+          "top_shifted_features": [
+            {
+              "feature": "bwd_packets",
+              "psi": 1.165559
+            },
+            {
+              "feature": "fwd_mean_bytes",
+              "psi": 0.362969
+            },
+            {
+              "feature": "packets_per_second",
+              "psi": 0.355159
+            },
+            {
+              "feature": "fwd_packets",
+              "psi": 0.342011
+            },
+            {
+              "feature": "bwd_bytes",
+              "psi": 0.250276
+            }
+          ],
+          "interpretation": "screening signal only; thresholds are not universal and this does not establish model failure"
+        },
+        "per_capture": {
+          "Web1-Thursday-22-02-2018_TrafficForML_CICFlowMeter.parquet": {
+            "rows": 14259,
+            "threshold": 0.3262,
+            "accuracy": 0.981415,
+            "precision_attack": 0.0,
+            "recall_attack": 0.0,
+            "f1_attack": 0.0,
+            "false_positive_rate": 0.004128,
+            "confusion_matrix_tn_fp_fn_tp": [
+              13994,
+              58,
+              207,
+              0
+            ],
+            "brier_score": 0.029553,
+            "expected_calibration_error_10_bins": 0.107025,
+            "roc_auc": 0.635478,
+            "average_precision": 0.023792,
+            "novelty_attack_recall": 0.507246,
+            "novelty_benign_false_positive_rate": 0.006476,
+            "ml_or_novelty_review": {
+              "recall_attack": 0.507246,
+              "false_positive_rate": 0.010603,
+              "precision_review": 0.413386,
+              "confusion_matrix_tn_fp_fn_tp": [
+                13903,
+                149,
+                102,
+                105
+              ],
+              "interpretation": "candidate analyst-review union; not a confirmed attack verdict"
+            }
+          },
+          "Web2-Friday-23-02-2018_TrafficForML_CICFlowMeter.parquet": {
+            "rows": 13929,
+            "threshold": 0.3262,
+            "accuracy": 0.978534,
+            "precision_attack": 0.0,
+            "recall_attack": 0.0,
+            "f1_attack": 0.0,
+            "false_positive_rate": 0.004601,
+            "confusion_matrix_tn_fp_fn_tp": [
+              13630,
+              63,
+              236,
+              0
+            ],
+            "brier_score": 0.031483,
+            "expected_calibration_error_10_bins": 0.10434,
+            "roc_auc": 0.613024,
+            "average_precision": 0.025811,
+            "novelty_attack_recall": 0.563559,
+            "novelty_benign_false_positive_rate": 0.007303,
+            "ml_or_novelty_review": {
+              "recall_attack": 0.563559,
+              "false_positive_rate": 0.011904,
+              "precision_review": 0.449324,
+              "confusion_matrix_tn_fp_fn_tp": [
+                13530,
+                163,
+                103,
+                133
+              ],
+              "interpretation": "candidate analyst-review union; not a confirmed attack verdict"
+            }
+          }
+        }
+      },
+      "calibration": {
+        "method": "Platt scaling on held-out capture groups",
+        "target_benign_fpr": 0.01,
+        "chosen_threshold": 0.3262003740803432,
+        "calibration_rows": 31098,
+        "overlapping_feature_rows_removed": 2036
+      },
+      "test_rows_removed_for_prior_split_overlap": 1538,
+      "top_global_features": [
+        {
+          "feature": "bwd_bytes",
+          "importance": 0.198685
+        },
+        {
+          "feature": "bwd_mean_bytes",
+          "importance": 0.171905
+        },
+        {
+          "feature": "bwd_packets",
+          "importance": 0.142905
+        },
+        {
+          "feature": "fwd_bytes",
+          "importance": 0.137942
+        },
+        {
+          "feature": "fwd_mean_bytes",
+          "importance": 0.083151
+        },
+        {
+          "feature": "packets_per_second",
+          "importance": 0.073658
+        },
+        {
+          "feature": "fwd_packets",
+          "importance": 0.073402
+        },
+        {
+          "feature": "duration_s",
+          "importance": 0.064273
+        }
+      ]
+    },
+    {
+      "experiment": "RF_2017_2018_to_heldout_2017_2018",
+      "model": "RandomForest",
+      "test": "UNSW-NB15 external test group",
+      "metrics": {
+        "rows": 11275,
+        "threshold": 0.3262,
+        "accuracy": 0.943415,
+        "precision_attack": 0.0,
+        "recall_attack": 0.0,
+        "f1_attack": 0.0,
+        "false_positive_rate": 0.002158,
+        "confusion_matrix_tn_fp_fn_tp": [
+          10637,
+          23,
+          615,
+          0
+        ],
+        "brier_score": 0.066232,
+        "expected_calibration_error_10_bins": 0.107339,
+        "roc_auc": 0.549448,
+        "average_precision": 0.055108,
+        "novelty_attack_recall": 0.019512,
+        "novelty_benign_false_positive_rate": 0.121764,
+        "ml_or_novelty_review": {
+          "recall_attack": 0.019512,
+          "false_positive_rate": 0.123921,
+          "precision_review": 0.009002,
+          "confusion_matrix_tn_fp_fn_tp": [
+            9339,
+            1321,
+            603,
+            12
+          ],
+          "interpretation": "candidate analyst-review union; not a confirmed attack verdict"
+        },
+        "candidate_acceptance": {
+          "binary_classifier": {
+            "decision": "IMPROVE",
+            "failures": [
+              "attack recall below 80%"
+            ]
+          },
+          "ml_or_novelty_review": {
+            "decision": "IMPROVE",
+            "failures": [
+              "attack recall below 80%",
+              "false-positive rate above 1.00%"
+            ]
+          }
+        },
+        "feature_drift": {
+          "method": "population stability index, test distribution against train quantile bins",
+          "mean_psi": 2.326221,
+          "max_psi": 5.633844,
+          "top_shifted_features": [
+            {
+              "feature": "fwd_bytes",
+              "psi": 5.633844
+            },
+            {
+              "feature": "fwd_mean_bytes",
+              "psi": 4.543595
+            },
+            {
+              "feature": "bwd_packets",
+              "psi": 3.929444
+            },
+            {
+              "feature": "fwd_packets",
+              "psi": 2.865216
+            },
+            {
+              "feature": "duration_s",
+              "psi": 2.54663
+            }
+          ],
+          "interpretation": "screening signal only; thresholds are not universal and this does not establish model failure"
+        },
+        "per_capture": {
+          "UNSW-NB15_4.csv": {
+            "rows": 11275,
+            "threshold": 0.3262,
+            "accuracy": 0.943415,
+            "precision_attack": 0.0,
+            "recall_attack": 0.0,
+            "f1_attack": 0.0,
+            "false_positive_rate": 0.002158,
+            "confusion_matrix_tn_fp_fn_tp": [
+              10637,
+              23,
+              615,
+              0
+            ],
+            "brier_score": 0.066232,
+            "expected_calibration_error_10_bins": 0.107339,
+            "roc_auc": 0.549448,
+            "average_precision": 0.055108,
+            "novelty_attack_recall": 0.019512,
+            "novelty_benign_false_positive_rate": 0.121764,
+            "ml_or_novelty_review": {
+              "recall_attack": 0.019512,
+              "false_positive_rate": 0.123921,
+              "precision_review": 0.009002,
+              "confusion_matrix_tn_fp_fn_tp": [
+                9339,
+                1321,
+                603,
+                12
+              ],
+              "interpretation": "candidate analyst-review union; not a confirmed attack verdict"
+            }
+          }
+        }
+      },
+      "calibration": {
+        "method": "Platt scaling on held-out capture groups",
+        "target_benign_fpr": 0.01,
+        "chosen_threshold": 0.3262003740803432,
+        "calibration_rows": 31098,
+        "overlapping_feature_rows_removed": 2036
+      },
+      "test_rows_removed_for_prior_split_overlap": 0,
+      "top_global_features": [
+        {
+          "feature": "bwd_bytes",
+          "importance": 0.198685
+        },
+        {
+          "feature": "bwd_mean_bytes",
+          "importance": 0.171905
+        },
+        {
+          "feature": "bwd_packets",
+          "importance": 0.142905
+        },
+        {
+          "feature": "fwd_bytes",
+          "importance": 0.137942
+        },
+        {
+          "feature": "fwd_mean_bytes",
+          "importance": 0.083151
+        },
+        {
+          "feature": "packets_per_second",
+          "importance": 0.073658
+        },
+        {
+          "feature": "fwd_packets",
+          "importance": 0.073402
+        },
+        {
+          "feature": "duration_s",
+          "importance": 0.064273
+        }
+      ]
+    },
+    {
+      "experiment": "XGB_2017_2018_to_heldout_2017_2018",
+      "model": "XGBoost",
+      "test": "CICIDS2017 held-out groups",
+      "metrics": {
+        "rows": 30377,
+        "threshold": 0.424409,
+        "accuracy": 0.957632,
+        "precision_attack": 0.105691,
+        "recall_attack": 0.023788,
+        "f1_attack": 0.038835,
+        "false_positive_rate": 0.007513,
+        "confusion_matrix_tn_fp_fn_tp": [
+          29064,
+          220,
+          1067,
+          26
+        ],
+        "brier_score": 0.03927,
+        "expected_calibration_error_10_bins": 0.038782,
+        "roc_auc": 0.713267,
+        "average_precision": 0.09937,
+        "novelty_attack_recall": 0.029277,
+        "novelty_benign_false_positive_rate": 0.009903,
+        "ml_or_novelty_review": {
+          "recall_attack": 0.053065,
+          "false_positive_rate": 0.017382,
+          "precision_review": 0.102293,
+          "confusion_matrix_tn_fp_fn_tp": [
+            28775,
+            509,
+            1035,
+            58
+          ],
+          "interpretation": "candidate analyst-review union; not a confirmed attack verdict"
+        },
+        "candidate_acceptance": {
+          "binary_classifier": {
+            "decision": "IMPROVE",
+            "failures": [
+              "attack recall below 80%"
+            ]
+          },
+          "ml_or_novelty_review": {
+            "decision": "IMPROVE",
+            "failures": [
+              "attack recall below 80%",
+              "false-positive rate above 1.00%"
+            ]
+          }
+        },
+        "feature_drift": {
+          "method": "population stability index, test distribution against train quantile bins",
+          "mean_psi": 0.35941,
+          "max_psi": 1.137398,
+          "top_shifted_features": [
+            {
+              "feature": "bwd_packets",
+              "psi": 1.137398
+            },
+            {
+              "feature": "fwd_bytes",
+              "psi": 0.741187
+            },
+            {
+              "feature": "duration_s",
+              "psi": 0.434732
+            },
+            {
+              "feature": "fwd_mean_bytes",
+              "psi": 0.396766
+            },
+            {
+              "feature": "packets_per_second",
+              "psi": 0.369917
+            }
+          ],
+          "interpretation": "screening signal only; thresholds are not universal and this does not establish model failure"
+        },
+        "per_capture": {
+          "Portscan-Friday-no-metadata.parquet": {
+            "rows": 15027,
+            "threshold": 0.424409,
+            "accuracy": 0.970719,
+            "precision_attack": 0.126263,
+            "recall_attack": 0.085616,
+            "f1_attack": 0.102041,
+            "false_positive_rate": 0.011741,
+            "confusion_matrix_tn_fp_fn_tp": [
+              14562,
+              173,
+              267,
+              25
+            ],
+            "brier_score": 0.02503,
+            "expected_calibration_error_10_bins": 0.065638,
+            "roc_auc": 0.942572,
+            "average_precision": 0.248381,
+            "novelty_attack_recall": 0.0,
+            "novelty_benign_false_positive_rate": 0.009976,
+            "ml_or_novelty_review": {
+              "recall_attack": 0.085616,
+              "false_positive_rate": 0.021717,
+              "precision_review": 0.072464,
+              "confusion_matrix_tn_fp_fn_tp": [
+                14415,
+                320,
+                267,
+                25
+              ],
+              "interpretation": "candidate analyst-review union; not a confirmed attack verdict"
+            }
+          },
+          "WebAttacks-Thursday-no-metadata.parquet": {
+            "rows": 15350,
+            "threshold": 0.424409,
+            "accuracy": 0.944821,
+            "precision_attack": 0.020833,
+            "recall_attack": 0.001248,
+            "f1_attack": 0.002356,
+            "false_positive_rate": 0.00323,
+            "confusion_matrix_tn_fp_fn_tp": [
+              14502,
+              47,
+              800,
+              1
+            ],
+            "brier_score": 0.05321,
+            "expected_calibration_error_10_bins": 0.04077,
+            "roc_auc": 0.627062,
+            "average_precision": 0.075136,
+            "novelty_attack_recall": 0.03995,
+            "novelty_benign_false_positive_rate": 0.009829,
+            "ml_or_novelty_review": {
+              "recall_attack": 0.041199,
+              "false_positive_rate": 0.012991,
+              "precision_review": 0.148649,
+              "confusion_matrix_tn_fp_fn_tp": [
+                14360,
+                189,
+                768,
+                33
+              ],
+              "interpretation": "candidate analyst-review union; not a confirmed attack verdict"
+            }
+          }
+        }
+      },
+      "calibration": {
+        "method": "Platt scaling on held-out capture groups",
+        "target_benign_fpr": 0.01,
+        "chosen_threshold": 0.42440882396450963,
+        "calibration_rows": 31098,
+        "overlapping_feature_rows_removed": 2036
+      },
+      "test_rows_removed_for_prior_split_overlap": 3190,
+      "top_global_features": [
+        {
+          "feature": "bwd_mean_bytes",
+          "importance": 0.201135
+        },
+        {
+          "feature": "fwd_bytes",
+          "importance": 0.169805
+        },
+        {
+          "feature": "bwd_bytes",
+          "importance": 0.168655
+        },
+        {
+          "feature": "bwd_packets",
+          "importance": 0.147335
+        },
+        {
+          "feature": "protocol_tcp",
+          "importance": 0.106642
+        },
+        {
+          "feature": "fwd_packets",
+          "importance": 0.061653
+        },
+        {
+          "feature": "packets_per_second",
+          "importance": 0.059185
+        },
+        {
+          "feature": "protocol_udp",
+          "importance": 0.038115
+        }
+      ]
+    },
+    {
+      "experiment": "XGB_2017_2018_to_heldout_2017_2018",
+      "model": "XGBoost",
+      "test": "CSE-CIC-IDS2018 held-out groups",
+      "metrics": {
+        "rows": 28188,
+        "threshold": 0.424409,
+        "accuracy": 0.979317,
+        "precision_attack": 0.045455,
+        "recall_attack": 0.015801,
+        "f1_attack": 0.023451,
+        "false_positive_rate": 0.005298,
+        "confusion_matrix_tn_fp_fn_tp": [
+          27598,
+          147,
+          436,
+          7
+        ],
+        "brier_score": 0.034367,
+        "expected_calibration_error_10_bins": 0.103393,
+        "roc_auc": 0.27192,
+        "average_precision": 0.014481,
+        "novelty_attack_recall": 0.537246,
+        "novelty_benign_false_positive_rate": 0.006884,
+        "ml_or_novelty_review": {
+          "recall_attack": 0.553047,
+          "false_positive_rate": 0.012182,
+          "precision_review": 0.42024,
+          "confusion_matrix_tn_fp_fn_tp": [
+            27407,
+            338,
+            198,
+            245
+          ],
+          "interpretation": "candidate analyst-review union; not a confirmed attack verdict"
+        },
+        "candidate_acceptance": {
+          "binary_classifier": {
+            "decision": "IMPROVE",
+            "failures": [
+              "attack recall below 80%"
+            ]
+          },
+          "ml_or_novelty_review": {
+            "decision": "IMPROVE",
+            "failures": [
+              "attack recall below 80%",
+              "false-positive rate above 1.00%"
+            ]
+          }
+        },
+        "feature_drift": {
+          "method": "population stability index, test distribution against train quantile bins",
+          "mean_psi": 0.274419,
+          "max_psi": 1.165559,
+          "top_shifted_features": [
+            {
+              "feature": "bwd_packets",
+              "psi": 1.165559
+            },
+            {
+              "feature": "fwd_mean_bytes",
+              "psi": 0.362969
+            },
+            {
+              "feature": "packets_per_second",
+              "psi": 0.355159
+            },
+            {
+              "feature": "fwd_packets",
+              "psi": 0.342011
+            },
+            {
+              "feature": "bwd_bytes",
+              "psi": 0.250276
+            }
+          ],
+          "interpretation": "screening signal only; thresholds are not universal and this does not establish model failure"
+        },
+        "per_capture": {
+          "Web1-Thursday-22-02-2018_TrafficForML_CICFlowMeter.parquet": {
+            "rows": 14259,
+            "threshold": 0.424409,
+            "accuracy": 0.980223,
+            "precision_attack": 0.048193,
+            "recall_attack": 0.019324,
+            "f1_attack": 0.027586,
+            "false_positive_rate": 0.005622,
+            "confusion_matrix_tn_fp_fn_tp": [
+              13973,
+              79,
+              203,
+              4
+            ],
+            "brier_score": 0.033413,
+            "expected_calibration_error_10_bins": 0.105315,
+            "roc_auc": 0.275488,
+            "average_precision": 0.015164,
+            "novelty_attack_recall": 0.507246,
+            "novelty_benign_false_positive_rate": 0.006476,
+            "ml_or_novelty_review": {
+              "recall_attack": 0.52657,
+              "false_positive_rate": 0.012098,
+              "precision_review": 0.390681,
+              "confusion_matrix_tn_fp_fn_tp": [
+                13882,
+                170,
+                98,
+                109
+              ],
+              "interpretation": "candidate analyst-review union; not a confirmed attack verdict"
+            }
+          },
+          "Web2-Friday-23-02-2018_TrafficForML_CICFlowMeter.parquet": {
+            "rows": 13929,
+            "threshold": 0.424409,
+            "accuracy": 0.97839,
+            "precision_attack": 0.042254,
+            "recall_attack": 0.012712,
+            "f1_attack": 0.019544,
+            "false_positive_rate": 0.004966,
+            "confusion_matrix_tn_fp_fn_tp": [
+              13625,
+              68,
+              233,
+              3
+            ],
+            "brier_score": 0.035345,
+            "expected_calibration_error_10_bins": 0.101425,
+            "roc_auc": 0.268474,
+            "average_precision": 0.014671,
+            "novelty_attack_recall": 0.563559,
+            "novelty_benign_false_positive_rate": 0.007303,
+            "ml_or_novelty_review": {
+              "recall_attack": 0.576271,
+              "false_positive_rate": 0.012269,
+              "precision_review": 0.447368,
+              "confusion_matrix_tn_fp_fn_tp": [
+                13525,
+                168,
+                100,
+                136
+              ],
+              "interpretation": "candidate analyst-review union; not a confirmed attack verdict"
+            }
+          }
+        }
+      },
+      "calibration": {
+        "method": "Platt scaling on held-out capture groups",
+        "target_benign_fpr": 0.01,
+        "chosen_threshold": 0.42440882396450963,
+        "calibration_rows": 31098,
+        "overlapping_feature_rows_removed": 2036
+      },
+      "test_rows_removed_for_prior_split_overlap": 1538,
+      "top_global_features": [
+        {
+          "feature": "bwd_mean_bytes",
+          "importance": 0.201135
+        },
+        {
+          "feature": "fwd_bytes",
+          "importance": 0.169805
+        },
+        {
+          "feature": "bwd_bytes",
+          "importance": 0.168655
+        },
+        {
+          "feature": "bwd_packets",
+          "importance": 0.147335
+        },
+        {
+          "feature": "protocol_tcp",
+          "importance": 0.106642
+        },
+        {
+          "feature": "fwd_packets",
+          "importance": 0.061653
+        },
+        {
+          "feature": "packets_per_second",
+          "importance": 0.059185
+        },
+        {
+          "feature": "protocol_udp",
+          "importance": 0.038115
+        }
+      ]
+    },
+    {
+      "experiment": "XGB_2017_2018_to_heldout_2017_2018",
+      "model": "XGBoost",
+      "test": "UNSW-NB15 external test group",
+      "metrics": {
+        "rows": 11275,
+        "threshold": 0.424409,
+        "accuracy": 0.921863,
+        "precision_attack": 0.003731,
+        "recall_attack": 0.001626,
+        "f1_attack": 0.002265,
+        "false_positive_rate": 0.025047,
+        "confusion_matrix_tn_fp_fn_tp": [
+          10393,
+          267,
+          614,
+          1
+        ],
+        "brier_score": 0.069219,
+        "expected_calibration_error_10_bins": 0.051076,
+        "roc_auc": 0.499039,
+        "average_precision": 0.051956,
+        "novelty_attack_recall": 0.019512,
+        "novelty_benign_false_positive_rate": 0.121764,
+        "ml_or_novelty_review": {
+          "recall_attack": 0.021138,
+          "false_positive_rate": 0.146811,
+          "precision_review": 0.008238,
+          "confusion_matrix_tn_fp_fn_tp": [
+            9095,
+            1565,
+            602,
+            13
+          ],
+          "interpretation": "candidate analyst-review union; not a confirmed attack verdict"
+        },
+        "candidate_acceptance": {
+          "binary_classifier": {
+            "decision": "IMPROVE",
+            "failures": [
+              "attack recall below 80%",
+              "false-positive rate above 1.00%"
+            ]
+          },
+          "ml_or_novelty_review": {
+            "decision": "IMPROVE",
+            "failures": [
+              "attack recall below 80%",
+              "false-positive rate above 1.00%"
+            ]
+          }
+        },
+        "feature_drift": {
+          "method": "population stability index, test distribution against train quantile bins",
+          "mean_psi": 2.326221,
+          "max_psi": 5.633844,
+          "top_shifted_features": [
+            {
+              "feature": "fwd_bytes",
+              "psi": 5.633844
+            },
+            {
+              "feature": "fwd_mean_bytes",
+              "psi": 4.543595
+            },
+            {
+              "feature": "bwd_packets",
+              "psi": 3.929444
+            },
+            {
+              "feature": "fwd_packets",
+              "psi": 2.865216
+            },
+            {
+              "feature": "duration_s",
+              "psi": 2.54663
+            }
+          ],
+          "interpretation": "screening signal only; thresholds are not universal and this does not establish model failure"
+        },
+        "per_capture": {
+          "UNSW-NB15_4.csv": {
+            "rows": 11275,
+            "threshold": 0.424409,
+            "accuracy": 0.921863,
+            "precision_attack": 0.003731,
+            "recall_attack": 0.001626,
+            "f1_attack": 0.002265,
+            "false_positive_rate": 0.025047,
+            "confusion_matrix_tn_fp_fn_tp": [
+              10393,
+              267,
+              614,
+              1
+            ],
+            "brier_score": 0.069219,
+            "expected_calibration_error_10_bins": 0.051076,
+            "roc_auc": 0.499039,
+            "average_precision": 0.051956,
+            "novelty_attack_recall": 0.019512,
+            "novelty_benign_false_positive_rate": 0.121764,
+            "ml_or_novelty_review": {
+              "recall_attack": 0.021138,
+              "false_positive_rate": 0.146811,
+              "precision_review": 0.008238,
+              "confusion_matrix_tn_fp_fn_tp": [
+                9095,
+                1565,
+                602,
+                13
+              ],
+              "interpretation": "candidate analyst-review union; not a confirmed attack verdict"
+            }
+          }
+        }
+      },
+      "calibration": {
+        "method": "Platt scaling on held-out capture groups",
+        "target_benign_fpr": 0.01,
+        "chosen_threshold": 0.42440882396450963,
+        "calibration_rows": 31098,
+        "overlapping_feature_rows_removed": 2036
+      },
+      "test_rows_removed_for_prior_split_overlap": 0,
+      "top_global_features": [
+        {
+          "feature": "bwd_mean_bytes",
+          "importance": 0.201135
+        },
+        {
+          "feature": "fwd_bytes",
+          "importance": 0.169805
+        },
+        {
+          "feature": "bwd_bytes",
+          "importance": 0.168655
+        },
+        {
+          "feature": "bwd_packets",
+          "importance": 0.147335
+        },
+        {
+          "feature": "protocol_tcp",
+          "importance": 0.106642
+        },
+        {
+          "feature": "fwd_packets",
+          "importance": 0.061653
+        },
+        {
+          "feature": "packets_per_second",
+          "importance": 0.059185
+        },
+        {
+          "feature": "protocol_udp",
+          "importance": 0.038115
+        }
+      ]
+    },
+    {
+      "experiment": "RF_UNSW_group_holdout",
+      "model": "RandomForest",
+      "test": "UNSW-NB15 held-out group",
+      "metrics": {
+        "rows": 10141,
+        "threshold": 0.670441,
+        "accuracy": 0.972488,
+        "precision_attack": 0.866812,
+        "recall_attack": 0.645528,
+        "f1_attack": 0.739981,
+        "false_positive_rate": 0.006404,
+        "confusion_matrix_tn_fp_fn_tp": [
+          9465,
+          61,
+          218,
+          397
+        ],
+        "brier_score": 0.015254,
+        "expected_calibration_error_10_bins": 0.005375,
+        "roc_auc": 0.993516,
+        "average_precision": 0.883688,
+        "novelty_attack_recall": 0.022764,
+        "novelty_benign_false_positive_rate": 0.007873,
+        "ml_or_novelty_review": {
+          "recall_attack": 0.660163,
+          "false_positive_rate": 0.014067,
+          "precision_review": 0.751852,
+          "confusion_matrix_tn_fp_fn_tp": [
+            9392,
+            134,
+            209,
+            406
+          ],
+          "interpretation": "candidate analyst-review union; not a confirmed attack verdict"
+        },
+        "candidate_acceptance": {
+          "binary_classifier": {
+            "decision": "IMPROVE",
+            "failures": [
+              "attack recall below 80%"
+            ]
+          },
+          "ml_or_novelty_review": {
+            "decision": "IMPROVE",
+            "failures": [
+              "attack recall below 80%",
+              "false-positive rate above 1.00%"
+            ]
+          }
+        },
+        "feature_drift": {
+          "method": "population stability index, test distribution against train quantile bins",
+          "mean_psi": 0.032309,
+          "max_psi": 0.080333,
+          "top_shifted_features": [
+            {
+              "feature": "fwd_packets",
+              "psi": 0.080333
+            },
+            {
+              "feature": "fwd_bytes",
+              "psi": 0.052289
+            },
+            {
+              "feature": "duration_s",
+              "psi": 0.050628
+            },
+            {
+              "feature": "bwd_packets",
+              "psi": 0.049893
+            },
+            {
+              "feature": "bwd_mean_bytes",
+              "psi": 0.045939
+            }
+          ],
+          "interpretation": "screening signal only; thresholds are not universal and this does not establish model failure"
+        },
+        "per_capture": {
+          "UNSW-NB15_4.csv": {
+            "rows": 10141,
+            "threshold": 0.670441,
+            "accuracy": 0.972488,
+            "precision_attack": 0.866812,
+            "recall_attack": 0.645528,
+            "f1_attack": 0.739981,
+            "false_positive_rate": 0.006404,
+            "confusion_matrix_tn_fp_fn_tp": [
+              9465,
+              61,
+              218,
+              397
+            ],
+            "brier_score": 0.015254,
+            "expected_calibration_error_10_bins": 0.005375,
+            "roc_auc": 0.993516,
+            "average_precision": 0.883688,
+            "novelty_attack_recall": 0.022764,
+            "novelty_benign_false_positive_rate": 0.007873,
+            "ml_or_novelty_review": {
+              "recall_attack": 0.660163,
+              "false_positive_rate": 0.014067,
+              "precision_review": 0.751852,
+              "confusion_matrix_tn_fp_fn_tp": [
+                9392,
+                134,
+                209,
+                406
+              ],
+              "interpretation": "candidate analyst-review union; not a confirmed attack verdict"
+            }
+          }
+        }
+      },
+      "calibration": {
+        "method": "Platt scaling on held-out capture groups",
+        "target_benign_fpr": 0.01,
+        "chosen_threshold": 0.6704412209450938,
+        "calibration_rows": 10057,
+        "overlapping_feature_rows_removed": 950
+      },
+      "test_rows_removed_for_prior_split_overlap": 1134,
+      "top_global_features": [
+        {
+          "feature": "packets_per_second",
+          "importance": 0.27277
+        },
+        {
+          "feature": "duration_s",
+          "importance": 0.152724
+        },
+        {
+          "feature": "bwd_bytes",
+          "importance": 0.121403
+        },
+        {
+          "feature": "fwd_bytes",
+          "importance": 0.112928
+        },
+        {
+          "feature": "bwd_mean_bytes",
+          "importance": 0.105566
+        },
+        {
+          "feature": "fwd_mean_bytes",
+          "importance": 0.081611
+        },
+        {
+          "feature": "bwd_packets",
+          "importance": 0.071421
+        },
+        {
+          "feature": "fwd_packets",
+          "importance": 0.069187
+        }
+      ]
+    },
+    {
+      "experiment": "XGB_UNSW_group_holdout",
+      "model": "XGBoost",
+      "test": "UNSW-NB15 held-out group",
+      "metrics": {
+        "rows": 10141,
+        "threshold": 0.58921,
+        "accuracy": 0.976827,
+        "precision_attack": 0.861217,
+        "recall_attack": 0.736585,
+        "f1_attack": 0.79404,
+        "false_positive_rate": 0.007663,
+        "confusion_matrix_tn_fp_fn_tp": [
+          9453,
+          73,
+          162,
+          453
+        ],
+        "brier_score": 0.01444,
+        "expected_calibration_error_10_bins": 0.004521,
+        "roc_auc": 0.994446,
+        "average_precision": 0.914996,
+        "novelty_attack_recall": 0.022764,
+        "novelty_benign_false_positive_rate": 0.007873,
+        "ml_or_novelty_review": {
+          "recall_attack": 0.744715,
+          "false_positive_rate": 0.015326,
+          "precision_review": 0.758278,
+          "confusion_matrix_tn_fp_fn_tp": [
+            9380,
+            146,
+            157,
+            458
+          ],
+          "interpretation": "candidate analyst-review union; not a confirmed attack verdict"
+        },
+        "candidate_acceptance": {
+          "binary_classifier": {
+            "decision": "IMPROVE",
+            "failures": [
+              "attack recall below 80%"
+            ]
+          },
+          "ml_or_novelty_review": {
+            "decision": "IMPROVE",
+            "failures": [
+              "attack recall below 80%",
+              "false-positive rate above 1.00%"
+            ]
+          }
+        },
+        "feature_drift": {
+          "method": "population stability index, test distribution against train quantile bins",
+          "mean_psi": 0.032309,
+          "max_psi": 0.080333,
+          "top_shifted_features": [
+            {
+              "feature": "fwd_packets",
+              "psi": 0.080333
+            },
+            {
+              "feature": "fwd_bytes",
+              "psi": 0.052289
+            },
+            {
+              "feature": "duration_s",
+              "psi": 0.050628
+            },
+            {
+              "feature": "bwd_packets",
+              "psi": 0.049893
+            },
+            {
+              "feature": "bwd_mean_bytes",
+              "psi": 0.045939
+            }
+          ],
+          "interpretation": "screening signal only; thresholds are not universal and this does not establish model failure"
+        },
+        "per_capture": {
+          "UNSW-NB15_4.csv": {
+            "rows": 10141,
+            "threshold": 0.58921,
+            "accuracy": 0.976827,
+            "precision_attack": 0.861217,
+            "recall_attack": 0.736585,
+            "f1_attack": 0.79404,
+            "false_positive_rate": 0.007663,
+            "confusion_matrix_tn_fp_fn_tp": [
+              9453,
+              73,
+              162,
+              453
+            ],
+            "brier_score": 0.01444,
+            "expected_calibration_error_10_bins": 0.004521,
+            "roc_auc": 0.994446,
+            "average_precision": 0.914996,
+            "novelty_attack_recall": 0.022764,
+            "novelty_benign_false_positive_rate": 0.007873,
+            "ml_or_novelty_review": {
+              "recall_attack": 0.744715,
+              "false_positive_rate": 0.015326,
+              "precision_review": 0.758278,
+              "confusion_matrix_tn_fp_fn_tp": [
+                9380,
+                146,
+                157,
+                458
+              ],
+              "interpretation": "candidate analyst-review union; not a confirmed attack verdict"
+            }
+          }
+        }
+      },
+      "calibration": {
+        "method": "Platt scaling on held-out capture groups",
+        "target_benign_fpr": 0.01,
+        "chosen_threshold": 0.589209994141715,
+        "calibration_rows": 10057,
+        "overlapping_feature_rows_removed": 950
+      },
+      "test_rows_removed_for_prior_split_overlap": 1134,
+      "top_global_features": [
+        {
+          "feature": "fwd_packets",
+          "importance": 0.194083
+        },
+        {
+          "feature": "bwd_mean_bytes",
+          "importance": 0.16144
+        },
+        {
+          "feature": "bwd_bytes",
+          "importance": 0.15189
+        },
+        {
+          "feature": "packets_per_second",
+          "importance": 0.122714
+        },
+        {
+          "feature": "fwd_bytes",
+          "importance": 0.092235
+        },
+        {
+          "feature": "bwd_packets",
+          "importance": 0.082657
+        },
+        {
+          "feature": "fwd_mean_bytes",
+          "importance": 0.079135
+        },
+        {
+          "feature": "protocol_udp",
+          "importance": 0.064684
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "These three datasets are laboratory benchmarks, not live enterprise traffic.",
+    "UNSW-NB15 has a different native flow schema; this evaluation uses only the documented shared semantic subset and does not pretend it has all 77 CICFlowMeter features.",
+    "Family-level accuracy across datasets is intentionally not reported because their label taxonomies do not match.",
+    "Thresholds and calibration are derived from held-out capture groups; the final held-out capture groups remain untouched until scoring.",
+    "Exact rows repeated across capture files are audited; feature-identical rows in calibration/test splits are excluded when that vector appeared in an earlier split.",
+    "This research candidate does not replace production models automatically."
+  ]
+}

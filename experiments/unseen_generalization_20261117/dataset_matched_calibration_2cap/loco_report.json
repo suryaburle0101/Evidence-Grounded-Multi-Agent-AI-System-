@@ -1,0 +1,263 @@
+{
+  "task": "18-capture leave-one-capture-out multiclass baseline",
+  "per_capture_cap_per_raw_label": 1000,
+  "seed": 42,
+  "threshold": "For each fold, reserve up to two non-held-out benign captures outside training. Compute a 99th percentile threshold per calibration capture and use the maximum. Test capture is never used for thresholding.",
+  "capture_manifest": [
+    {
+      "capture": "CICIDS2017__Benign-Monday-no-metadata",
+      "dataset": "CICIDS2017",
+      "sampled_rows": 1000,
+      "type_counts": {
+        "Benign": 1000
+      },
+      "quality": {
+        "source": "existing seed-42 sampled capture partition"
+      }
+    },
+    {
+      "capture": "CICIDS2017__Botnet-Friday-no-metadata",
+      "dataset": "CICIDS2017",
+      "sampled_rows": 1999,
+      "type_counts": {
+        "Botnet": 1000,
+        "Benign": 999
+      },
+      "quality": {
+        "source": "existing seed-42 sampled capture partition"
+      }
+    },
+    {
+      "capture": "CICIDS2017__Bruteforce-Tuesday-no-metadata",
+      "dataset": "CICIDS2017",
+      "sampled_rows": 3000,
+      "type_counts": {
+        "Benign": 1000,
+        "FTP-BruteForce": 1000,
+        "SSH-BruteForce": 1000
+      },
+      "quality": {
+        "source": "existing seed-42 sampled capture partition"
+      }
+    },
+    {
+      "capture": "CICIDS2017__DDoS-Friday-no-metadata",
+      "dataset": "CICIDS2017",
+      "sampled_rows": 2000,
+      "type_counts": {
+        "Benign": 1000,
+        "DDoS": 1000
+      },
+      "quality": {
+        "source": "existing seed-42 sampled capture partition"
+      }
+    },
+    {
+      "capture": "CICIDS2017__DoS-Wednesday-no-metadata",
+      "dataset": "CICIDS2017",
+      "sampled_rows": 5000,
+      "type_counts": {
+        "Benign": 1000,
+        "DoS-Hulk": 1000,
+        "DoS-SlowHTTPTest": 1000,
+        "DoS-Slowloris": 1000,
+        "DoS-GoldenEye": 1000
+      },
+      "quality": {
+        "source": "existing seed-42 sampled capture partition"
+      }
+    },
+    {
+      "capture": "CICIDS2017__Infiltration-Thursday-no-metadata",
+      "dataset": "CICIDS2017",
+      "sampled_rows": 1036,
+      "type_counts": {
+        "Benign": 1000,
+        "Infiltration": 36
+      },
+      "quality": {
+        "source": "existing seed-42 sampled capture partition"
+      }
+    },
+    {
+      "capture": "CICIDS2017__Portscan-Friday-no-metadata",
+      "dataset": "CICIDS2017",
+      "sampled_rows": 1000,
+      "type_counts": {
+        "Benign": 1000
+      },
+      "quality": {
+        "source": "existing seed-42 sampled capture partition"
+      }
+    },
+    {
+      "capture": "CICIDS2017__WebAttacks-Thursday-no-metadata",
+      "dataset": "CICIDS2017",
+      "sampled_rows": 2673,
+      "type_counts": {
+        "Benign": 1000,
+        "Web-BruteForce": 1000,
+        "Web-XSS": 652,
+        "SQL-Injection": 21
+      },
+      "quality": {
+        "source": "existing seed-42 sampled capture partition"
+      }
+    },
+    {
+      "capture": "CSE-CIC-IDS2018__Botnet-Friday-02-03-2018_TrafficForML_CICFlowMeter",
+      "dataset": "CSE-CIC-IDS2018",
+      "sampled_rows": 2000,
+      "type_counts": {
+        "Benign": 1000,
+        "Botnet": 1000
+      },
+      "quality": {
+        "source": "existing seed-42 sampled capture partition"
+      }
+    },
+    {
+      "capture": "CSE-CIC-IDS2018__Bruteforce-Wednesday-14-02-2018_TrafficForML_CICFlowMeter",
+      "dataset": "CSE-CIC-IDS2018",
+      "sampled_rows": 2053,
+      "type_counts": {
+        "Benign": 1000,
+        "SSH-BruteForce": 1000,
+        "FTP-BruteForce": 53
+      },
+      "quality": {
+        "source": "existing seed-42 sampled capture partition"
+      }
+    },
+    {
+      "capture": "CSE-CIC-IDS2018__DDoS1-Tuesday-20-02-2018_TrafficForML_CICFlowMeter",
+      "dataset": "CSE-CIC-IDS2018",
+      "sampled_rows": 2000,
+      "type_counts": {
+        "Benign": 1000,
+        "DDoS": 1000
+      },
+      "quality": {
+        "source": "existing seed-42 sampled capture partition"
+      }
+    },
+    {
+      "capture": "CSE-CIC-IDS2018__DDoS2-Wednesday-21-02-2018_TrafficForML_CICFlowMeter",
+      "dataset": "CSE-CIC-IDS2018",
+      "sampled_rows": 3000,
+      "type_counts": {
+        "DDoS": 2000,
+        "Benign": 1000
+      },
+      "quality": {
+        "source": "existing seed-42 sampled capture partition"
+      }
+    },
+    {
+      "capture": "CSE-CIC-IDS2018__DoS1-Thursday-15-02-2018_TrafficForML_CICFlowMeter",
+      "dataset": "CSE-CIC-IDS2018",
+      "sampled_rows": 3000,
+      "type_counts": {
+        "Benign": 1000,
+        "DoS-GoldenEye": 1000,
+        "DoS-Slowloris": 1000
+      },
+      "quality": {
+        "source": "existing seed-42 sampled capture partition"
+      }
+    },
+    {
+      "capture": "CSE-CIC-IDS2018__DoS2-Friday-16-02-2018_TrafficForML_CICFlowMeter",
+      "dataset": "CSE-CIC-IDS2018",
+      "sampled_rows": 2055,
+      "type_counts": {
+        "Benign": 1000,
+        "DoS-Hulk": 1000,
+        "DoS-SlowHTTPTest": 55
+      },
+      "quality": {
+        "source": "existing seed-42 sampled capture partition"
+      }
+    },
+    {
+      "capture": "CSE-CIC-IDS2018__Infil1-Wednesday-28-02-2018_TrafficForML_CICFlowMeter",
+      "dataset": "CSE-CIC-IDS2018",
+      "sampled_rows": 2000,
+      "type_counts": {
+        "Benign": 1000,
+        "Infiltration": 1000
+      },
+      "quality": {
+        "source": "existing seed-42 sampled capture partition"
+      }
+    },
+    {
+      "capture": "CSE-CIC-IDS2018__Infil2-Thursday-01-03-2018_TrafficForML_CICFlowMeter",
+      "dataset": "CSE-CIC-IDS2018",
+      "sampled_rows": 2000,
+      "type_counts": {
+        "Benign": 1000,
+        "Infiltration": 1000
+      },
+      "quality": {
+        "source": "existing seed-42 sampled capture partition"
+      }
+    },
+    {
+      "capture": "CSE-CIC-IDS2018__Web1-Thursday-22-02-2018_TrafficForML_CICFlowMeter",
+      "dataset": "CSE-CIC-IDS2018",
+      "sampled_rows": 1341,
+      "type_counts": {
+        "Benign": 1000,
+        "Web-BruteForce": 228,
+        "Web-XSS": 79,
+        "SQL-Injection": 34
+      },
+      "quality": {
+        "source": "existing seed-42 sampled capture partition"
+      }
+    },
+    {
+      "capture": "CSE-CIC-IDS2018__Web2-Friday-23-02-2018_TrafficForML_CICFlowMeter",
+      "dataset": "CSE-CIC-IDS2018",
+      "sampled_rows": 1541,
+      "type_counts": {
+        "Benign": 1000,
+        "Web-BruteForce": 340,
+        "Web-XSS": 150,
+        "SQL-Injection": 51
+      },
+      "quality": {
+        "source": "existing seed-42 sampled capture partition"
+      }
+    }
+  ],
+  "summary": [
+    {
+      "model": "xgboost",
+      "captures_evaluated": 18,
+      "attack_recall_mean": 0.2503299382285462,
+      "attack_recall_std": 0.29349043812661085,
+      "attack_recall_min": 0.0,
+      "attack_recall_max": 0.8475073313782991,
+      "pooled_threshold_attack_recall_mean": 0.2520847570923757,
+      "capturewise_recall_cost_mean": 0.0017548188638294886,
+      "pooled_threshold_test_fpr_mean": 0.02561138916694472,
+      "pr_auc_mean": 0.715921638478731,
+      "pr_auc_std": 0.24483205679676,
+      "pooled_fpr_mean": 0.023666944722500277,
+      "pooled_fpr_std": 0.03557412573448343,
+      "worst_capture_fpr_mean": 0.023666944722500277,
+      "worst_capture_fpr_max": 0.118,
+      "type_accuracy_mean": 0.43931381441485673,
+      "e2e_correct_type_recall_mean": 0.15028367513840415
+    }
+  ],
+  "limitations": [
+    "Exploratory reduced-sample pilot; no independent repeated row samples.",
+    "One dedicated calibration pool is used per fold; calibration capture identities vary when the primary is held out.",
+    "Types absent from training in some folds cannot be predicted; inspect coverage and per-type files.",
+    "This uses a single multiclass detector/classifier as the baseline, not yet the requested two-stage or anomaly ensemble.",
+    "Does not alter production files or existing reports."
+  ]
+}

@@ -1,0 +1,399 @@
+{
+  "schema": "grouped-benign-adversarial-validation-v1",
+  "purpose": "diagnose whether benign CICIDS2017 and CSE-CIC-IDS2018 flows are distinguishable",
+  "production_artifacts_modified": false,
+  "sampling_cap_per_raw_label_per_capture": 3000,
+  "group_split": "5-fold StratifiedGroupKFold; entire capture files held out together",
+  "sampled_rows": 54000,
+  "sampled_cicids2017_rows": 24000,
+  "sampled_cse_cic_ids2018_rows": 30000,
+  "out_of_fold_roc_auc": 0.9867181104166667,
+  "out_of_fold_accuracy_at_0_5": 0.9233888888888889,
+  "folds": [
+    {
+      "fold": 1,
+      "heldout_capture_groups": [
+        "CICIDS2017/Benign-Monday-no-metadata.parquet",
+        "CICIDS2017/Infiltration-Thursday-no-metadata.parquet",
+        "CSE-CIC-IDS2018/DDoS1-Tuesday-20-02-2018_TrafficForML_CICFlowMeter.parquet",
+        "CSE-CIC-IDS2018/Infil2-Thursday-01-03-2018_TrafficForML_CICFlowMeter.parquet"
+      ],
+      "heldout_rows": 12000,
+      "heldout_cicids2017_rows": 6000,
+      "heldout_cse_cic_ids2018_rows": 6000,
+      "roc_auc": 0.999181,
+      "accuracy_at_0_5": 0.9885833333333334
+    },
+    {
+      "fold": 2,
+      "heldout_capture_groups": [
+        "CICIDS2017/Bruteforce-Tuesday-no-metadata.parquet",
+        "CICIDS2017/Portscan-Friday-no-metadata.parquet",
+        "CSE-CIC-IDS2018/DDoS2-Wednesday-21-02-2018_TrafficForML_CICFlowMeter.parquet",
+        "CSE-CIC-IDS2018/Web2-Friday-23-02-2018_TrafficForML_CICFlowMeter.parquet"
+      ],
+      "heldout_rows": 12000,
+      "heldout_cicids2017_rows": 6000,
+      "heldout_cse_cic_ids2018_rows": 6000,
+      "roc_auc": 0.9591354305555556,
+      "accuracy_at_0_5": 0.9425833333333333
+    },
+    {
+      "fold": 3,
+      "heldout_capture_groups": [
+        "CICIDS2017/DoS-Wednesday-no-metadata.parquet",
+        "CICIDS2017/WebAttacks-Thursday-no-metadata.parquet",
+        "CSE-CIC-IDS2018/DoS1-Thursday-15-02-2018_TrafficForML_CICFlowMeter.parquet",
+        "CSE-CIC-IDS2018/Web1-Thursday-22-02-2018_TrafficForML_CICFlowMeter.parquet"
+      ],
+      "heldout_rows": 12000,
+      "heldout_cicids2017_rows": 6000,
+      "heldout_cse_cic_ids2018_rows": 6000,
+      "roc_auc": 0.9997295277777779,
+      "accuracy_at_0_5": 0.99175
+    },
+    {
+      "fold": 4,
+      "heldout_capture_groups": [
+        "CICIDS2017/Botnet-Friday-no-metadata.parquet",
+        "CSE-CIC-IDS2018/Bruteforce-Wednesday-14-02-2018_TrafficForML_CICFlowMeter.parquet",
+        "CSE-CIC-IDS2018/DoS2-Friday-16-02-2018_TrafficForML_CICFlowMeter.parquet"
+      ],
+      "heldout_rows": 9000,
+      "heldout_cicids2017_rows": 3000,
+      "heldout_cse_cic_ids2018_rows": 6000,
+      "roc_auc": 0.9762565,
+      "accuracy_at_0_5": 0.6621111111111111
+    },
+    {
+      "fold": 5,
+      "heldout_capture_groups": [
+        "CICIDS2017/DDoS-Friday-no-metadata.parquet",
+        "CSE-CIC-IDS2018/Botnet-Friday-02-03-2018_TrafficForML_CICFlowMeter.parquet",
+        "CSE-CIC-IDS2018/Infil1-Wednesday-28-02-2018_TrafficForML_CICFlowMeter.parquet"
+      ],
+      "heldout_rows": 9000,
+      "heldout_cicids2017_rows": 3000,
+      "heldout_cse_cic_ids2018_rows": 6000,
+      "roc_auc": 0.9991382777777778,
+      "accuracy_at_0_5": 0.981
+    }
+  ],
+  "top_univariate_features": [
+    {
+      "feature": "Fwd Seg Size Min",
+      "dataset_auc": 0.25759591597222226,
+      "separation_from_chance": 0.24240408402777774
+    },
+    {
+      "feature": "Fwd Packet Length Min",
+      "dataset_auc": 0.3214572673611111,
+      "separation_from_chance": 0.17854273263888892
+    },
+    {
+      "feature": "Packet Length Min",
+      "dataset_auc": 0.3263080048611111,
+      "separation_from_chance": 0.1736919951388889
+    },
+    {
+      "feature": "Fwd Packet Length Std",
+      "dataset_auc": 0.6639662708333334,
+      "separation_from_chance": 0.16396627083333337
+    },
+    {
+      "feature": "Bwd Packet Length Min",
+      "dataset_auc": 0.3387384409722223,
+      "separation_from_chance": 0.16126155902777772
+    },
+    {
+      "feature": "Down/Up Ratio",
+      "dataset_auc": 0.3625870326388889,
+      "separation_from_chance": 0.13741296736111108
+    },
+    {
+      "feature": "Fwd IAT Mean",
+      "dataset_auc": 0.6373587798611112,
+      "separation_from_chance": 0.13735877986111122
+    },
+    {
+      "feature": "Init Bwd Win Bytes",
+      "dataset_auc": 0.6337927541666666,
+      "separation_from_chance": 0.13379275416666658
+    },
+    {
+      "feature": "Fwd IAT Min",
+      "dataset_auc": 0.6316651729166667,
+      "separation_from_chance": 0.13166517291666668
+    },
+    {
+      "feature": "Fwd IAT Max",
+      "dataset_auc": 0.6298096805555556,
+      "separation_from_chance": 0.12980968055555564
+    },
+    {
+      "feature": "Fwd IAT Total",
+      "dataset_auc": 0.6283070666666665,
+      "separation_from_chance": 0.12830706666666647
+    },
+    {
+      "feature": "Fwd Packet Length Max",
+      "dataset_auc": 0.6251129111111111,
+      "separation_from_chance": 0.1251129111111111
+    },
+    {
+      "feature": "Init Fwd Win Bytes",
+      "dataset_auc": 0.6219695868055556,
+      "separation_from_chance": 0.12196958680555559
+    },
+    {
+      "feature": "Bwd Packet Length Std",
+      "dataset_auc": 0.6215434229166666,
+      "separation_from_chance": 0.12154342291666664
+    },
+    {
+      "feature": "Protocol",
+      "dataset_auc": 0.3799263125,
+      "separation_from_chance": 0.12007368750000003
+    },
+    {
+      "feature": "RST Flag Count",
+      "dataset_auc": 0.6160625,
+      "separation_from_chance": 0.11606249999999996
+    },
+    {
+      "feature": "ECE Flag Count",
+      "dataset_auc": 0.6160625,
+      "separation_from_chance": 0.11606249999999996
+    },
+    {
+      "feature": "Fwd IAT Std",
+      "dataset_auc": 0.6158450048611112,
+      "separation_from_chance": 0.11584500486111116
+    },
+    {
+      "feature": "PSH Flag Count",
+      "dataset_auc": 0.6126291666666667,
+      "separation_from_chance": 0.11262916666666667
+    },
+    {
+      "feature": "Fwd Packet Length Mean",
+      "dataset_auc": 0.6076739097222222,
+      "separation_from_chance": 0.10767390972222224
+    }
+  ],
+  "top_random_forest_features": [
+    {
+      "feature": "Fwd Seg Size Min",
+      "mean_random_forest_importance": 0.1039931718958367
+    },
+    {
+      "feature": "Fwd Header Length",
+      "mean_random_forest_importance": 0.08184706240661786
+    },
+    {
+      "feature": "Bwd Header Length",
+      "mean_random_forest_importance": 0.055890661848013924
+    },
+    {
+      "feature": "Bwd IAT Min",
+      "mean_random_forest_importance": 0.042662523022903125
+    },
+    {
+      "feature": "Fwd Packet Length Min",
+      "mean_random_forest_importance": 0.03567134478861968
+    },
+    {
+      "feature": "Packet Length Max",
+      "mean_random_forest_importance": 0.0324345931020649
+    },
+    {
+      "feature": "Fwd IAT Min",
+      "mean_random_forest_importance": 0.027574229728880562
+    },
+    {
+      "feature": "Packet Length Min",
+      "mean_random_forest_importance": 0.026725915265766155
+    },
+    {
+      "feature": "Fwd IAT Mean",
+      "mean_random_forest_importance": 0.02479830626536113
+    },
+    {
+      "feature": "Init Fwd Win Bytes",
+      "mean_random_forest_importance": 0.024116801441118482
+    },
+    {
+      "feature": "Fwd IAT Total",
+      "mean_random_forest_importance": 0.023915764192784936
+    },
+    {
+      "feature": "Fwd IAT Max",
+      "mean_random_forest_importance": 0.0232939221118554
+    },
+    {
+      "feature": "Flow IAT Min",
+      "mean_random_forest_importance": 0.022966788684498415
+    },
+    {
+      "feature": "Bwd Packet Length Min",
+      "mean_random_forest_importance": 0.0224128759861598
+    },
+    {
+      "feature": "Bwd Packet Length Max",
+      "mean_random_forest_importance": 0.019952868358671723
+    },
+    {
+      "feature": "Init Bwd Win Bytes",
+      "mean_random_forest_importance": 0.017813245586464514
+    },
+    {
+      "feature": "ECE Flag Count",
+      "mean_random_forest_importance": 0.017776280643493403
+    },
+    {
+      "feature": "Fwd Packet Length Max",
+      "mean_random_forest_importance": 0.017638446356230745
+    },
+    {
+      "feature": "RST Flag Count",
+      "mean_random_forest_importance": 0.017531636064148103
+    },
+    {
+      "feature": "Fwd Act Data Packets",
+      "mean_random_forest_importance": 0.01729149717910969
+    }
+  ],
+  "sampling_audit": [
+    {
+      "dataset": "CICIDS2017",
+      "capture": "Benign-Monday-no-metadata.parquet",
+      "benign_rows": 3000,
+      "rows_scanned": 458831,
+      "sampling_method": "seeded per-label reservoir sampling across the complete capture file"
+    },
+    {
+      "dataset": "CICIDS2017",
+      "capture": "Botnet-Friday-no-metadata.parquet",
+      "benign_rows": 3000,
+      "rows_scanned": 176038,
+      "sampling_method": "seeded per-label reservoir sampling across the complete capture file"
+    },
+    {
+      "dataset": "CICIDS2017",
+      "capture": "Bruteforce-Tuesday-no-metadata.parquet",
+      "benign_rows": 3000,
+      "rows_scanned": 389714,
+      "sampling_method": "seeded per-label reservoir sampling across the complete capture file"
+    },
+    {
+      "dataset": "CICIDS2017",
+      "capture": "DDoS-Friday-no-metadata.parquet",
+      "benign_rows": 3000,
+      "rows_scanned": 221264,
+      "sampling_method": "seeded per-label reservoir sampling across the complete capture file"
+    },
+    {
+      "dataset": "CICIDS2017",
+      "capture": "DoS-Wednesday-no-metadata.parquet",
+      "benign_rows": 3000,
+      "rows_scanned": 584991,
+      "sampling_method": "seeded per-label reservoir sampling across the complete capture file"
+    },
+    {
+      "dataset": "CICIDS2017",
+      "capture": "Infiltration-Thursday-no-metadata.parquet",
+      "benign_rows": 3000,
+      "rows_scanned": 207630,
+      "sampling_method": "seeded per-label reservoir sampling across the complete capture file"
+    },
+    {
+      "dataset": "CICIDS2017",
+      "capture": "Portscan-Friday-no-metadata.parquet",
+      "benign_rows": 3000,
+      "rows_scanned": 119522,
+      "sampling_method": "seeded per-label reservoir sampling across the complete capture file"
+    },
+    {
+      "dataset": "CICIDS2017",
+      "capture": "WebAttacks-Thursday-no-metadata.parquet",
+      "benign_rows": 3000,
+      "rows_scanned": 155820,
+      "sampling_method": "seeded per-label reservoir sampling across the complete capture file"
+    },
+    {
+      "dataset": "CSE-CIC-IDS2018",
+      "capture": "Botnet-Friday-02-03-2018_TrafficForML_CICFlowMeter.parquet",
+      "benign_rows": 3000,
+      "rows_scanned": 771587,
+      "sampling_method": "seeded per-label reservoir sampling across the complete capture file"
+    },
+    {
+      "dataset": "CSE-CIC-IDS2018",
+      "capture": "Bruteforce-Wednesday-14-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "benign_rows": 3000,
+      "rows_scanned": 619346,
+      "sampling_method": "seeded per-label reservoir sampling across the complete capture file"
+    },
+    {
+      "dataset": "CSE-CIC-IDS2018",
+      "capture": "DDoS1-Tuesday-20-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "benign_rows": 3000,
+      "rows_scanned": 954846,
+      "sampling_method": "seeded per-label reservoir sampling across the complete capture file"
+    },
+    {
+      "dataset": "CSE-CIC-IDS2018",
+      "capture": "DDoS2-Wednesday-21-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "benign_rows": 3000,
+      "rows_scanned": 561396,
+      "sampling_method": "seeded per-label reservoir sampling across the complete capture file"
+    },
+    {
+      "dataset": "CSE-CIC-IDS2018",
+      "capture": "DoS1-Thursday-15-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "benign_rows": 3000,
+      "rows_scanned": 794812,
+      "sampling_method": "seeded per-label reservoir sampling across the complete capture file"
+    },
+    {
+      "dataset": "CSE-CIC-IDS2018",
+      "capture": "DoS2-Friday-16-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "benign_rows": 3000,
+      "rows_scanned": 591873,
+      "sampling_method": "seeded per-label reservoir sampling across the complete capture file"
+    },
+    {
+      "dataset": "CSE-CIC-IDS2018",
+      "capture": "Infil1-Wednesday-28-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "benign_rows": 3000,
+      "rows_scanned": 456873,
+      "sampling_method": "seeded per-label reservoir sampling across the complete capture file"
+    },
+    {
+      "dataset": "CSE-CIC-IDS2018",
+      "capture": "Infil2-Thursday-01-03-2018_TrafficForML_CICFlowMeter.parquet",
+      "benign_rows": 3000,
+      "rows_scanned": 249170,
+      "sampling_method": "seeded per-label reservoir sampling across the complete capture file"
+    },
+    {
+      "dataset": "CSE-CIC-IDS2018",
+      "capture": "Web1-Thursday-22-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "benign_rows": 3000,
+      "rows_scanned": 830224,
+      "sampling_method": "seeded per-label reservoir sampling across the complete capture file"
+    },
+    {
+      "dataset": "CSE-CIC-IDS2018",
+      "capture": "Web2-Friday-23-02-2018_TrafficForML_CICFlowMeter.parquet",
+      "benign_rows": 3000,
+      "rows_scanned": 829405,
+      "sampling_method": "seeded per-label reservoir sampling across the complete capture file"
+    }
+  ],
+  "limitations": [
+    "High dataset-classifier AUC means sampled benign rows differ in these features; it does not establish the cause.",
+    "Feature rankings are diagnostic associations, not evidence that dropping or normalizing a feature improves attack detection.",
+    "Rows are bounded per capture; capture-level generalization is measured, but this is not live-network validation."
+  ]
+}

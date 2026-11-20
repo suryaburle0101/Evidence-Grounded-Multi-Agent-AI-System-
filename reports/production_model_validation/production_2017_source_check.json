@@ -1,0 +1,2096 @@
+{
+  "schema": "active-production-2017-source-diagnostic-v1",
+  "production_model_version": "cicids2017-production-artifacts-v1",
+  "dataset": "CICIDS2017",
+  "evaluation_type": "source-aligned sampled diagnostic; model training split membership is unknown and may overlap evaluated capture rows",
+  "rows": 18720,
+  "sampled_rows_per_raw_label_per_capture": 1000,
+  "models": {
+    "random_forest": {
+      "binary_attack_detection": {
+        "rows": 18720,
+        "threshold": 0.5,
+        "accuracy": 0.9936965811965812,
+        "precision_attack": 0.9999056959637872,
+        "recall_attack": 0.9890858208955224,
+        "f1_attack": 0.9944663290189458,
+        "false_positive_rate": 0.000125,
+        "confusion_matrix_tn_fp_fn_tp": [
+          7999,
+          1,
+          117,
+          10603
+        ],
+        "brier_score_raw_uncalibrated": 0.006312128407442103,
+        "ece_10_bins_raw_uncalibrated": 0.015342644643015501,
+        "roc_auc": 0.9998935925839553,
+        "average_precision": 0.9999102695430729
+      },
+      "family_classification": {
+        "accuracy": 0.9918803418803419,
+        "macro_f1": 0.7713951014731997,
+        "classification_report": {
+          "Benign": {
+            "precision": 0.9818338038541794,
+            "recall": 0.999875,
+            "f1-score": 0.990772279680436,
+            "support": 8000.0
+          },
+          "Botnet": {
+            "precision": 1.0,
+            "recall": 0.931,
+            "f1-score": 0.9642672190574831,
+            "support": 1000.0
+          },
+          "BruteForce": {
+            "precision": 1.0,
+            "recall": 0.996,
+            "f1-score": 0.9979959919839679,
+            "support": 2000.0
+          },
+          "DDoS": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 1000.0
+          },
+          "DoS": {
+            "precision": 0.99925,
+            "recall": 0.99925,
+            "f1-score": 0.99925,
+            "support": 4000.0
+          },
+          "Heartbleed": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 11.0
+          },
+          "Infiltration": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 36.0
+          },
+          "PortScan": {
+            "precision": 1.0,
+            "recall": 0.989,
+            "f1-score": 0.9944695827048768,
+            "support": 1000.0
+          },
+          "WebAttack": {
+            "precision": 0.9993979530403372,
+            "recall": 0.9922295277943813,
+            "f1-score": 0.9958008398320336,
+            "support": 1673.0
+          },
+          "accuracy": 0.9918803418803419,
+          "macro avg": {
+            "precision": 0.7756090840993908,
+            "recall": 0.7674838364215979,
+            "f1-score": 0.7713951014731997,
+            "support": 18720.0
+          },
+          "weighted avg": {
+            "precision": 0.9895119234118548,
+            "recall": 0.9918803418803419,
+            "f1-score": 0.9905919780028194,
+            "support": 18720.0
+          }
+        },
+        "confusion_matrix_labels": [
+          "Benign",
+          "Botnet",
+          "BruteForce",
+          "DDoS",
+          "DoS",
+          "Heartbleed",
+          "Infiltration",
+          "PortScan",
+          "WebAttack"
+        ],
+        "confusion_matrix": [
+          [
+            7999,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            69,
+            931,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            8,
+            0,
+            1992,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            1000,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            3,
+            0,
+            0,
+            0,
+            3997,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            11,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            36,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            8,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            989,
+            1
+          ],
+          [
+            13,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1660
+          ]
+        ]
+      }
+    },
+    "xgboost": {
+      "binary_attack_detection": {
+        "rows": 18720,
+        "threshold": 0.5,
+        "accuracy": 0.9857905982905983,
+        "precision_attack": 0.9986643770272848,
+        "recall_attack": 0.9764925373134329,
+        "f1_attack": 0.9874540137722856,
+        "false_positive_rate": 0.00175,
+        "confusion_matrix_tn_fp_fn_tp": [
+          7986,
+          14,
+          252,
+          10468
+        ],
+        "brier_score_raw_uncalibrated": 0.010636585192022843,
+        "ece_10_bins_raw_uncalibrated": 0.023702263401979652,
+        "roc_auc": 0.9996687674906717,
+        "average_precision": 0.9997378944246277
+      },
+      "family_classification": {
+        "accuracy": 0.9954594017094017,
+        "macro_f1": 0.7755900167278749,
+        "classification_report": {
+          "Benign": {
+            "precision": 0.9938956023420954,
+            "recall": 0.99725,
+            "f1-score": 0.9955699756660635,
+            "support": 8000.0
+          },
+          "Botnet": {
+            "precision": 0.985207100591716,
+            "recall": 0.999,
+            "f1-score": 0.9920556107249255,
+            "support": 1000.0
+          },
+          "BruteForce": {
+            "precision": 0.9995002498750625,
+            "recall": 1.0,
+            "f1-score": 0.9997500624843789,
+            "support": 2000.0
+          },
+          "DDoS": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 1000.0
+          },
+          "DoS": {
+            "precision": 0.9957616554475193,
+            "recall": 0.9985,
+            "f1-score": 0.9971289476969167,
+            "support": 4000.0
+          },
+          "Heartbleed": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 11.0
+          },
+          "Infiltration": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 36.0
+          },
+          "PortScan": {
+            "precision": 1.0,
+            "recall": 0.997,
+            "f1-score": 0.9984977466199298,
+            "support": 1000.0
+          },
+          "WebAttack": {
+            "precision": 0.9982035928143712,
+            "recall": 0.9964136282127914,
+            "f1-score": 0.9973078073586599,
+            "support": 1673.0
+          },
+          "accuracy": 0.9954594017094017,
+          "macro avg": {
+            "precision": 0.7747298001189739,
+            "recall": 0.7764626253569769,
+            "f1-score": 0.7755900167278749,
+            "support": 18720.0
+          },
+          "weighted avg": {
+            "precision": 0.9929708147247392,
+            "recall": 0.9954594017094017,
+            "f1-score": 0.994210739323762,
+            "support": 18720.0
+          }
+        },
+        "confusion_matrix_labels": [
+          "Benign",
+          "Botnet",
+          "BruteForce",
+          "DDoS",
+          "DoS",
+          "Heartbleed",
+          "Infiltration",
+          "PortScan",
+          "WebAttack"
+        ],
+        "confusion_matrix": [
+          [
+            7978,
+            14,
+            1,
+            0,
+            7,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            999,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            2000,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            1000,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            4,
+            0,
+            0,
+            0,
+            3994,
+            0,
+            0,
+            0,
+            2
+          ],
+          [
+            4,
+            0,
+            0,
+            0,
+            7,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            35,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            997,
+            1
+          ],
+          [
+            5,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1667
+          ]
+        ]
+      }
+    }
+  },
+  "per_capture": [
+    {
+      "file": "Benign-Monday-no-metadata.parquet",
+      "sample": {
+        "rows_scanned": 458831,
+        "invalid_rows": 0,
+        "rows_sampled": 1000,
+        "label_counts": {
+          "Benign": 1000
+        },
+        "raw_label_counts": {
+          "Benign": 1000
+        },
+        "sample_cap_per_raw_label": 1000,
+        "sampling": "seeded per-label reservoir sampling across the complete capture file"
+      },
+      "models": {
+        "random_forest": {
+          "binary_attack_detection": {
+            "rows": 1000,
+            "threshold": 0.5,
+            "accuracy": 1.0,
+            "precision_attack": 0.0,
+            "recall_attack": 0.0,
+            "f1_attack": 0.0,
+            "false_positive_rate": 0.0,
+            "confusion_matrix_tn_fp_fn_tp": [
+              1000,
+              0,
+              0,
+              0
+            ],
+            "brier_score_raw_uncalibrated": 2.01e-05,
+            "ece_10_bins_raw_uncalibrated": 0.00039
+          },
+          "family_classification": {
+            "accuracy": 1.0,
+            "macro_f1": 1.0,
+            "classification_report": {
+              "Benign": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 1000.0
+              },
+              "accuracy": 1.0,
+              "macro avg": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 1000.0
+              },
+              "weighted avg": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 1000.0
+              }
+            },
+            "confusion_matrix_labels": [
+              "Benign"
+            ],
+            "confusion_matrix": [
+              [
+                1000
+              ]
+            ]
+          }
+        },
+        "xgboost": {
+          "binary_attack_detection": {
+            "rows": 1000,
+            "threshold": 0.5,
+            "accuracy": 1.0,
+            "precision_attack": 0.0,
+            "recall_attack": 0.0,
+            "f1_attack": 0.0,
+            "false_positive_rate": 0.0,
+            "confusion_matrix_tn_fp_fn_tp": [
+              1000,
+              0,
+              0,
+              0
+            ],
+            "brier_score_raw_uncalibrated": 0.0007059547662237876,
+            "ece_10_bins_raw_uncalibrated": 0.004618446116630366
+          },
+          "family_classification": {
+            "accuracy": 0.997,
+            "macro_f1": 0.4992488733099649,
+            "classification_report": {
+              "Benign": {
+                "precision": 1.0,
+                "recall": 0.997,
+                "f1-score": 0.9984977466199298,
+                "support": 1000.0
+              },
+              "Botnet": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1-score": 0.0,
+                "support": 0.0
+              },
+              "accuracy": 0.997,
+              "macro avg": {
+                "precision": 0.5,
+                "recall": 0.4985,
+                "f1-score": 0.4992488733099649,
+                "support": 1000.0
+              },
+              "weighted avg": {
+                "precision": 1.0,
+                "recall": 0.997,
+                "f1-score": 0.9984977466199298,
+                "support": 1000.0
+              }
+            },
+            "confusion_matrix_labels": [
+              "Benign",
+              "Botnet"
+            ],
+            "confusion_matrix": [
+              [
+                997,
+                3
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        }
+      }
+    },
+    {
+      "file": "Botnet-Friday-no-metadata.parquet",
+      "sample": {
+        "rows_scanned": 176038,
+        "invalid_rows": 0,
+        "rows_sampled": 2000,
+        "label_counts": {
+          "Benign": 1000,
+          "Botnet": 1000
+        },
+        "raw_label_counts": {
+          "Benign": 1000,
+          "Bot": 1000
+        },
+        "sample_cap_per_raw_label": 1000,
+        "sampling": "seeded per-label reservoir sampling across the complete capture file"
+      },
+      "models": {
+        "random_forest": {
+          "binary_attack_detection": {
+            "rows": 2000,
+            "threshold": 0.5,
+            "accuracy": 0.963,
+            "precision_attack": 0.9989224137931034,
+            "recall_attack": 0.927,
+            "f1_attack": 0.9616182572614108,
+            "false_positive_rate": 0.001,
+            "confusion_matrix_tn_fp_fn_tp": [
+              999,
+              1,
+              73,
+              927
+            ],
+            "brier_score_raw_uncalibrated": 0.034816123422262986,
+            "ece_10_bins_raw_uncalibrated": 0.07912634316871471,
+            "roc_auc": 0.998881,
+            "average_precision": 0.9988771037870052
+          },
+          "family_classification": {
+            "accuracy": 0.965,
+            "macro_f1": 0.6434726964878908,
+            "classification_report": {
+              "Benign": {
+                "precision": 0.9353932584269663,
+                "recall": 0.999,
+                "f1-score": 0.9661508704061895,
+                "support": 1000.0
+              },
+              "Botnet": {
+                "precision": 1.0,
+                "recall": 0.931,
+                "f1-score": 0.9642672190574831,
+                "support": 1000.0
+              },
+              "DoS": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1-score": 0.0,
+                "support": 0.0
+              },
+              "accuracy": 0.965,
+              "macro avg": {
+                "precision": 0.6451310861423222,
+                "recall": 0.6433333333333334,
+                "f1-score": 0.6434726964878908,
+                "support": 2000.0
+              },
+              "weighted avg": {
+                "precision": 0.9676966292134832,
+                "recall": 0.965,
+                "f1-score": 0.9652090447318362,
+                "support": 2000.0
+              }
+            },
+            "confusion_matrix_labels": [
+              "Benign",
+              "Botnet",
+              "DoS"
+            ],
+            "confusion_matrix": [
+              [
+                999,
+                0,
+                1
+              ],
+              [
+                69,
+                931,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ]
+            ]
+          }
+        },
+        "xgboost": {
+          "binary_attack_detection": {
+            "rows": 2000,
+            "threshold": 0.5,
+            "accuracy": 0.9195,
+            "precision_attack": 0.9988109393579072,
+            "recall_attack": 0.84,
+            "f1_attack": 0.9125475285171103,
+            "false_positive_rate": 0.001,
+            "confusion_matrix_tn_fp_fn_tp": [
+              999,
+              1,
+              160,
+              840
+            ],
+            "brier_score_raw_uncalibrated": 0.056753501620920875,
+            "ece_10_bins_raw_uncalibrated": 0.11797828096714874,
+            "roc_auc": 0.998788,
+            "average_precision": 0.9987093277845601
+          },
+          "family_classification": {
+            "accuracy": 0.9985,
+            "macro_f1": 0.6658330832082707,
+            "classification_report": {
+              "Benign": {
+                "precision": 0.998998998998999,
+                "recall": 0.998,
+                "f1-score": 0.9984992496248124,
+                "support": 1000.0
+              },
+              "Botnet": {
+                "precision": 0.999,
+                "recall": 0.999,
+                "f1-score": 0.999,
+                "support": 1000.0
+              },
+              "DoS": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1-score": 0.0,
+                "support": 0.0
+              },
+              "accuracy": 0.9985,
+              "macro avg": {
+                "precision": 0.6659996663329997,
+                "recall": 0.6656666666666666,
+                "f1-score": 0.6658330832082707,
+                "support": 2000.0
+              },
+              "weighted avg": {
+                "precision": 0.9989994994994995,
+                "recall": 0.9985,
+                "f1-score": 0.9987496248124061,
+                "support": 2000.0
+              }
+            },
+            "confusion_matrix_labels": [
+              "Benign",
+              "Botnet",
+              "DoS"
+            ],
+            "confusion_matrix": [
+              [
+                998,
+                1,
+                1
+              ],
+              [
+                1,
+                999,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ]
+            ]
+          }
+        }
+      }
+    },
+    {
+      "file": "Bruteforce-Tuesday-no-metadata.parquet",
+      "sample": {
+        "rows_scanned": 389714,
+        "invalid_rows": 0,
+        "rows_sampled": 3000,
+        "label_counts": {
+          "BruteForce": 2000,
+          "Benign": 1000
+        },
+        "raw_label_counts": {
+          "Benign": 1000,
+          "FTP-Patator": 1000,
+          "SSH-Patator": 1000
+        },
+        "sample_cap_per_raw_label": 1000,
+        "sampling": "seeded per-label reservoir sampling across the complete capture file"
+      },
+      "models": {
+        "random_forest": {
+          "binary_attack_detection": {
+            "rows": 3000,
+            "threshold": 0.5,
+            "accuracy": 0.998,
+            "precision_attack": 1.0,
+            "recall_attack": 0.997,
+            "f1_attack": 0.9984977466199298,
+            "false_positive_rate": 0.0,
+            "confusion_matrix_tn_fp_fn_tp": [
+              1000,
+              0,
+              6,
+              1994
+            ],
+            "brier_score_raw_uncalibrated": 0.0020505333333333334,
+            "ece_10_bins_raw_uncalibrated": 0.00586000000000002,
+            "roc_auc": 0.9999965,
+            "average_precision": 0.9999982504991253
+          },
+          "family_classification": {
+            "accuracy": 0.9973333333333333,
+            "macro_f1": 0.997005964119474,
+            "classification_report": {
+              "Benign": {
+                "precision": 0.9920634920634921,
+                "recall": 1.0,
+                "f1-score": 0.9960159362549801,
+                "support": 1000.0
+              },
+              "BruteForce": {
+                "precision": 1.0,
+                "recall": 0.996,
+                "f1-score": 0.9979959919839679,
+                "support": 2000.0
+              },
+              "accuracy": 0.9973333333333333,
+              "macro avg": {
+                "precision": 0.996031746031746,
+                "recall": 0.998,
+                "f1-score": 0.997005964119474,
+                "support": 3000.0
+              },
+              "weighted avg": {
+                "precision": 0.9973544973544973,
+                "recall": 0.9973333333333333,
+                "f1-score": 0.9973359734076386,
+                "support": 3000.0
+              }
+            },
+            "confusion_matrix_labels": [
+              "Benign",
+              "BruteForce"
+            ],
+            "confusion_matrix": [
+              [
+                1000,
+                0
+              ],
+              [
+                8,
+                1992
+              ]
+            ]
+          }
+        },
+        "xgboost": {
+          "binary_attack_detection": {
+            "rows": 3000,
+            "threshold": 0.5,
+            "accuracy": 0.9953333333333333,
+            "precision_attack": 0.9989949748743718,
+            "recall_attack": 0.994,
+            "f1_attack": 0.9964912280701754,
+            "false_positive_rate": 0.002,
+            "confusion_matrix_tn_fp_fn_tp": [
+              998,
+              2,
+              12,
+              1988
+            ],
+            "brier_score_raw_uncalibrated": 0.004505237950258231,
+            "ece_10_bins_raw_uncalibrated": 0.0110473200651965,
+            "roc_auc": 0.9999285,
+            "average_precision": 0.9999634591513406
+          },
+          "family_classification": {
+            "accuracy": 0.9996666666666667,
+            "macro_f1": 0.6664999166249791,
+            "classification_report": {
+              "Benign": {
+                "precision": 1.0,
+                "recall": 0.999,
+                "f1-score": 0.9994997498749375,
+                "support": 1000.0
+              },
+              "BruteForce": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 2000.0
+              },
+              "DoS": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1-score": 0.0,
+                "support": 0.0
+              },
+              "accuracy": 0.9996666666666667,
+              "macro avg": {
+                "precision": 0.6666666666666666,
+                "recall": 0.6663333333333333,
+                "f1-score": 0.6664999166249791,
+                "support": 3000.0
+              },
+              "weighted avg": {
+                "precision": 1.0,
+                "recall": 0.9996666666666667,
+                "f1-score": 0.9998332499583126,
+                "support": 3000.0
+              }
+            },
+            "confusion_matrix_labels": [
+              "Benign",
+              "BruteForce",
+              "DoS"
+            ],
+            "confusion_matrix": [
+              [
+                999,
+                0,
+                1
+              ],
+              [
+                0,
+                2000,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ]
+            ]
+          }
+        }
+      }
+    },
+    {
+      "file": "DDoS-Friday-no-metadata.parquet",
+      "sample": {
+        "rows_scanned": 221264,
+        "invalid_rows": 0,
+        "rows_sampled": 2000,
+        "label_counts": {
+          "Benign": 1000,
+          "DDoS": 1000
+        },
+        "raw_label_counts": {
+          "Benign": 1000,
+          "DDoS": 1000
+        },
+        "sample_cap_per_raw_label": 1000,
+        "sampling": "seeded per-label reservoir sampling across the complete capture file"
+      },
+      "models": {
+        "random_forest": {
+          "binary_attack_detection": {
+            "rows": 2000,
+            "threshold": 0.5,
+            "accuracy": 1.0,
+            "precision_attack": 1.0,
+            "recall_attack": 1.0,
+            "f1_attack": 1.0,
+            "false_positive_rate": 0.0,
+            "confusion_matrix_tn_fp_fn_tp": [
+              1000,
+              0,
+              0,
+              1000
+            ],
+            "brier_score_raw_uncalibrated": 1.5850000000000002e-05,
+            "ece_10_bins_raw_uncalibrated": 0.00026500000000000904,
+            "roc_auc": 1.0,
+            "average_precision": 1.0
+          },
+          "family_classification": {
+            "accuracy": 1.0,
+            "macro_f1": 1.0,
+            "classification_report": {
+              "Benign": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 1000.0
+              },
+              "DDoS": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 1000.0
+              },
+              "accuracy": 1.0,
+              "macro avg": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 2000.0
+              },
+              "weighted avg": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 2000.0
+              }
+            },
+            "confusion_matrix_labels": [
+              "Benign",
+              "DDoS"
+            ],
+            "confusion_matrix": [
+              [
+                1000,
+                0
+              ],
+              [
+                0,
+                1000
+              ]
+            ]
+          }
+        },
+        "xgboost": {
+          "binary_attack_detection": {
+            "rows": 2000,
+            "threshold": 0.5,
+            "accuracy": 0.9995,
+            "precision_attack": 1.0,
+            "recall_attack": 0.999,
+            "f1_attack": 0.9994997498749375,
+            "false_positive_rate": 0.0,
+            "confusion_matrix_tn_fp_fn_tp": [
+              1000,
+              0,
+              1,
+              999
+            ],
+            "brier_score_raw_uncalibrated": 0.0004642470224059171,
+            "ece_10_bins_raw_uncalibrated": 0.0024763624151019144,
+            "roc_auc": 1.0,
+            "average_precision": 1.0
+          },
+          "family_classification": {
+            "accuracy": 0.999,
+            "macro_f1": 0.4997497497497497,
+            "classification_report": {
+              "Benign": {
+                "precision": 1.0,
+                "recall": 0.998,
+                "f1-score": 0.998998998998999,
+                "support": 1000.0
+              },
+              "BruteForce": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1-score": 0.0,
+                "support": 0.0
+              },
+              "DDoS": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 1000.0
+              },
+              "DoS": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1-score": 0.0,
+                "support": 0.0
+              },
+              "accuracy": 0.999,
+              "macro avg": {
+                "precision": 0.5,
+                "recall": 0.4995,
+                "f1-score": 0.4997497497497497,
+                "support": 2000.0
+              },
+              "weighted avg": {
+                "precision": 1.0,
+                "recall": 0.999,
+                "f1-score": 0.9994994994994995,
+                "support": 2000.0
+              }
+            },
+            "confusion_matrix_labels": [
+              "Benign",
+              "BruteForce",
+              "DDoS",
+              "DoS"
+            ],
+            "confusion_matrix": [
+              [
+                998,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                1000,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ]
+            ]
+          }
+        }
+      }
+    },
+    {
+      "file": "DoS-Wednesday-no-metadata.parquet",
+      "sample": {
+        "rows_scanned": 584991,
+        "invalid_rows": 0,
+        "rows_sampled": 5011,
+        "label_counts": {
+          "DoS": 4000,
+          "Benign": 1000,
+          "Heartbleed": 11
+        },
+        "raw_label_counts": {
+          "Benign": 1000,
+          "DoS slowloris": 1000,
+          "DoS Hulk": 1000,
+          "DoS Slowhttptest": 1000,
+          "DoS GoldenEye": 1000,
+          "Heartbleed": 11
+        },
+        "sample_cap_per_raw_label": 1000,
+        "sampling": "seeded per-label reservoir sampling across the complete capture file"
+      },
+      "models": {
+        "random_forest": {
+          "binary_attack_detection": {
+            "rows": 5011,
+            "threshold": 0.5,
+            "accuracy": 0.9990021951706246,
+            "precision_attack": 1.0,
+            "recall_attack": 0.9987534280727998,
+            "f1_attack": 0.999376325308719,
+            "false_positive_rate": 0.0,
+            "confusion_matrix_tn_fp_fn_tp": [
+              1000,
+              0,
+              5,
+              4006
+            ],
+            "brier_score_raw_uncalibrated": 0.0014352025720823763,
+            "ece_10_bins_raw_uncalibrated": 0.00588756308217425,
+            "roc_auc": 0.9999972575417602,
+            "average_precision": 0.9999991929401815
+          },
+          "family_classification": {
+            "accuracy": 0.997206146477749,
+            "macro_f1": 0.6642245062355187,
+            "classification_report": {
+              "Benign": {
+                "precision": 0.9861932938856016,
+                "recall": 1.0,
+                "f1-score": 0.9930486593843099,
+                "support": 1000.0
+              },
+              "DoS": {
+                "precision": 1.0,
+                "recall": 0.99925,
+                "f1-score": 0.9996248593222459,
+                "support": 4000.0
+              },
+              "Heartbleed": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1-score": 0.0,
+                "support": 11.0
+              },
+              "accuracy": 0.997206146477749,
+              "macro avg": {
+                "precision": 0.6620644312952005,
+                "recall": 0.6664166666666667,
+                "f1-score": 0.6642245062355187,
+                "support": 5011.0
+              },
+              "weighted avg": {
+                "precision": 0.9950495497676315,
+                "recall": 0.997206146477749,
+                "f1-score": 0.9961181593840139,
+                "support": 5011.0
+              }
+            },
+            "confusion_matrix_labels": [
+              "Benign",
+              "DoS",
+              "Heartbleed"
+            ],
+            "confusion_matrix": [
+              [
+                1000,
+                0,
+                0
+              ],
+              [
+                3,
+                3997,
+                0
+              ],
+              [
+                11,
+                0,
+                0
+              ]
+            ]
+          }
+        },
+        "xgboost": {
+          "binary_attack_detection": {
+            "rows": 5011,
+            "threshold": 0.5,
+            "accuracy": 0.997206146477749,
+            "precision_attack": 0.9990012484394507,
+            "recall_attack": 0.9975068561455996,
+            "f1_attack": 0.998253493013972,
+            "false_positive_rate": 0.004,
+            "confusion_matrix_tn_fp_fn_tp": [
+              996,
+              4,
+              10,
+              4001
+            ],
+            "brier_score_raw_uncalibrated": 0.0022943931165363206,
+            "ece_10_bins_raw_uncalibrated": 0.009038861085138558,
+            "roc_auc": 0.9998899276988282,
+            "average_precision": 0.9999698604156946
+          },
+          "family_classification": {
+            "accuracy": 0.9962083416483736,
+            "macro_f1": 0.49828516449900584,
+            "classification_report": {
+              "Benign": {
+                "precision": 0.9920477137176938,
+                "recall": 0.998,
+                "f1-score": 0.9950149551345963,
+                "support": 1000.0
+              },
+              "DoS": {
+                "precision": 0.9977516862353235,
+                "recall": 0.9985,
+                "f1-score": 0.998125702861427,
+                "support": 4000.0
+              },
+              "Heartbleed": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1-score": 0.0,
+                "support": 11.0
+              },
+              "WebAttack": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1-score": 0.0,
+                "support": 0.0
+              },
+              "accuracy": 0.9962083416483736,
+              "macro avg": {
+                "precision": 0.49744984998825437,
+                "recall": 0.49912500000000004,
+                "f1-score": 0.49828516449900584,
+                "support": 5011.0
+              },
+              "weighted avg": {
+                "precision": 0.9944231607780858,
+                "recall": 0.9962083416483736,
+                "f1-score": 0.9953138628178615,
+                "support": 5011.0
+              }
+            },
+            "confusion_matrix_labels": [
+              "Benign",
+              "DoS",
+              "Heartbleed",
+              "WebAttack"
+            ],
+            "confusion_matrix": [
+              [
+                998,
+                2,
+                0,
+                0
+              ],
+              [
+                4,
+                3994,
+                0,
+                2
+              ],
+              [
+                4,
+                7,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ]
+            ]
+          }
+        }
+      }
+    },
+    {
+      "file": "Infiltration-Thursday-no-metadata.parquet",
+      "sample": {
+        "rows_scanned": 207630,
+        "invalid_rows": 0,
+        "rows_sampled": 1036,
+        "label_counts": {
+          "Benign": 1000,
+          "Infiltration": 36
+        },
+        "raw_label_counts": {
+          "Benign": 1000,
+          "Infiltration": 36
+        },
+        "sample_cap_per_raw_label": 1000,
+        "sampling": "seeded per-label reservoir sampling across the complete capture file"
+      },
+      "models": {
+        "random_forest": {
+          "binary_attack_detection": {
+            "rows": 1036,
+            "threshold": 0.5,
+            "accuracy": 0.997104247104247,
+            "precision_attack": 1.0,
+            "recall_attack": 0.9166666666666666,
+            "f1_attack": 0.9565217391304348,
+            "false_positive_rate": 0.0,
+            "confusion_matrix_tn_fp_fn_tp": [
+              1000,
+              0,
+              3,
+              33
+            ],
+            "brier_score_raw_uncalibrated": 0.003573069498069499,
+            "ece_10_bins_raw_uncalibrated": 0.006611969111969111,
+            "roc_auc": 0.9997916666666666,
+            "average_precision": 0.9935677547466165
+          },
+          "family_classification": {
+            "accuracy": 0.9652509652509652,
+            "macro_f1": 0.4911591355599214,
+            "classification_report": {
+              "Benign": {
+                "precision": 0.9652509652509652,
+                "recall": 1.0,
+                "f1-score": 0.9823182711198428,
+                "support": 1000.0
+              },
+              "Infiltration": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1-score": 0.0,
+                "support": 36.0
+              },
+              "accuracy": 0.9652509652509652,
+              "macro avg": {
+                "precision": 0.4826254826254826,
+                "recall": 0.5,
+                "f1-score": 0.4911591355599214,
+                "support": 1036.0
+              },
+              "weighted avg": {
+                "precision": 0.9317094259179202,
+                "recall": 0.9652509652509652,
+                "f1-score": 0.9481836593820877,
+                "support": 1036.0
+              }
+            },
+            "confusion_matrix_labels": [
+              "Benign",
+              "Infiltration"
+            ],
+            "confusion_matrix": [
+              [
+                1000,
+                0
+              ],
+              [
+                36,
+                0
+              ]
+            ]
+          }
+        },
+        "xgboost": {
+          "binary_attack_detection": {
+            "rows": 1036,
+            "threshold": 0.5,
+            "accuracy": 0.9922779922779923,
+            "precision_attack": 1.0,
+            "recall_attack": 0.7777777777777778,
+            "f1_attack": 0.875,
+            "false_positive_rate": 0.0,
+            "confusion_matrix_tn_fp_fn_tp": [
+              1000,
+              0,
+              8,
+              28
+            ],
+            "brier_score_raw_uncalibrated": 0.007321391741059161,
+            "ece_10_bins_raw_uncalibrated": 0.009873749959757143,
+            "roc_auc": 0.9881666666666667,
+            "average_precision": 0.9194048283184415
+          },
+          "family_classification": {
+            "accuracy": 0.9652509652509652,
+            "macro_f1": 0.3276003276003276,
+            "classification_report": {
+              "Benign": {
+                "precision": 0.966183574879227,
+                "recall": 1.0,
+                "f1-score": 0.9828009828009828,
+                "support": 1000.0
+              },
+              "Botnet": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1-score": 0.0,
+                "support": 0.0
+              },
+              "Infiltration": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1-score": 0.0,
+                "support": 36.0
+              },
+              "accuracy": 0.9652509652509652,
+              "macro avg": {
+                "precision": 0.322061191626409,
+                "recall": 0.3333333333333333,
+                "f1-score": 0.3276003276003276,
+                "support": 1036.0
+              },
+              "weighted avg": {
+                "precision": 0.932609628261802,
+                "recall": 0.9652509652509652,
+                "f1-score": 0.948649597298246,
+                "support": 1036.0
+              }
+            },
+            "confusion_matrix_labels": [
+              "Benign",
+              "Botnet",
+              "Infiltration"
+            ],
+            "confusion_matrix": [
+              [
+                1000,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                35,
+                1,
+                0
+              ]
+            ]
+          }
+        }
+      }
+    },
+    {
+      "file": "Portscan-Friday-no-metadata.parquet",
+      "sample": {
+        "rows_scanned": 119522,
+        "invalid_rows": 0,
+        "rows_sampled": 2000,
+        "label_counts": {
+          "Benign": 1000,
+          "PortScan": 1000
+        },
+        "raw_label_counts": {
+          "Benign": 1000,
+          "PortScan": 1000
+        },
+        "sample_cap_per_raw_label": 1000,
+        "sampling": "seeded per-label reservoir sampling across the complete capture file"
+      },
+      "models": {
+        "random_forest": {
+          "binary_attack_detection": {
+            "rows": 2000,
+            "threshold": 0.5,
+            "accuracy": 0.9955,
+            "precision_attack": 1.0,
+            "recall_attack": 0.991,
+            "f1_attack": 0.9954796584630838,
+            "false_positive_rate": 0.0,
+            "confusion_matrix_tn_fp_fn_tp": [
+              1000,
+              0,
+              9,
+              991
+            ],
+            "brier_score_raw_uncalibrated": 0.005715598427042711,
+            "ece_10_bins_raw_uncalibrated": 0.012856982111345555,
+            "roc_auc": 0.9999709999999999,
+            "average_precision": 0.9999710703758622
+          },
+          "family_classification": {
+            "accuracy": 0.9945,
+            "macro_f1": 0.49762137973996423,
+            "classification_report": {
+              "Benign": {
+                "precision": 0.9920634920634921,
+                "recall": 1.0,
+                "f1-score": 0.9960159362549801,
+                "support": 1000.0
+              },
+              "DoS": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1-score": 0.0,
+                "support": 0.0
+              },
+              "PortScan": {
+                "precision": 1.0,
+                "recall": 0.989,
+                "f1-score": 0.9944695827048768,
+                "support": 1000.0
+              },
+              "WebAttack": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1-score": 0.0,
+                "support": 0.0
+              },
+              "accuracy": 0.9945,
+              "macro avg": {
+                "precision": 0.498015873015873,
+                "recall": 0.49724999999999997,
+                "f1-score": 0.49762137973996423,
+                "support": 2000.0
+              },
+              "weighted avg": {
+                "precision": 0.996031746031746,
+                "recall": 0.9945,
+                "f1-score": 0.9952427594799285,
+                "support": 2000.0
+              }
+            },
+            "confusion_matrix_labels": [
+              "Benign",
+              "DoS",
+              "PortScan",
+              "WebAttack"
+            ],
+            "confusion_matrix": [
+              [
+                1000,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                8,
+                2,
+                989,
+                1
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ]
+            ]
+          }
+        },
+        "xgboost": {
+          "binary_attack_detection": {
+            "rows": 2000,
+            "threshold": 0.5,
+            "accuracy": 0.9955,
+            "precision_attack": 0.9930348258706467,
+            "recall_attack": 0.998,
+            "f1_attack": 0.9955112219451372,
+            "false_positive_rate": 0.007,
+            "confusion_matrix_tn_fp_fn_tp": [
+              993,
+              7,
+              2,
+              998
+            ],
+            "brier_score_raw_uncalibrated": 0.0045479487668818736,
+            "ece_10_bins_raw_uncalibrated": 0.02304352291434223,
+            "roc_auc": 0.999871,
+            "average_precision": 0.9998829375619208
+          },
+          "family_classification": {
+            "accuracy": 0.9935,
+            "macro_f1": 0.3986945241983578,
+            "classification_report": {
+              "Benign": {
+                "precision": 1.0,
+                "recall": 0.99,
+                "f1-score": 0.9949748743718593,
+                "support": 1000.0
+              },
+              "Botnet": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1-score": 0.0,
+                "support": 0.0
+              },
+              "DoS": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1-score": 0.0,
+                "support": 0.0
+              },
+              "PortScan": {
+                "precision": 1.0,
+                "recall": 0.997,
+                "f1-score": 0.9984977466199298,
+                "support": 1000.0
+              },
+              "WebAttack": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1-score": 0.0,
+                "support": 0.0
+              },
+              "accuracy": 0.9935,
+              "macro avg": {
+                "precision": 0.4,
+                "recall": 0.39740000000000003,
+                "f1-score": 0.3986945241983578,
+                "support": 2000.0
+              },
+              "weighted avg": {
+                "precision": 1.0,
+                "recall": 0.9935,
+                "f1-score": 0.9967363104958946,
+                "support": 2000.0
+              }
+            },
+            "confusion_matrix_labels": [
+              "Benign",
+              "Botnet",
+              "DoS",
+              "PortScan",
+              "WebAttack"
+            ],
+            "confusion_matrix": [
+              [
+                990,
+                9,
+                1,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                2,
+                997,
+                1
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            ]
+          }
+        }
+      }
+    },
+    {
+      "file": "WebAttacks-Thursday-no-metadata.parquet",
+      "sample": {
+        "rows_scanned": 155820,
+        "invalid_rows": 0,
+        "rows_sampled": 2673,
+        "label_counts": {
+          "WebAttack": 1673,
+          "Benign": 1000
+        },
+        "raw_label_counts": {
+          "Benign": 1000,
+          "Web Attack � Brute Force": 1000,
+          "Web Attack � XSS": 652,
+          "Web Attack � Sql Injection": 21
+        },
+        "sample_cap_per_raw_label": 1000,
+        "sampling": "seeded per-label reservoir sampling across the complete capture file"
+      },
+      "models": {
+        "random_forest": {
+          "binary_attack_detection": {
+            "rows": 2673,
+            "threshold": 0.5,
+            "accuracy": 0.9921436588103255,
+            "precision_attack": 1.0,
+            "recall_attack": 0.9874476987447699,
+            "f1_attack": 0.9936842105263158,
+            "false_positive_rate": 0.0,
+            "confusion_matrix_tn_fp_fn_tp": [
+              1000,
+              0,
+              21,
+              1652
+            ],
+            "brier_score_raw_uncalibrated": 0.007483239805462028,
+            "ece_10_bins_raw_uncalibrated": 0.01898615787504673,
+            "roc_auc": 0.9999991034070532,
+            "average_precision": 0.9999992862941717
+          },
+          "family_classification": {
+            "accuracy": 0.9951365506921063,
+            "macro_f1": 0.9948207935547653,
+            "classification_report": {
+              "Benign": {
+                "precision": 0.9871668311944719,
+                "recall": 1.0,
+                "f1-score": 0.9935419771485345,
+                "support": 1000.0
+              },
+              "WebAttack": {
+                "precision": 1.0,
+                "recall": 0.9922295277943813,
+                "f1-score": 0.9960996099609961,
+                "support": 1673.0
+              },
+              "accuracy": 0.9951365506921063,
+              "macro avg": {
+                "precision": 0.993583415597236,
+                "recall": 0.9961147638971907,
+                "f1-score": 0.9948207935547653,
+                "support": 2673.0
+              },
+              "weighted avg": {
+                "precision": 0.9951989641580515,
+                "recall": 0.9951365506921063,
+                "f1-score": 0.9951427701508722,
+                "support": 2673.0
+              }
+            },
+            "confusion_matrix_labels": [
+              "Benign",
+              "WebAttack"
+            ],
+            "confusion_matrix": [
+              [
+                1000,
+                0
+              ],
+              [
+                13,
+                1660
+              ]
+            ]
+          }
+        },
+        "xgboost": {
+          "binary_attack_detection": {
+            "rows": 2673,
+            "threshold": 0.5,
+            "accuracy": 0.9779274223718668,
+            "precision_attack": 1.0,
+            "recall_attack": 0.9647340107591154,
+            "f1_attack": 0.9820505019774871,
+            "false_positive_rate": 0.0,
+            "confusion_matrix_tn_fp_fn_tp": [
+              1000,
+              0,
+              59,
+              1614
+            ],
+            "brier_score_raw_uncalibrated": 0.01581804923552225,
+            "ece_10_bins_raw_uncalibrated": 0.03929760620637971,
+            "roc_auc": 0.9996885833831439,
+            "average_precision": 0.9998191380345279
+          },
+          "family_classification": {
+            "accuracy": 0.9970071081182192,
+            "macro_f1": 0.49867720873779153,
+            "classification_report": {
+              "Benign": {
+                "precision": 0.9950149551345963,
+                "recall": 0.998,
+                "f1-score": 0.9965052421367948,
+                "support": 1000.0
+              },
+              "Botnet": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1-score": 0.0,
+                "support": 0.0
+              },
+              "DoS": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1-score": 0.0,
+                "support": 0.0
+              },
+              "WebAttack": {
+                "precision": 1.0,
+                "recall": 0.9964136282127914,
+                "f1-score": 0.9982035928143712,
+                "support": 1673.0
+              },
+              "accuracy": 0.9970071081182192,
+              "macro avg": {
+                "precision": 0.49875373878364904,
+                "recall": 0.49860340705319783,
+                "f1-score": 0.49867720873779153,
+                "support": 2673.0
+              },
+              "weighted avg": {
+                "precision": 0.9981350374615026,
+                "recall": 0.9970071081182192,
+                "f1-score": 0.9975682203199544,
+                "support": 2673.0
+              }
+            },
+            "confusion_matrix_labels": [
+              "Benign",
+              "Botnet",
+              "DoS",
+              "WebAttack"
+            ],
+            "confusion_matrix": [
+              [
+                998,
+                1,
+                1,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                5,
+                0,
+                1,
+                1667
+              ]
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "CICIDS2017 is the production training source, so these results are not an independent generalization estimate.",
+    "Rows are sampled by label from full capture files; a file-level split of the existing model training data is unavailable.",
+    "Infiltration and Heartbleed are handled by separate rare-family detectors and are not part of the multiclass encoder."
+  ],
+  "per_raw_attack_label": {
+    "Benign": {
+      "canonical_family": "Benign",
+      "support": 8000,
+      "random_forest": {
+        "binary_attack_recall": 0.000125,
+        "multiclass_family_correct_recall": 0.999875,
+        "multiclass_predicted_attack_rate": 0.000125
+      },
+      "xgboost": {
+        "binary_attack_recall": 0.00175,
+        "multiclass_family_correct_recall": 0.99725,
+        "multiclass_predicted_attack_rate": 0.00275
+      }
+    },
+    "Bot": {
+      "canonical_family": "Botnet",
+      "support": 1000,
+      "random_forest": {
+        "binary_attack_recall": 0.927,
+        "multiclass_family_correct_recall": 0.931,
+        "multiclass_predicted_attack_rate": 0.931
+      },
+      "xgboost": {
+        "binary_attack_recall": 0.84,
+        "multiclass_family_correct_recall": 0.999,
+        "multiclass_predicted_attack_rate": 0.999
+      }
+    },
+    "DDoS": {
+      "canonical_family": "DDoS",
+      "support": 1000,
+      "random_forest": {
+        "binary_attack_recall": 1.0,
+        "multiclass_family_correct_recall": 1.0,
+        "multiclass_predicted_attack_rate": 1.0
+      },
+      "xgboost": {
+        "binary_attack_recall": 0.999,
+        "multiclass_family_correct_recall": 1.0,
+        "multiclass_predicted_attack_rate": 1.0
+      }
+    },
+    "DoS GoldenEye": {
+      "canonical_family": "DoS",
+      "support": 1000,
+      "random_forest": {
+        "binary_attack_recall": 0.998,
+        "multiclass_family_correct_recall": 1.0,
+        "multiclass_predicted_attack_rate": 1.0
+      },
+      "xgboost": {
+        "binary_attack_recall": 0.999,
+        "multiclass_family_correct_recall": 1.0,
+        "multiclass_predicted_attack_rate": 1.0
+      }
+    },
+    "DoS Hulk": {
+      "canonical_family": "DoS",
+      "support": 1000,
+      "random_forest": {
+        "binary_attack_recall": 0.998,
+        "multiclass_family_correct_recall": 0.999,
+        "multiclass_predicted_attack_rate": 0.999
+      },
+      "xgboost": {
+        "binary_attack_recall": 0.999,
+        "multiclass_family_correct_recall": 0.999,
+        "multiclass_predicted_attack_rate": 0.999
+      }
+    },
+    "DoS Slowhttptest": {
+      "canonical_family": "DoS",
+      "support": 1000,
+      "random_forest": {
+        "binary_attack_recall": 1.0,
+        "multiclass_family_correct_recall": 1.0,
+        "multiclass_predicted_attack_rate": 1.0
+      },
+      "xgboost": {
+        "binary_attack_recall": 0.996,
+        "multiclass_family_correct_recall": 0.998,
+        "multiclass_predicted_attack_rate": 0.999
+      }
+    },
+    "DoS slowloris": {
+      "canonical_family": "DoS",
+      "support": 1000,
+      "random_forest": {
+        "binary_attack_recall": 0.999,
+        "multiclass_family_correct_recall": 0.998,
+        "multiclass_predicted_attack_rate": 0.998
+      },
+      "xgboost": {
+        "binary_attack_recall": 0.996,
+        "multiclass_family_correct_recall": 0.997,
+        "multiclass_predicted_attack_rate": 0.998
+      }
+    },
+    "FTP-Patator": {
+      "canonical_family": "BruteForce",
+      "support": 1000,
+      "random_forest": {
+        "binary_attack_recall": 0.999,
+        "multiclass_family_correct_recall": 1.0,
+        "multiclass_predicted_attack_rate": 1.0
+      },
+      "xgboost": {
+        "binary_attack_recall": 0.998,
+        "multiclass_family_correct_recall": 1.0,
+        "multiclass_predicted_attack_rate": 1.0
+      }
+    },
+    "Heartbleed": {
+      "canonical_family": "Heartbleed",
+      "support": 11,
+      "random_forest": {
+        "binary_attack_recall": 1.0,
+        "multiclass_family_correct_recall": 0.0,
+        "multiclass_predicted_attack_rate": 0.0
+      },
+      "xgboost": {
+        "binary_attack_recall": 1.0,
+        "multiclass_family_correct_recall": 0.0,
+        "multiclass_predicted_attack_rate": 0.6363636363636364
+      },
+      "rare_family_detector": {
+        "threshold": 0.05,
+        "recall": 1.0,
+        "support": 11
+      }
+    },
+    "Infiltration": {
+      "canonical_family": "Infiltration",
+      "support": 36,
+      "random_forest": {
+        "binary_attack_recall": 0.9166666666666666,
+        "multiclass_family_correct_recall": 0.0,
+        "multiclass_predicted_attack_rate": 0.0
+      },
+      "xgboost": {
+        "binary_attack_recall": 0.7777777777777778,
+        "multiclass_family_correct_recall": 0.0,
+        "multiclass_predicted_attack_rate": 0.027777777777777776
+      },
+      "rare_family_detector": {
+        "threshold": 0.05,
+        "recall": 1.0,
+        "support": 36
+      }
+    },
+    "PortScan": {
+      "canonical_family": "PortScan",
+      "support": 1000,
+      "random_forest": {
+        "binary_attack_recall": 0.991,
+        "multiclass_family_correct_recall": 0.989,
+        "multiclass_predicted_attack_rate": 0.992
+      },
+      "xgboost": {
+        "binary_attack_recall": 0.998,
+        "multiclass_family_correct_recall": 0.997,
+        "multiclass_predicted_attack_rate": 1.0
+      }
+    },
+    "SSH-Patator": {
+      "canonical_family": "BruteForce",
+      "support": 1000,
+      "random_forest": {
+        "binary_attack_recall": 0.995,
+        "multiclass_family_correct_recall": 0.992,
+        "multiclass_predicted_attack_rate": 0.992
+      },
+      "xgboost": {
+        "binary_attack_recall": 0.99,
+        "multiclass_family_correct_recall": 1.0,
+        "multiclass_predicted_attack_rate": 1.0
+      }
+    },
+    "Web Attack � Brute Force": {
+      "canonical_family": "WebAttack",
+      "support": 1000,
+      "random_forest": {
+        "binary_attack_recall": 0.991,
+        "multiclass_family_correct_recall": 0.996,
+        "multiclass_predicted_attack_rate": 0.996
+      },
+      "xgboost": {
+        "binary_attack_recall": 0.972,
+        "multiclass_family_correct_recall": 0.999,
+        "multiclass_predicted_attack_rate": 1.0
+      }
+    },
+    "Web Attack � Sql Injection": {
+      "canonical_family": "WebAttack",
+      "support": 21,
+      "random_forest": {
+        "binary_attack_recall": 0.7619047619047619,
+        "multiclass_family_correct_recall": 1.0,
+        "multiclass_predicted_attack_rate": 1.0
+      },
+      "xgboost": {
+        "binary_attack_recall": 0.7619047619047619,
+        "multiclass_family_correct_recall": 1.0,
+        "multiclass_predicted_attack_rate": 1.0
+      }
+    },
+    "Web Attack � XSS": {
+      "canonical_family": "WebAttack",
+      "support": 652,
+      "random_forest": {
+        "binary_attack_recall": 0.9892638036809815,
+        "multiclass_family_correct_recall": 0.9861963190184049,
+        "multiclass_predicted_attack_rate": 0.9861963190184049
+      },
+      "xgboost": {
+        "binary_attack_recall": 0.9601226993865031,
+        "multiclass_family_correct_recall": 0.9923312883435583,
+        "multiclass_predicted_attack_rate": 0.9923312883435583
+      }
+    }
+  },
+  "rare_family_detector_note": "Reported scores use the active rare-family artifacts. They were trained on all CICIDS2017 data, so these source-aligned results are in-sample and optimistic."
+}

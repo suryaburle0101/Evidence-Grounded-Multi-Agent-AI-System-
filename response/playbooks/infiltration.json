@@ -1,0 +1,14 @@
+{
+  "family": "Infiltration",
+  "playbook_label": "Infiltration response playbook",
+  "generic_playbook": false,
+  "technique_id": "T1210",
+  "technique_name": "Exploitation of Remote Services",
+  "knowledge_base_source": "evidence/knowledge/authoritative_sources.json",
+  "phases": {
+    "contain": [{"action": "Use firewall rules to limit internal access", "evidence_types": ["model", "flow_evidence", "threat_intel", "rare_family"]}],
+    "eradicate": [{"action": "Patch vulnerable remote services", "evidence_types": ["reference_doc", "rare_family"]}],
+    "recover": [{"action": "Apply network segmentation", "evidence_types": ["reference_doc"]}],
+    "verify": [{"action": "Monitor remote service activity and authentication events", "evidence_types": ["model", "flow_evidence", "reference_doc"]}]
+  }
+}

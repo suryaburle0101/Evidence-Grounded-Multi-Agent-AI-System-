@@ -1,0 +1,3 @@
+variant,paired_captures,mean_recall_difference,bootstrap_95ci_low,bootstrap_95ci_high,bootstrap_two_sided_sign_probability,gain_established,interpretation
+primary_5,16,0.006081226819961177,-0.050115653691919795,0.07041116039116524,0.878,False,"Paired capture-cluster bootstrap, averaging three paired seeds per capture; exploratory reduced-sample estimate."
+coarse_3,16,-0.012573294177219835,-0.08733586405274951,0.07103138449167765,0.737,False,"Paired capture-cluster bootstrap, averaging three paired seeds per capture; exploratory reduced-sample estimate."

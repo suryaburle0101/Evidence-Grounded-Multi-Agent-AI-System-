@@ -1,0 +1,113 @@
+{
+  "task": "12 one-vs-rest XGBoost detectors, capture-held-out evaluation",
+  "seed": 42,
+  "sample_source": "Existing seed-42 capture samples capped at 1,000 rows per raw label per capture",
+  "capture_count": 18,
+  "attack_bearing_captures": 16,
+  "calibration_target_union_fpr": 0.01,
+  "per_detector_bonferroni_calibration_target": 0.0008333333333333334,
+  "attack_recall_mean_capture": 0.24979497850088342,
+  "attack_recall_sd_capture": 0.29607003720632014,
+  "attack_recall_pooled_rows": 0.22295763080342046,
+  "correct_type_recall_mean_capture": 0.19862850036047072,
+  "mean_capture_fpr": 0.10350016683350018,
+  "pooled_fpr": 0.10350575031946219,
+  "worst_capture_fpr": 0.537,
+  "attack_pr_auc_mean_capture": 0.6643144528717029,
+  "baseline_attack_recall_mean_capture": 0.2238885619323488,
+  "baseline_worst_capture_fpr": 0.035,
+  "ovr_worst_capture_fpr": 0.537,
+  "interpretation": "One-seed reduced-sample exploratory result. Calibration thresholds use separate benign capture(s) only. No model artifact was promoted.",
+  "summary_by_type": [
+    {
+      "attack_type": "Botnet",
+      "captures": 2,
+      "mean_detected_recall": 0.004,
+      "mean_correct_type_recall": 0.0,
+      "mean_one_vs_rest_pr_auc": 0.7245615866416
+    },
+    {
+      "attack_type": "DDoS",
+      "captures": 3,
+      "mean_detected_recall": 0.14100000000000001,
+      "mean_correct_type_recall": 0.08533333333333333,
+      "mean_one_vs_rest_pr_auc": 0.8787411828263189
+    },
+    {
+      "attack_type": "DoS-GoldenEye",
+      "captures": 2,
+      "mean_detected_recall": 0.1995,
+      "mean_correct_type_recall": 0.1425,
+      "mean_one_vs_rest_pr_auc": 0.5729513040404035
+    },
+    {
+      "attack_type": "DoS-Hulk",
+      "captures": 2,
+      "mean_detected_recall": 0.172,
+      "mean_correct_type_recall": 0.148,
+      "mean_one_vs_rest_pr_auc": 0.8542263847876077
+    },
+    {
+      "attack_type": "DoS-SlowHTTPTest",
+      "captures": 2,
+      "mean_detected_recall": 0.5509090909090909,
+      "mean_correct_type_recall": 0.0,
+      "mean_one_vs_rest_pr_auc": 0.3358147158793575
+    },
+    {
+      "attack_type": "DoS-Slowloris",
+      "captures": 2,
+      "mean_detected_recall": 0.586,
+      "mean_correct_type_recall": 0.581,
+      "mean_one_vs_rest_pr_auc": 0.877974081206373
+    },
+    {
+      "attack_type": "FTP-BruteForce",
+      "captures": 2,
+      "mean_detected_recall": 0.0005,
+      "mean_correct_type_recall": 0.0,
+      "mean_one_vs_rest_pr_auc": 0.6030045227660338
+    },
+    {
+      "attack_type": "Infiltration",
+      "captures": 3,
+      "mean_detected_recall": 0.34500000000000003,
+      "mean_correct_type_recall": 0.341,
+      "mean_one_vs_rest_pr_auc": 0.3820855190340396
+    },
+    {
+      "attack_type": "SQL-Injection",
+      "captures": 3,
+      "mean_detected_recall": 0.707749766573296,
+      "mean_correct_type_recall": 0.20261437908496735,
+      "mean_one_vs_rest_pr_auc": 0.41430974510431023
+    },
+    {
+      "attack_type": "SSH-BruteForce",
+      "captures": 2,
+      "mean_detected_recall": 0.0535,
+      "mean_correct_type_recall": 0.0,
+      "mean_one_vs_rest_pr_auc": 0.9383966433272337
+    },
+    {
+      "attack_type": "Web-BruteForce",
+      "captures": 3,
+      "mean_detected_recall": 0.5004365325077399,
+      "mean_correct_type_recall": 0.3547127622979016,
+      "mean_one_vs_rest_pr_auc": 0.6990978587597425
+    },
+    {
+      "attack_type": "Web-XSS",
+      "captures": 3,
+      "mean_detected_recall": 0.6278530195956615,
+      "mean_correct_type_recall": 0.6251195499296766,
+      "mean_one_vs_rest_pr_auc": 0.752634223964827
+    }
+  ],
+  "limitations": [
+    "Only one seed was run to fit within the machine's current memory headroom.",
+    "The existing capture inventory has only two or three positive capture files for most requested types.",
+    "Threshold quantiles for each detector use a small calibration sample and are noisy.",
+    "This candidate does not change or replace active production models."
+  ]
+}

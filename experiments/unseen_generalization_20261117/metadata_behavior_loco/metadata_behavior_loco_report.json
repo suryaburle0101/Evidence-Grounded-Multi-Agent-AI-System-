@@ -1,0 +1,58 @@
+{
+  "method": "One-seed XGBoost LOCO on original metadata-bearing capture files. Same rows and folds are used for 77 raw features and 77+4 causal past-history features. Per-fold thresholds use the maximum 99th percentile across two separate benign calibration captures from the held-out dataset. Test captures are never used for model fitting or threshold selection.",
+  "inputs": {
+    "CICIDS2017": "Third-party Hugging Face metadata mirror",
+    "CSE-CIC-IDS2018": "Official S3 processed flow CSVs; nine of ten files, excluding the 4.05 GB 20-Feb DDoS capture"
+  },
+  "sampling": {
+    "cap_per_raw_label_per_capture": 1000,
+    "seed": 42
+  },
+  "history_features": [
+    "behavior_prior_flows_60s",
+    "behavior_prior_flows_300s",
+    "behavior_prior_same_dst_port_flows_60s",
+    "behavior_prior_same_dst_port_flows_300s"
+  ],
+  "history_rule": "Flows are sorted by timestamp within each capture. For equal timestamps, rows do not count one another as prior flows. Features count all valid earlier target flows and earlier flows to the same destination port in trailing 60s/300s windows. Timestamps, ports, IPs, and IDs are not model inputs.",
+  "summary": {
+    "raw_77": {
+      "capture_count": 17,
+      "attack_bearing_captures": 15,
+      "mean_capture_attack_recall": 0.22907771931432672,
+      "pooled_attack_recall": 0.20034214906602552,
+      "mean_capture_pr_auc": 0.7474729560165677,
+      "mean_capture_fpr": 0.02356574163284015,
+      "pooled_fpr": 0.023686246503600548,
+      "worst_capture_fpr": 0.13925327951564076,
+      "mean_correct_type_recall": 0.13573004571895017
+    },
+    "raw_77_plus_history": {
+      "capture_count": 17,
+      "attack_bearing_captures": 15,
+      "mean_capture_attack_recall": 0.19283435527631732,
+      "pooled_attack_recall": 0.1409284261142963,
+      "mean_capture_pr_auc": 0.7462761699577491,
+      "mean_capture_fpr": 0.01330423486169254,
+      "pooled_fpr": 0.013330952806046539,
+      "worst_capture_fpr": 0.07730923694779117,
+      "mean_correct_type_recall": 0.09847201887537281
+    }
+  },
+  "paired_capture_recall_difference_history_minus_raw": {
+    "mean": -0.036243364038009436,
+    "capture_bootstrap_95ci": [
+      -0.1288559131309225,
+      0.029638061428181775
+    ],
+    "positive_captures": 15,
+    "replicates": 20000
+  },
+  "limitations": [
+    "Exploratory one-seed capped evaluation; no independent networks beyond these public laboratory captures.",
+    "The official CSE CSV omits source and destination IP, so source-host brute-force features could not be built.",
+    "CSE 20-Feb DDoS file was excluded; no conclusion about that capture's history features.",
+    "The CSE source CSV and local CSE Parquet do not exact-join sufficiently to restore metadata onto local rows; these results use the original CSVs end to end.",
+    "No production model, logic, thresholds, data, or existing reports were modified."
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "family": "DoS",
+  "playbook_label": "DoS response playbook",
+  "generic_playbook": false,
+  "technique_id": "T1498",
+  "technique_name": "Network Denial of Service",
+  "knowledge_base_source": "evidence/knowledge/authoritative_sources.json",
+  "phases": {
+    "contain": [{"action": "Apply appropriate rate controls", "evidence_types": ["model", "flow_evidence", "threat_intel"]}],
+    "eradicate": [{"action": "Filter malicious traffic", "evidence_types": ["reference_doc", "flow_evidence"]}],
+    "recover": [{"action": "Restrict unnecessary network exposure", "evidence_types": ["reference_doc", "flow_evidence"]}],
+    "verify": [{"action": "Compare the observed traffic against the normal service baseline", "evidence_types": ["model", "flow_evidence"]}]
+  }
+}

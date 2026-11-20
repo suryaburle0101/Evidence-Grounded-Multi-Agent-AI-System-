@@ -1,0 +1,23 @@
+{
+  "cap_per_raw_label": 5000,
+  "seed": 42,
+  "capture_count": 18,
+  "attack_bearing_capture_count": 16,
+  "baseline_cap1000_mean_attack_recall": 0.2238885619323488,
+  "cap5000_mean_attack_recall": 0.3696211107826722,
+  "mean_capture_recall_difference": 0.14573254885032338,
+  "paired_capture_bootstrap_95ci": [
+    0.08277715444972715,
+    0.217696700491465
+  ],
+  "baseline_cap1000_mean_capture_fpr": 0.0060560004448893335,
+  "cap5000_mean_capture_fpr": 0.051977777777777776,
+  "baseline_cap1000_pooled_fpr": 0.0060558919939996654,
+  "cap5000_pooled_fpr": 0.051977777777777776,
+  "baseline_cap1000_worst_capture_fpr": 0.035,
+  "cap5000_worst_capture_fpr": 0.2048,
+  "baseline_cap1000_mean_capture_pr_auc": 0.7765376526615488,
+  "cap5000_mean_capture_pr_auc": 0.7492835331727807,
+  "method": "Same 18-capture XGBoost LOCO harness and separate benign calibration capture rule; only per-raw-label sample cap changes from 1,000 to 5,000. One seed, exploratory.",
+  "interpretation": "The paired bootstrap resamples capture identities. More rows from the same captures do not provide independent capture environments."
+}

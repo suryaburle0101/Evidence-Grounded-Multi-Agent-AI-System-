@@ -1,0 +1,22 @@
+{
+  "task": "CICIDS2017 metadata mirror plus official CSE-CIC-IDS2018 flow CSVs",
+  "cap_per_raw_label_per_capture": 1000,
+  "seed": 42,
+  "capture_count": 17,
+  "windows_seconds": [
+    60,
+    300
+  ],
+  "behavior_feature_names": [
+    "behavior_prior_flows_60s",
+    "behavior_prior_flows_300s",
+    "behavior_prior_same_dst_port_flows_60s",
+    "behavior_prior_same_dst_port_flows_300s"
+  ],
+  "important_limitations": [
+    "The official CSE processed CSVs expose timestamp and destination port but omit source/destination IP.",
+    "The large 20-Feb CSE DDoS CSV (4.05 GB) was excluded from this bounded run.",
+    "CICIDS2017 files came from a third-party mirror; exact joining to local samples was not possible.",
+    "Behavior features are causal past-window counts computed after timestamp sorting, per capture, over valid target rows; no labels are used in their calculation."
+  ]
+}

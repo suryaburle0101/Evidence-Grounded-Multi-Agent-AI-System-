@@ -1,0 +1,15 @@
+{
+  "family": "Benign",
+  "playbook_label": "generic playbook",
+  "generic_playbook": true,
+  "technique_id": null,
+  "technique_name": null,
+  "knowledge_base_source": "evidence/knowledge/attack_knowledge.json",
+  "knowledge_base_note": "No response technique is assigned to a BENIGN verdict; steps are verification only.",
+  "phases": {
+    "contain": [{"action": "No containment action is proposed for this BENIGN verdict.", "evidence_types": ["model"]}],
+    "eradicate": [{"action": "No eradication action is proposed for this BENIGN verdict.", "evidence_types": ["model"]}],
+    "recover": [{"action": "Continue normal service while retaining the analysis record.", "evidence_types": ["model"]}],
+    "verify": [{"action": "Verify that the traffic is consistent with expected network behavior", "evidence_types": ["model", "flow_evidence"]}]
+  }
+}

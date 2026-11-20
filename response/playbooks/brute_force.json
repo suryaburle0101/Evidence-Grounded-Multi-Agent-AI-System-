@@ -1,0 +1,14 @@
+{
+  "family": "Brute Force",
+  "playbook_label": "Brute Force response playbook",
+  "generic_playbook": false,
+  "technique_id": "T1110",
+  "technique_name": "Brute Force",
+  "knowledge_base_source": "evidence/knowledge/authoritative_sources.json",
+  "phases": {
+    "contain": [{"action": "Implement appropriate account-use and lockout policies", "evidence_types": ["model", "flow_evidence", "threat_intel"]}],
+    "eradicate": [{"action": "Reset accounts associated with known compromised credentials", "evidence_types": ["reference_doc", "threat_intel"]}],
+    "recover": [{"action": "Use multi-factor authentication", "evidence_types": ["reference_doc"]}],
+    "verify": [{"action": "Look for repeated failures followed by successful authentication", "evidence_types": ["model", "flow_evidence", "reference_doc"]}]
+  }
+}

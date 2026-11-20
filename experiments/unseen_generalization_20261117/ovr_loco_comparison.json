@@ -1,0 +1,31 @@
+{
+  "baseline_matched_seed42": {
+    "attack_recall_mean_capture": 0.2238885619323488,
+    "attack_recall_pooled_rows": 0.2233924344171216,
+    "correct_type_recall_mean_capture": 0.13880707193423714,
+    "correct_type_recall_macro_12_types": 0.17335287495337168,
+    "mean_capture_fpr": 0.0060560004448893335,
+    "pooled_fpr": 0.0060558919939996654,
+    "worst_capture_fpr": 0.035,
+    "attack_pr_auc_mean_capture": 0.7765376526615488
+  },
+  "one_vs_rest_candidate": {
+    "attack_recall_mean_capture": 0.24979497850088342,
+    "attack_recall_pooled_rows": 0.22295763080342046,
+    "correct_type_recall_mean_capture": 0.19862850036047072,
+    "correct_type_recall_macro_12_types": 0.20669000205382324,
+    "mean_capture_fpr": 0.10350016683350018,
+    "pooled_fpr": 0.10350575031946219,
+    "worst_capture_fpr": 0.537,
+    "attack_pr_auc_mean_capture": 0.6643144528717029
+  },
+  "paired_capture_bootstrap_attack_recall_difference": {
+    "candidate_minus_baseline_mean": 0.02590641656853461,
+    "ci95_low": -0.09170498259937664,
+    "ci95_high": 0.1428499171474937,
+    "attack_bearing_captures": 16,
+    "bootstrap_replicates": 20000,
+    "seed": 20261117,
+    "interpretation": "Exploratory single-seed capture bootstrap; interval includes zero."
+  }
+}

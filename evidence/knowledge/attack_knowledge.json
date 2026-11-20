@@ -1,0 +1,220 @@
+{
+  "attack_families": [
+    {
+      "attack": "DDoS",
+      "description": "Distributed denial-of-service activity intended to make a service, system, or network resource unavailable by overwhelming it with network traffic or requests.",
+      "indicators": [
+        "Abnormally high network traffic volume",
+        "Large increase in packet or flow rates",
+        "Traffic arriving from multiple sources",
+        "Service availability degradation"
+      ],
+      "mitre_attack": {
+        "technique_id": "T1498",
+        "technique": "Network Denial of Service"
+      },
+      "severity": "High",
+      "investigation": [
+        "Examine packet and flow rates",
+        "Identify unusual source and destination patterns",
+        "Check whether multiple sources are targeting the same service",
+        "Compare traffic characteristics with normal baseline behavior"
+      ],
+      "mitigation": [
+        "Apply network traffic filtering",
+        "Use rate limiting where appropriate",
+        "Block or filter malicious traffic sources",
+        "Use appropriate denial-of-service protection mechanisms"
+      ],
+      "sources": [
+        {
+          "name": "MITRE ATT&CK",
+          "reference": "T1498 - Network Denial of Service"
+        }
+      ]
+    },
+
+    {
+      "attack": "DoS",
+      "description": "Denial-of-service activity that attempts to make a system or service unavailable by exhausting or disrupting its resources.",
+      "indicators": [
+        "Abnormal increase in traffic",
+        "Unusual packet or flow rates",
+        "Repeated requests targeting a service",
+        "Service performance degradation"
+      ],
+      "mitre_attack": {
+        "technique_id": "T1498",
+        "technique": "Network Denial of Service"
+      },
+      "severity": "High",
+      "investigation": [
+        "Analyze traffic volume and flow characteristics",
+        "Identify targeted services or hosts",
+        "Compare current traffic against normal behavior",
+        "Investigate unusual request patterns"
+      ],
+      "mitigation": [
+        "Filter malicious traffic",
+        "Apply appropriate rate controls",
+        "Restrict suspicious sources",
+        "Use denial-of-service protection mechanisms"
+      ],
+      "sources": [
+        {
+          "name": "MITRE ATT&CK",
+          "reference": "T1498 - Network Denial of Service"
+        }
+      ]
+    },
+
+    {
+      "attack": "Brute Force",
+      "description": "An attack in which an adversary attempts to gain access to accounts, systems, or services by repeatedly trying possible credentials.",
+      "indicators": [
+        "Repeated authentication failures",
+        "Large numbers of login attempts",
+        "Repeated attempts against an account or service",
+        "Authentication activity from unusual sources"
+      ],
+      "mitre_attack": {
+        "technique_id": "T1110",
+        "technique": "Brute Force"
+      },
+      "severity": "High",
+      "investigation": [
+        "Examine authentication failure patterns",
+        "Identify source addresses generating repeated attempts",
+        "Check targeted accounts or services",
+        "Determine whether successful authentication followed repeated failures"
+      ],
+      "mitigation": [
+        "Implement account lockout or access controls",
+        "Use multi-factor authentication",
+        "Apply appropriate authentication policies",
+        "Monitor repeated authentication failures"
+      ],
+      "sources": [
+        {
+          "name": "MITRE ATT&CK",
+          "reference": "T1110 - Brute Force"
+        }
+      ]
+    },
+
+    {
+      "attack": "Port Scan",
+      "description": "Network reconnaissance activity in which an adversary probes systems or services to identify available network services and ports.",
+      "indicators": [
+        "Connections to many destination ports",
+        "Connections to multiple hosts",
+        "Repeated connection attempts",
+        "Unusual network service discovery behavior"
+      ],
+      "mitre_attack": {
+        "technique_id": "T1046",
+        "technique": "Network Service Discovery"
+      },
+      "severity": "Medium",
+      "investigation": [
+        "Identify the scanning source",
+        "Examine the number of destination ports contacted",
+        "Examine the number of hosts contacted",
+        "Determine whether the activity precedes other suspicious behavior"
+      ],
+      "mitigation": [
+        "Monitor network reconnaissance activity",
+        "Restrict unnecessary network exposure",
+        "Use network monitoring and filtering controls",
+        "Investigate repeated connection attempts"
+      ],
+      "sources": [
+        {
+          "name": "MITRE ATT&CK",
+          "reference": "T1046 - Network Service Discovery"
+        }
+      ]
+    },
+
+    {
+      "attack": "Botnet",
+      "description": "Malicious activity associated with compromised systems that may be remotely controlled and used to perform coordinated actions.",
+      "indicators": [
+        "Repeated communication with suspicious external systems",
+        "Unusual outbound network connections",
+        "Similar traffic patterns across multiple systems",
+        "Unexpected communication patterns"
+      ],
+      "severity": "High",
+      "investigation": [
+        "Identify suspicious external communication",
+        "Examine repeated communication patterns",
+        "Check whether multiple hosts exhibit similar behavior",
+        "Investigate affected hosts for signs of compromise"
+      ],
+      "mitigation": [
+        "Isolate suspected compromised systems",
+        "Block malicious communication where appropriate",
+        "Investigate affected endpoints",
+        "Remove the underlying compromise"
+      ],
+      "sources": [
+        {
+          "name": "MITRE ATT&CK",
+          "reference": "Cyber threat behavior and technique documentation"
+        }
+      ]
+    },
+
+    {
+      "attack": "Web Attack",
+      "description": "Malicious activity targeting web applications, including attempts to exploit application functionality or obtain unauthorized access.",
+      "indicators": [
+        "Unusual web requests",
+        "Suspicious request parameters",
+        "Repeated requests targeting application functionality",
+        "Unexpected application response patterns"
+      ],
+      "severity": "High",
+      "investigation": [
+        "Examine HTTP request patterns",
+        "Identify suspicious parameters and endpoints",
+        "Correlate requests with application logs",
+        "Determine whether exploitation or unauthorized access occurred"
+      ],
+      "mitigation": [
+        "Apply secure web application controls",
+        "Validate and sanitize input",
+        "Monitor suspicious requests",
+        "Patch vulnerable applications"
+      ],
+      "sources": [
+        {
+          "name": "OWASP",
+          "reference": "Web application security guidance"
+        }
+      ]
+    },
+
+    {
+      "attack": "Benign",
+      "description": "Network activity that does not exhibit characteristics associated with the attack families represented in the dataset.",
+      "indicators": [
+        "No significant anomalous behavior detected",
+        "Traffic consistent with expected behavior"
+      ],
+      "severity": "None",
+      "investigation": [
+        "Verify that the traffic is consistent with expected network behavior",
+        "Check for contextual information if the activity is unusual"
+      ],
+      "mitigation": [],
+      "sources": [
+        {
+          "name": "CIC-IDS2017",
+          "reference": "Dataset labeling"
+        }
+      ]
+    }
+  ]
+}

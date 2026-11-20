@@ -1,0 +1,82 @@
+[
+  {
+    "metadata_file": "Monday-WorkingHours.pcap_ISCX.csv.parquet",
+    "local_capture": "Benign-Monday-no-metadata",
+    "metadata_rows": 529918,
+    "sample_rows": 1000,
+    "sample_vectors_with_one_exact_source_match": 0,
+    "sample_rows_ambiguous_metadata_match": 0,
+    "sample_rows_without_exact_match": 1000,
+    "metadata_source_unique_hashes_for_sample": 0
+  },
+  {
+    "metadata_file": "Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv.parquet",
+    "local_capture": "DDoS-Friday-no-metadata",
+    "metadata_rows": 225745,
+    "sample_rows": 2000,
+    "sample_vectors_with_one_exact_source_match": 0,
+    "sample_rows_ambiguous_metadata_match": 0,
+    "sample_rows_without_exact_match": 2000,
+    "metadata_source_unique_hashes_for_sample": 0
+  },
+  {
+    "metadata_file": "Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv.parquet",
+    "local_capture": "Portscan-Friday-no-metadata",
+    "metadata_rows": 286467,
+    "sample_rows": 1000,
+    "sample_vectors_with_one_exact_source_match": 0,
+    "sample_rows_ambiguous_metadata_match": 0,
+    "sample_rows_without_exact_match": 1000,
+    "metadata_source_unique_hashes_for_sample": 0
+  },
+  {
+    "metadata_file": "Friday-WorkingHours-Morning.pcap_ISCX.csv.parquet",
+    "local_capture": "Botnet-Friday-no-metadata",
+    "metadata_rows": 191033,
+    "sample_rows": 1999,
+    "sample_vectors_with_one_exact_source_match": 0,
+    "sample_rows_ambiguous_metadata_match": 0,
+    "sample_rows_without_exact_match": 1999,
+    "metadata_source_unique_hashes_for_sample": 0
+  },
+  {
+    "metadata_file": "Tuesday-WorkingHours.pcap_ISCX.csv.parquet",
+    "local_capture": "Bruteforce-Tuesday-no-metadata",
+    "metadata_rows": 445909,
+    "sample_rows": 3000,
+    "sample_vectors_with_one_exact_source_match": 0,
+    "sample_rows_ambiguous_metadata_match": 0,
+    "sample_rows_without_exact_match": 3000,
+    "metadata_source_unique_hashes_for_sample": 0
+  },
+  {
+    "metadata_file": "Wednesday-workingHours.pcap_ISCX.csv.parquet",
+    "local_capture": "DoS-Wednesday-no-metadata",
+    "metadata_rows": 692703,
+    "sample_rows": 5000,
+    "sample_vectors_with_one_exact_source_match": 0,
+    "sample_rows_ambiguous_metadata_match": 0,
+    "sample_rows_without_exact_match": 5000,
+    "metadata_source_unique_hashes_for_sample": 0
+  },
+  {
+    "metadata_file": "Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv.parquet",
+    "local_capture": "Infiltration-Thursday-no-metadata",
+    "metadata_rows": 288602,
+    "sample_rows": 1036,
+    "sample_vectors_with_one_exact_source_match": 0,
+    "sample_rows_ambiguous_metadata_match": 0,
+    "sample_rows_without_exact_match": 1036,
+    "metadata_source_unique_hashes_for_sample": 0
+  },
+  {
+    "metadata_file": "Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv.parquet",
+    "local_capture": "WebAttacks-Thursday-no-metadata",
+    "metadata_rows": 458968,
+    "sample_rows": 2673,
+    "sample_vectors_with_one_exact_source_match": 1,
+    "sample_rows_ambiguous_metadata_match": 2,
+    "sample_rows_without_exact_match": 2670,
+    "metadata_source_unique_hashes_for_sample": 1
+  }
+]

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07111f">
+  <link rel="icon" href="data:,">
+  <title>Cyber — Flow Triage Prototype</title>
+  <link rel="stylesheet" href="/styles.css?v=generalization-note-20261116-v1">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#overview" aria-label="Cyber home">
+        <span class="brand-mark"><i></i><i></i><i></i></span>
+        <span><b>CYBER</b><small>FLOW TRIAGE PROTOTYPE</small></span>
+      </a>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="nav" aria-label="Main navigation">
+        <button class="nav-item active" data-view="overview"><span class="nav-icon">◫</span> Overview <span class="nav-shortcut">01</span></button>
+        <button class="nav-item" data-view="incidents"><span class="nav-icon">⌁</span> Incidents <span id="navIncidentCount" class="nav-count">0</span></button>
+        <button class="nav-item" data-view="intel"><span class="nav-icon">◎</span> Threat intelligence</button>
+        <button class="nav-item" data-view="evidence"><span class="nav-icon">▤</span> Evidence search</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="offline-card"><span class="pulse-dot"></span><div><b>LOCAL ANALYSIS</b><small>Data stays on this machine</small></div></div>
+        <div class="sidebar-foot"><span class="tiny-shield">⬡</span> CYBER FLOW ANALYTICS <span>v1.0</span></div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="breadcrumbs"><span>OPERATIONS</span><b>/</b><strong id="pageCrumb">Overview</strong></div>
+        <div class="top-actions">
+          <div class="connection"><span id="connectionDot" class="pulse-dot muted"></span><span id="connectionText">Connecting</span></div>
+          <button class="icon-button" id="refreshBtn" title="Refresh data" aria-label="Refresh data">↻</button>
+          <div class="avatar" title="Local analyst">SA</div>
+        </div>
+      </header>
+
+      <section id="overviewView" class="view active">
+        <div class="page-heading">
+          <div><div class="eyebrow"><span class="live-indicator"></span> FLOW TRIAGE WORKSPACE</div><h1>Network overview</h1><p>Review experimental flow flags, evidence, and suggested next steps. This is not a live network sensor.</p></div>
+          <div class="heading-actions"><span class="time-chip"><span class="pulse-dot"></span> LOCAL ENVIRONMENT</span><button class="button outline" id="runQuickDemo"><span>▶</span> Run quick demo</button><button class="button primary" id="analyzeBtn"><span>＋</span> Analyze flows</button></div>
+        </div>
+
+        <div class="prototype-banner" id="prototypeBanner" role="note"><span><b>Experimental triage prototype.</b> In a separate three-seed, held-out-capture family pilot, mean recall was 36.8% for DoS/DDoS, 36.0% for Web attack, 24.4% for Brute force, 0.6% for Infiltration, and 0% for Botnet (23.0% overall). These are aggregate research results, not this dashboard model's per-flow confidence; no family met the reliability rule. Incident labels are grouped into these broad research families where applicable. A BENIGN verdict does not mean traffic is safe.</span><button type="button" id="dismissPrototypeBanner" aria-label="Dismiss prototype notice">×</button></div>
+
+        <div class="stat-grid">
+          <article class="stat-card"><div class="stat-top"><span>OPEN INCIDENTS</span><span class="stat-icon amber">⌁</span></div><div class="stat-value" id="statOpen">—</div><div class="stat-foot"><span class="stat-caption">Needs analyst attention</span><span class="stat-tag amber-tag">ACTIVE</span></div><div class="stat-spark amber-spark"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+          <article class="stat-card"><div class="stat-top"><span>HIGH RISK</span><span class="stat-icon red">△</span></div><div class="stat-value" id="statHigh">—</div><div class="stat-foot"><span class="stat-caption">Critical or high severity</span><span class="stat-tag red-tag">PRIORITY</span></div><div class="stat-spark red-spark"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+          <article class="stat-card"><div class="stat-top"><span>RESOLVED</span><span class="stat-icon green">✓</span></div><div class="stat-value" id="statResolved">—</div><div class="stat-foot"><span class="stat-caption">Validated incidents</span><span class="stat-tag green-tag">CLOSED</span></div><div class="stat-spark green-spark"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+          <article class="stat-card"><div class="stat-top"><span>THREAT INDICATORS</span><span class="stat-icon blue">◎</span></div><div class="stat-value" id="statIocs">—</div><div class="stat-foot"><span class="stat-caption">Locally stored indicators</span><span class="stat-tag blue-tag">INTEL</span></div><div class="stat-spark blue-spark"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+        </div>
+
+        <div class="dashboard-grid">
+          <article class="panel activity-panel">
+            <div class="panel-header"><div><div class="panel-title">Detection activity <span class="info-dot" title="Recent incidents stored by this local system">i</span></div><div class="panel-subtitle">Latest analysis decisions</div></div><button class="text-button" data-go="incidents">View incidents <span>→</span></button></div>
+            <div class="chart-legend"><span><i class="legend-dot red-dot"></i> Attack</span><span><i class="legend-dot amber-dot"></i> Review</span><span><i class="legend-dot green-dot"></i> Benign</span><span class="chart-period">RECENT RESULTS</span></div>
+            <div class="bar-chart" id="activityChart" aria-label="Recent incident activity"><div class="chart-gridline g1"></div><div class="chart-gridline g2"></div><div class="chart-gridline g3"></div><div class="chart-bars" id="chartBars"></div><div class="chart-y"><span>10</span><span>5</span><span>0</span></div></div>
+            <div class="chart-x" id="chartLabels"><span>Earlier</span><span>Recent</span></div>
+          </article>
+          <article class="panel map-panel" id="threatPanel">
+            <div class="panel-header"><div><div class="panel-title">3D attack &amp; flow simulation <span class="live-badge" id="sceneModeBadge"><i></i> FLOW GRAPH</span></div><div class="panel-subtitle" id="sceneSubtitle">Analyze flows to map observed endpoints</div></div><button class="icon-button small" id="reset3d" type="button" title="Reset view" aria-label="Reset flow graph view">⟳</button></div>
+            <div class="scene-wrap" id="sceneWrap"><canvas id="threatCanvas" aria-hidden="true"></canvas><div class="scene-label top-left" id="sceneCanvasLabel">3D FLOW TOPOLOGY <span>ANALYZED DATA</span></div><div class="scene-label bottom-left" id="sceneLegend"><span class="legend-mini red-dot"></span> Attack <span class="legend-mini green-dot"></span> Benign <span class="legend-mini amber-dot"></span> Review</div><div class="scene-hint">DRAG TO ROTATE · CLICK A NODE · SCROLL TO ZOOM</div><div class="scene-empty" id="sceneEmpty">Analyze flows to map observed endpoints and connections.</div></div>
+            <div class="scene-fallback-notice" id="sceneFallbackNotice" role="status" hidden>3D view unavailable. Showing the 2D canvas graph.</div>
+            <div class="attack-explainer" id="attackExplainer" aria-live="polite"><b id="attackExplainerTitle">How to read this scene</b><span id="attackExplainerText">Analyze flows first. An attack-specific simulation appears only after an ATTACK verdict.</span></div>
+            <div class="scene-controls"><button class="button primary scene-play" id="playAttack" disabled><span>▶</span> Play attack simulation</button><button class="button outline" id="restartAttack">↻ Restart</button><button class="button outline" id="showLiveFlows" type="button" aria-controls="flowDataView" aria-expanded="false">Flow data view</button><label class="speed-control">SPEED <select id="replaySpeed" class="select-control"><option value="1">1×</option><option value="2">2×</option></select></label><span class="sim-disclaimer" id="sceneDisclaimer">Animations explain detected patterns; they are illustrative, not a packet recording.</span></div>
+            <div class="flow-data-view" id="flowDataView" role="region" aria-label="Flow connections as a table" tabindex="-1" hidden><div class="table-scroll"><table><caption class="sr-only">Analyzed network connections with endpoints, decision, and incident links.</caption><thead><tr><th scope="col">Row</th><th scope="col">Source endpoint</th><th scope="col">Destination endpoint</th><th scope="col">Decision</th><th scope="col">Incident</th></tr></thead><tbody id="flowDataRows"><tr><td colspan="5" class="empty-cell">Analyze flows to list their connections here.</td></tr></tbody></table></div></div><div class="scene-replay-status"><div class="replay-counter"><b id="attemptCount">0 / 24</b><span id="attemptStatus">FAILED LOGIN ATTEMPTS</span></div><div class="replay-timeline"><div class="timeline-track"><i id="timelineProgress"></i></div><div class="timeline-labels"><span id="replayClock">00:00 / 00:12</span><span id="replayState">READY</span></div></div></div>
+            <div class="endpoint-cards"><div class="endpoint-card source"><span class="endpoint-kicker" id="sourceKicker">FLOW SOURCE</span><b id="sourceSystem">No source system provided</b><span id="sourceAddress">IP not included in flow data</span></div><div class="endpoint-route" aria-hidden="true">···</div><div class="endpoint-card target"><span class="endpoint-kicker" id="targetKicker">FLOW DESTINATION</span><b id="targetSystem">No target server provided</b><span id="targetAddress">IP / port not included in flow data</span></div></div>
+          </article>
+        </div>
+
+        <article class="panel incidents-panel">
+          <div class="panel-header"><div><div class="panel-title">Recent incidents <span class="table-total" id="recentCount">0</span></div><div class="panel-subtitle">Open and recently updated investigations</div></div><div class="table-actions"><label class="search-box"><span>⌕</span><input id="incidentSearch" type="search" aria-label="Search recent incidents" placeholder="Search incidents…"></label><button class="button outline" data-go="incidents">All incidents <span>→</span></button></div></div>
+          <div class="table-scroll"><table><thead><tr><th>INCIDENT</th><th>DETECTION</th><th>RISK</th><th>STATUS</th><th>UPDATED</th><th></th></tr></thead><tbody id="recentIncidentRows"><tr><td colspan="6" class="empty-cell">Loading incidents…</td></tr></tbody></table></div>
+        </article>
+        <footer class="page-footer"><span><i class="pulse-dot"></i> All analysis is processed locally</span><span id="pipelineBuildInfo">Build info loading…</span><span id="lastUpdated">Waiting for API…</span></footer>
+      </section>
+
+      <section id="incidentsView" class="view">
+        <div class="page-heading"><div><div class="eyebrow">INVESTIGATION QUEUE</div><h1>Incidents</h1><p>Review detections, evidence, and response workflow status.</p></div><button class="button primary" id="analyzeBtn2">＋ Analyze flows</button></div>
+        <article class="panel full-table-panel"><div class="panel-header"><div><div class="panel-title">Incident queue</div><div class="panel-subtitle">Search by ID or endpoint; filter and sort investigations</div></div><div class="table-actions"><select id="decisionFilter" class="select-control" aria-label="Filter incidents by decision"><option value="">All decisions</option><option value="ATTACK">ATTACK</option><option value="REVIEW">REVIEW</option><option value="BENIGN">BENIGN</option></select><select id="statusFilter" class="select-control" aria-label="Filter incidents by state"><option value="">All states</option><option value="New">New</option><option value="Triaged">Triaged</option><option value="Contained">Contained</option><option value="Resolved">Resolved</option><option value="False positive">False positive</option></select><select id="incidentSort" class="select-control" aria-label="Sort incidents"><option value="time_desc">Time · newest first</option><option value="time_asc">Time · oldest first</option><option value="risk_desc">Risk · highest first</option><option value="risk_asc">Risk · lowest first</option></select><label class="search-box"><span>⌕</span><input id="allIncidentSearch" type="search" aria-label="Search incidents by ID, endpoint, or detection" placeholder="ID, IP, host, or family…"></label></div></div><div class="table-scroll"><table><thead><tr><th>INCIDENT</th><th>DETECTION</th><th>RISK SCORE</th><th>SEVERITY</th><th>STATUS</th><th>CREATED</th><th></th></tr></thead><tbody id="allIncidentRows"><tr><td colspan="7" class="empty-cell">Loading incidents…</td></tr></tbody></table></div></article>
+        <article class="panel full-table-panel"><div class="panel-header"><div><div class="panel-title">Related incident candidates</div><div class="panel-subtitle">Shared endpoint and ingestion-time links; analyst review is required</div></div><div class="table-actions"><select id="correlationWindow" class="select-control" aria-label="Choose the time window for related activity"><option value="60">Last hour</option><option value="360">Last 6 hours</option><option value="1440">Last 24 hours</option></select><button class="button outline" id="correlateIncidentsBtn">Find related activity</button></div></div><div id="correlationResults" class="empty-state"><span>Select a time window to search stored incidents.</span></div></article>
+      </section>
+
+      <section id="intelView" class="view">
+        <div class="page-heading"><div><div class="eyebrow">IP ADDRESSES · DOMAINS · FILE HASHES</div><h1>Threat intelligence</h1><p>Check whether an analyzed flow contains an indicator linked to known malicious activity.</p></div><div class="table-actions"><button class="button outline" id="syncThreatFoxBtn">Sync ThreatFox</button><button class="button primary" id="importIocBtn">＋ Import indicators</button></div></div>
+        <div class="intel-summary"><div class="panel intel-callout"><div class="callout-icon">◎</div><div><b>Example: indicator match on a flow</b><p id="threatFoxStatus">If an imported list contains <code>203.0.113.10</code> and an analyzed flow has that source or destination IP, the investigation can show a match and the indicator's family/source. This reserved example address is illustrative only. A match is context, not proof the device is compromised. ThreatFox sync needs a local API key.</p></div></div><div class="stat-card compact"><div class="stat-top"><span>STORED INDICATORS</span><span class="stat-icon blue">◎</span></div><div class="stat-value" id="intelTotal">—</div><div class="stat-foot"><span class="stat-caption">Indicators available for matching</span></div></div></div>
+        <article class="panel full-table-panel"><div class="panel-header"><div><div class="panel-title">Known indicators</div><div class="panel-subtitle">Example: IP 203.0.113.10 · Botnet · source: analyst import. Your table shows the indicators actually stored on this system.</div></div><label class="search-box"><span>⌕</span><input id="iocSearch" type="search" aria-label="Search known indicators" placeholder="Find an IP, domain, hash, or family…"></label></div><div class="table-scroll"><table><thead><tr><th>TYPE</th><th>INDICATOR</th><th>FAMILY</th><th>CONFIDENCE</th><th>SEVERITY</th><th>SOURCE</th><th>ADDED</th></tr></thead><tbody id="iocRows"><tr><td colspan="7" class="empty-cell">Loading indicators…</td></tr></tbody></table></div></article>
+      </section>
+
+      <section id="evidenceView" class="view">
+        <div class="page-heading"><div><div class="eyebrow">INVESTIGATION NOTES FOR A DETECTION</div><h1>Evidence search</h1><p>Look up what a detected activity may mean and what an analyst should check next.</p></div></div>
+        <article class="panel evidence-search-panel"><form id="evidenceForm"><label for="evidenceQuery">Search by attack type or investigation question</label><div class="evidence-search-row"><input id="evidenceQuery" type="search" aria-label="Search evidence by attack type or question" placeholder="Example: What should I check after repeated SSH attempts?" required><button class="button primary" type="submit">Search <span>⌕</span></button></div><div class="quick-searches"><span>Example investigations:</span><button type="button" data-query="SSH brute force repeated login attempts investigation">Repeated SSH logins</button><button type="button" data-query="DDoS traffic flood indicators and mitigation">DDoS traffic flood</button><button type="button" data-query="Infiltration suspicious internal access investigation">Suspicious internal access</button></div></form></article>
+        <div class="panel intel-callout" style="margin:12px 0"><div class="callout-icon">↳</div><div><b>Example: from an IP to an investigation</b><p>A detection might report <code>203.0.113.10 → server: repeated SSH connections</code>. Open that incident to see the endpoints and flow signals recorded by the system; search “repeated SSH logins” here for investigation guidance. The IP and activity are a fictional example. This page searches reference material—it does not search raw network traffic or prove what happened on a host.</p></div></div>
+        <div id="evidenceResults" class="evidence-results"><div class="empty-state"><div class="empty-illustration">▤</div><b>Search for guidance related to an incident</b><span>For actual source/destination IPs and flow signals, open the incident details. Search results provide context and recommended checks.</span></div></div>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="analyzeModal" aria-hidden="true"><section class="modal modal-wide" role="dialog" aria-modal="true" aria-labelledby="analyzeTitle"><div class="modal-header"><div><div class="eyebrow">DETECTION PIPELINE</div><h2 id="analyzeTitle">Analyze network flows</h2><p>Choose labeled sample flows or upload your own prepared 77-feature CSV.</p></div><button class="modal-close" data-close="analyzeModal" aria-label="Close">×</button></div><div class="modal-body"><div class="analyze-options"><div class="upload-drop" id="dropZone"><div class="upload-symbol">↑</div><b>Drop a CSV file here</b><span>Prepared numeric flow features · up to 100 rows</span><label class="button outline upload-button">Choose CSV<input type="file" id="flowFile" accept=".csv,text/csv"></label><div class="file-name" id="fileName"></div><a href="/flow-template.csv" class="template-link" download="flow-template.csv">Download CSV template</a><div class="upload-feedback" id="uploadFeedback" aria-live="polite"></div><section class="csv-preview" id="csvPreview" hidden><h3>Preview · first 5 rows</h3><div class="csv-preview-scroll" id="csvPreviewTable"></div><button class="button primary" id="analyzeUploadedCsv" type="button" disabled>Analyze uploaded CSV <span>→</span></button></section></div><div class="or-divider"><span>OR</span></div><div class="demo-card"><div class="demo-icon">◈</div><b>Run a labeled attack demo</b><p>Choose an attack type and analyze 10 or up to 40 sample flow rows. Flow labels are hidden from the detector.</p><label for="demoAttackType">Attack type</label><select id="demoAttackType" class="select-control"><option value="all">None</option><option value="botnet">Botnet</option><option value="ftp_brute_force">FTP brute force</option><option value="ssh_brute_force">SSH brute force</option><option value="ddos">DDoS</option><option value="dos_hulk">DoS Hulk</option><option value="dos_goldeneye">DoS GoldenEye</option><option value="dos_slowloris">DoS Slowloris</option><option value="dos_slowhttptest">DoS Slow HTTP test</option><option value="infiltration">Infiltration</option><option value="port_scan">Port Scan</option><option value="web_brute_force">Web brute force</option><option value="web_xss">Web XSS</option><option value="web_sql_injection">Web SQL injection</option><option value="heartbleed">Heartbleed</option></select><label for="demoLimit">Rows to analyze</label><select id="demoLimit" class="select-control"><option value="10">10 rows · quick</option><option value="40">40 rows · full sample</option></select><button class="button primary" id="runDemo">Analyze selected flows <span>→</span></button><small>Rare attack types may have fewer than 40 examples. 3D scenes explain the selected label; they do not confirm the model detected it.</small></div></div><div class="analysis-progress" id="analysisProgress"><span class="spinner"></span><div><b id="progressTitle">Analyzing flows…</b><span id="progressText">The local model is processing the batch. Keep this page open.</span></div></div><div class="batch-result" id="batchResult"></div></div></section></div>
+
+  <div class="modal-backdrop" id="detailModal" aria-hidden="true"><section class="modal detail-modal" role="dialog" aria-modal="true" aria-labelledby="detailTitle"><div class="modal-header"><div><div class="eyebrow" id="detailEyebrow">INCIDENT DETAIL</div><h2 id="detailTitle">Incident</h2><p id="detailSubtitle"></p></div><button class="modal-close" data-close="detailModal" aria-label="Close">×</button></div><div class="modal-body" id="detailBody"></div><div class="modal-actions" id="detailActions"></div></section></div>
+
+  <div class="modal-backdrop" id="iocModal" aria-hidden="true"><section class="modal" role="dialog" aria-modal="true" aria-labelledby="iocModalTitle"><div class="modal-header"><div><div class="eyebrow">THREAT INTELLIGENCE</div><h2 id="iocModalTitle">Import indicators</h2><p>Paste a JSON array of IOC objects. Example: <code>{"type":"ip","value":"203.0.113.10"}</code></p></div><button class="modal-close" data-close="iocModal" aria-label="Close">×</button></div><form id="iocForm" class="modal-body"><label class="field-label" for="iocSource">Source name</label><input id="iocSource" class="text-input" value="manual analyst import" maxlength="120"><label class="field-label" for="iocJson">Indicators JSON</label><textarea id="iocJson" class="json-textarea" spellcheck="false">[
+  {"type":"ip","value":"203.0.113.10","family":"example","confidence":0.7,"severity":"medium"}
+]</textarea><div class="form-error" id="iocError"></div><div class="modal-actions"><button type="button" class="button outline" data-close="iocModal">Cancel</button><button type="submit" class="button primary">Import indicators <span>→</span></button></div></form></section></div>
+
+  <div class="toast-region" id="toastRegion" aria-live="polite"></div>
+  <script type="module" src="/three-scene.js?v=three-scene-20261022-v4"></script>
+  <script src="/scenes.js?v=attack-scenes-visuals-20261022-v3" defer></script>
+  <script src="/app.js?v=generalization-note-20261117-v2" defer></script>
+</body>
+</html>

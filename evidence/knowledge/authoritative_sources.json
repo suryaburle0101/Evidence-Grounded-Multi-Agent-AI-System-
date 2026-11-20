@@ -1,0 +1,323 @@
+{
+  "sources": [
+    {
+      "attack_family": "DDoS",
+      "source_name": "MITRE ATT&CK",
+      "source_type": "Authoritative cybersecurity knowledge base",
+      "technique_id": "T1498",
+      "technique_name": "Network Denial of Service",
+      "sub_techniques": [
+        {
+          "id": "T1498.001",
+          "name": "Direct Network Flood"
+        },
+        {
+          "id": "T1498.002",
+          "name": "Reflection Amplification"
+        }
+      ],
+      "evidence": {
+        "description": "Distributed Denial of Service (DDoS) activity involves multiple systems or sources generating coordinated network traffic against a targeted service or resource.",
+        "indicators": [
+          "High-volume traffic originating from multiple sources",
+          "Coordinated traffic from many systems toward the same target",
+          "Large increase in packet or flow rates",
+          "Multiple source addresses targeting one service or resource",
+          "Network bandwidth exhaustion caused by aggregated traffic",
+          "Reduced availability or functionality of the targeted resource"
+        ],
+        "detection_guidance": [
+          "Identify whether abnormal traffic originates from multiple source systems",
+          "Measure aggregated packet and flow rates toward the target",
+          "Identify many source addresses communicating with the same destination or service",
+          "Look for coordinated traffic patterns across distributed sources",
+          "Compare the aggregated traffic against the normal network baseline"
+        ],
+        "mitigation_guidance": [
+          "Filter malicious network traffic",
+          "Use upstream filtering when attack volume exceeds local network capacity",
+          "Use appropriate denial-of-service protection mechanisms"
+        ]
+      },
+      "source_url": "https://attack.mitre.org/techniques/T1498/"
+    },
+    {
+      "attack_family": "Brute Force",
+      "source_name": "MITRE ATT&CK",
+      "source_type": "Authoritative cybersecurity knowledge base",
+      "technique_id": "T1110",
+      "technique_name": "Brute Force",
+      "sub_techniques": [
+        {
+          "id": "T1110.001",
+          "name": "Password Guessing"
+        },
+        {
+          "id": "T1110.002",
+          "name": "Password Cracking"
+        },
+        {
+          "id": "T1110.003",
+          "name": "Password Spraying"
+        },
+        {
+          "id": "T1110.004",
+          "name": "Credential Stuffing"
+        }
+      ],
+      "evidence": {
+        "description": "Brute Force is a credential-access technique involving repeated attempts to obtain valid credentials.",
+        "indicators": [
+          "Repeated authentication failures",
+          "High volume of failed login attempts",
+          "Repeated attempts against accounts or services",
+          "Authentication failures from suspicious sources",
+          "Multiple accounts targeted within a short time period",
+          "Failed authentication attempts followed by successful login"
+        ],
+        "detection_guidance": [
+          "Monitor authentication failures and identify unusually high volumes",
+          "Correlate authentication failures by source, account, host, and time",
+          "Look for repeated failures followed by successful authentication",
+          "Identify authentication attempts distributed across multiple accounts",
+          "Monitor externally exposed authentication services"
+        ],
+        "mitigation_guidance": [
+          "Implement appropriate account-use and lockout policies",
+          "Use multi-factor authentication",
+          "Apply strong password policies",
+          "Reset accounts associated with known compromised credentials",
+          "Apply conditional access policies where appropriate"
+        ]
+      },
+      "source_url": "https://attack.mitre.org/techniques/T1110/"
+    },
+    {
+      "attack_family": "Port Scan",
+      "source_name": "MITRE ATT&CK",
+      "source_type": "Authoritative cybersecurity knowledge base",
+      "technique_id": "T1046",
+      "technique_name": "Network Service Discovery",
+      "evidence": {
+        "description": "Network Service Discovery is a reconnaissance technique in which adversaries attempt to identify services and protocols running on systems accessible through a network.",
+        "indicators": [
+          "Connections to multiple destination ports",
+          "Connections to multiple hosts",
+          "Repeated connection attempts",
+          "Probing of network services",
+          "Unusual network service discovery activity"
+        ],
+        "detection_guidance": [
+          "Monitor connections to multiple ports or hosts",
+          "Identify unusual patterns of network service probing",
+          "Correlate repeated connection attempts from the same source",
+          "Investigate scanning activity against exposed systems"
+        ],
+        "mitigation_guidance": [
+          "Reduce unnecessary network exposure",
+          "Restrict access to unnecessary services",
+          "Use network monitoring and filtering controls",
+          "Investigate suspicious reconnaissance activity"
+        ]
+      },
+      "source_url": "https://attack.mitre.org/techniques/T1046/"
+    },
+    {
+      "attack_family": "DoS",
+      "source_name": "MITRE ATT&CK",
+      "source_type": "Authoritative cybersecurity knowledge base",
+      "technique_id": "T1498",
+      "technique_name": "Network Denial of Service",
+      "evidence": {
+        "description": "Denial of Service (DoS) activity attempts to make a system or service unavailable by overwhelming or exhausting its resources.",
+        "indicators": [
+          "Abnormally high traffic or request volume targeting a service",
+          "Repeated requests directed at a specific host or service",
+          "Unusual packet or flow rates associated with the target",
+          "Resource exhaustion affecting the targeted service",
+          "Service performance degradation or unavailability",
+          "Traffic pattern concentrated on a particular target"
+        ],
+        "detection_guidance": [
+          "Examine traffic volume and request rates targeting the affected service",
+          "Determine whether activity is concentrated on a specific host or service",
+          "Compare the observed traffic against the normal service baseline",
+          "Investigate repeated requests or connections targeting the same resource",
+          "Examine the source distribution to distinguish concentrated DoS activity from distributed DDoS activity"
+        ],
+        "mitigation_guidance": [
+          "Filter malicious traffic",
+          "Apply appropriate rate controls",
+          "Restrict unnecessary network exposure",
+          "Use appropriate denial-of-service protection mechanisms"
+        ]
+      },
+      "source_url": "https://attack.mitre.org/techniques/T1498/"
+    },
+    {
+      "attack_family": "Botnet",
+      "source_name": "MITRE ATT&CK",
+      "source_type": "Authoritative cybersecurity knowledge base",
+      "technique_id": "TA0011",
+      "technique_name": "Command and Control",
+      "evidence": {
+        "description": "Botnet activity can involve compromised systems communicating with external infrastructure under adversary control.",
+        "indicators": [
+          "Repeated communication with suspicious external systems",
+          "Unusual outbound network connections",
+          "Persistent communication patterns",
+          "Similar communication behavior across multiple hosts",
+          "Unexpected connections to external infrastructure",
+          "Coordinated network activity from compromised systems"
+        ],
+        "detection_guidance": [
+          "Identify unusual outbound communication patterns",
+          "Monitor repeated connections to suspicious external systems",
+          "Compare communication behavior across multiple hosts",
+          "Investigate persistent or coordinated external communication",
+          "Correlate network flows with endpoint activity where available"
+        ],
+        "mitigation_guidance": [
+          "Isolate suspected compromised systems",
+          "Block malicious communication where appropriate",
+          "Investigate affected endpoints",
+          "Remove malware or the underlying compromise",
+          "Monitor systems for recurring suspicious communication"
+        ]
+      },
+      "source_url": "https://attack.mitre.org/tactics/TA0011/"
+    },
+    {
+      "attack_family": "Web Attack",
+      "source_name": "OWASP",
+      "source_type": "Authoritative web application security guidance",
+      "evidence": {
+        "description": "Web attacks target web applications through malicious requests or input intended to exploit application weaknesses, obtain unauthorized access, or affect application behavior.",
+        "attack_categories": [
+          {
+            "name": "SQL Injection",
+            "description": "Malicious input is used to interfere with SQL queries executed by an application."
+          },
+          {
+            "name": "Cross-Site Scripting",
+            "description": "Malicious script content is injected into web application content and may execute in a user's browser."
+          },
+          {
+            "name": "Web Application Brute Force",
+            "description": "Repeated authentication or access attempts target web application accounts or protected resources."
+          }
+        ],
+        "indicators": [
+          "Unusual HTTP requests",
+          "Suspicious request parameters",
+          "Repeated requests targeting application endpoints",
+          "SQL-related injection patterns",
+          "Unexpected script content in input",
+          "Repeated authentication attempts against web applications"
+        ],
+        "detection_guidance": [
+          "Monitor HTTP request patterns",
+          "Inspect suspicious request parameters",
+          "Monitor repeated requests to sensitive endpoints",
+          "Correlate web requests with application and authentication logs",
+          "Look for abnormal input patterns associated with injection attacks"
+        ],
+        "mitigation_guidance": [
+          "Validate and sanitize application input",
+          "Use parameterized queries for database access",
+          "Apply appropriate output encoding",
+          "Use strong authentication controls",
+          "Keep web applications and dependencies patched",
+          "Use appropriate web application security controls"
+        ]
+      },
+      "source_url": "https://owasp.org/www-project-top-ten/"
+    },
+    {
+      "attack_family": "Benign",
+      "source_name": "CIC-IDS2017",
+      "source_type": "Dataset classification",
+      "evidence": {
+        "description": "Benign represents network traffic that is not labeled as one of the attack categories represented in the CIC-IDS2017 dataset.",
+        "indicators": [
+          "Traffic does not match the attack labels in the dataset",
+          "No significant attack pattern identified by the trained classifier"
+        ],
+        "investigation_guidance": [
+          "Verify that the observed traffic is consistent with expected behavior",
+          "Consider additional contextual information when activity appears unusual",
+          "Review related network and system events when necessary"
+        ],
+        "mitigation_guidance": []
+      },
+      "source_url": "https://www.unb.ca/cic/datasets/ids-2017.html"
+    },
+    {
+      "attack_family": "Infiltration",
+      "source_name": "MITRE ATT&CK",
+      "source_type": "Authoritative Cybersecurity Knowledge Base",
+      "technique_id": "T1210",
+      "technique_name": "Exploitation of Remote Services",
+      "evidence": {
+        "description": "Adversaries may exploit vulnerabilities in remote services to gain unauthorized access to systems and move into an environment.",
+        "indicators": [
+          "Unexpected remote service connections",
+          "Unusual internal network activity",
+          "Connections from suspicious or compromised hosts",
+          "Exploitation of exposed services",
+          "Unexpected lateral movement"
+        ],
+        "detection_guidance": [
+          "Investigate unusual remote service connections",
+          "Review network traffic between internal hosts",
+          "Identify the source and destination systems involved",
+          "Check authentication and system logs for suspicious activity",
+          "Investigate signs of exploitation or lateral movement"
+        ],
+        "mitigation_guidance": [
+          "Patch vulnerable remote services",
+          "Restrict unnecessary remote services",
+          "Apply network segmentation",
+          "Use firewall rules to limit internal access",
+          "Monitor remote service activity and authentication events"
+        ]
+      },
+      "source_url": "https://attack.mitre.org/techniques/T1210/"
+    },
+    {
+      "attack_family": "Heartbleed",
+      "source_name": "NIST National Vulnerability Database",
+      "source_type": "Authoritative vulnerability knowledge base",
+      "technique_id": "CVE-2014-0160",
+      "technique_name": "OpenSSL Heartbleed Information Disclosure",
+      "evidence": {
+        "description": "Heartbleed is a vulnerability in affected versions of OpenSSL that can allow an attacker to read sensitive information from process memory through a malicious TLS heartbeat request.",
+        "indicators": [
+          "Unexpected TLS heartbeat requests",
+          "Abnormally large heartbeat payload requests",
+          "TLS heartbeat requests containing inconsistent payload length",
+          "Unexpected responses containing sensitive memory contents",
+          "Network activity targeting vulnerable TLS services",
+          "Connections to systems running vulnerable OpenSSL versions"
+        ],
+        "detection_guidance": [
+          "Identify systems and services using affected OpenSSL versions",
+          "Monitor TLS heartbeat traffic for anomalous request patterns",
+          "Inspect unusual heartbeat request and response sizes",
+          "Review network traffic involving potentially vulnerable TLS services",
+          "Correlate suspicious TLS activity with system and application logs",
+          "Check whether vulnerable OpenSSL versions have been patched"
+        ],
+        "mitigation_guidance": [
+          "Upgrade OpenSSL to a fixed version",
+          "Apply vendor security updates",
+          "Restart affected services after remediation where required",
+          "Revoke and replace potentially exposed credentials",
+          "Regenerate and replace potentially compromised TLS certificates",
+          "Monitor affected systems for follow-on compromise"
+        ]
+      },
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2014-0160"
+    }
+  ]
+}

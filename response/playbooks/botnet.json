@@ -1,0 +1,16 @@
+{
+  "family": "Botnet",
+  "playbook_label": "generic playbook",
+  "generic_playbook": true,
+  "technique_id": null,
+  "technique_name": null,
+  "knowledge_base_source": "evidence/knowledge/authoritative_sources.json",
+  "knowledge_base_reference": "TA0011",
+  "knowledge_base_note": "The local knowledge base records TA0011 but no ATT&CK technique for Botnet; no technique mapping is inferred.",
+  "phases": {
+    "contain": [{"action": "Isolate suspected compromised systems", "evidence_types": ["model", "flow_evidence", "threat_intel"]}],
+    "eradicate": [{"action": "Remove malware or the underlying compromise", "evidence_types": ["reference_doc", "rare_family"]}],
+    "recover": [{"action": "Investigate affected endpoints", "evidence_types": ["reference_doc", "flow_evidence"]}],
+    "verify": [{"action": "Monitor systems for recurring suspicious communication", "evidence_types": ["model", "flow_evidence", "threat_intel"]}]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "family": "Port Scan",
+  "playbook_label": "Port Scan response playbook",
+  "generic_playbook": false,
+  "technique_id": "T1046",
+  "technique_name": "Network Service Discovery",
+  "knowledge_base_source": "evidence/knowledge/authoritative_sources.json",
+  "phases": {
+    "contain": [{"action": "Restrict access to unnecessary services", "evidence_types": ["model", "flow_evidence", "threat_intel"]}],
+    "eradicate": [{"action": "Investigate suspicious reconnaissance activity", "evidence_types": ["reference_doc", "flow_evidence"]}],
+    "recover": [{"action": "Reduce unnecessary network exposure", "evidence_types": ["reference_doc"]}],
+    "verify": [{"action": "Monitor connections to multiple ports or hosts", "evidence_types": ["model", "flow_evidence"]}]
+  }
+}

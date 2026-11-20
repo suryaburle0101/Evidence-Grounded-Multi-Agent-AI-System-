@@ -1,0 +1,16 @@
+{
+  "family": "Heartbleed",
+  "playbook_label": "generic playbook",
+  "generic_playbook": true,
+  "technique_id": null,
+  "technique_name": null,
+  "knowledge_base_source": "evidence/knowledge/authoritative_sources.json",
+  "knowledge_base_reference": "CVE-2014-0160",
+  "knowledge_base_note": "The local knowledge base records a CVE but no MITRE ATT&CK technique, so no ATT&CK mapping is inferred.",
+  "phases": {
+    "contain": [{"action": "Identify systems and services using affected OpenSSL versions", "evidence_types": ["model", "flow_evidence", "threat_intel", "rare_family"]}],
+    "eradicate": [{"action": "Upgrade OpenSSL to a fixed version", "evidence_types": ["reference_doc", "rare_family"]}],
+    "recover": [{"action": "Regenerate and replace potentially compromised TLS certificates", "evidence_types": ["reference_doc"]}],
+    "verify": [{"action": "Monitor TLS heartbeat traffic for anomalous request patterns", "evidence_types": ["model", "flow_evidence", "reference_doc"]}]
+  }
+}

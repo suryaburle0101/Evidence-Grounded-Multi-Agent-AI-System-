@@ -1,0 +1,52 @@
+{
+  "primary_5_family_mapping": {
+    "Benign": "Benign",
+    "DDoS": "DoS_DDoS",
+    "DoS-GoldenEye": "DoS_DDoS",
+    "DoS-Hulk": "DoS_DDoS",
+    "DoS-SlowHTTPTest": "DoS_DDoS",
+    "DoS-Slowloris": "DoS_DDoS",
+    "FTP-BruteForce": "Brute_force",
+    "SSH-BruteForce": "Brute_force",
+    "Web-BruteForce": "Brute_force",
+    "SQL-Injection": "Web_attack",
+    "Web-XSS": "Web_attack",
+    "Botnet": "Botnet",
+    "Infiltration": "Infiltration"
+  },
+  "coarse_3_family_mapping": {
+    "Benign": "Benign",
+    "DDoS": "Flooding_DoS",
+    "DoS-GoldenEye": "Flooding_DoS",
+    "DoS-Hulk": "Flooding_DoS",
+    "DoS-SlowHTTPTest": "Flooding_DoS",
+    "DoS-Slowloris": "Flooding_DoS",
+    "FTP-BruteForce": "Brute_force",
+    "SSH-BruteForce": "Brute_force",
+    "Web-BruteForce": "Brute_force",
+    "SQL-Injection": "Other_attack",
+    "Web-XSS": "Other_attack",
+    "Botnet": "Other_attack",
+    "Infiltration": "Other_attack"
+  },
+  "separate_12_type_mapping": {
+    "Benign": "Benign",
+    "DDoS": "DDoS",
+    "DoS-GoldenEye": "DoS-GoldenEye",
+    "DoS-Hulk": "DoS-Hulk",
+    "DoS-SlowHTTPTest": "DoS-SlowHTTPTest",
+    "DoS-Slowloris": "DoS-Slowloris",
+    "FTP-BruteForce": "FTP-BruteForce",
+    "SSH-BruteForce": "SSH-BruteForce",
+    "Web-BruteForce": "Web-BruteForce",
+    "SQL-Injection": "SQL-Injection",
+    "Web-XSS": "Web-XSS",
+    "Botnet": "Botnet",
+    "Infiltration": "Infiltration"
+  },
+  "notes": {
+    "primary": "Five attack families specified in the task, plus Benign for the multiclass model.",
+    "coarse": "Three broad groups: flooding/DoS, brute-force access, and remaining attacks. This is an exploratory taxonomy, not a claim that the grouped attacks share one mechanism.",
+    "separate": "The original 12 attack classes plus Benign."
+  }
+}
